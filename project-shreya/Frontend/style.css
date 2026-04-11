@@ -1,4 +1,4 @@
-/* ── THEME & FONTS ──────────────────────────────────────────────────── */
+/* THEME & FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@500;700&family=Syne:wght@800&display=swap');
 
 :root {
@@ -12,7 +12,7 @@
   --border-color: #1a1a1a;
 }
 
-/* ── BASE STYLES ────────────────────────────────────────────────────── */
+/* BASE STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -30,7 +30,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── NAVIGATION ─────────────────────────────────────────────────────── */
+/* NAVIGATION  */
 nav {
   display: flex;
   justify-content: space-between;
@@ -63,7 +63,7 @@ nav {
   color: var(--text-white);
 }
 
-/* ── HERO SECTION (Exact Match) ─────────────────────────────────────── */
+/* HERO SECTION */
 .hero {
   text-align: center;
   padding: 120px 20px;
@@ -115,7 +115,7 @@ nav {
   font-size: 0.95rem;
 }
 
-/* ── BUTTONS ────────────────────────────────────────────────────────── */
+/* BUTTONS  */
 .btn-primary {
   background-color: var(--neon-mint);
   color: #000;
@@ -137,7 +137,7 @@ nav {
   box-shadow: 0 0 30px rgba(0, 255, 163, 0.4);
 }
 
-/* ── SECTION LAYOUT ─────────────────────────────────────────────────── */
+/* SECTION LAYOUT */
 .section-container {
   max-width: 1100px;
   margin: 100px auto;
@@ -150,7 +150,7 @@ nav {
   margin-bottom: 50px;
 }
 
-/* ── GRIDS & CARDS ──────────────────────────────────────────────────── */
+/* GRIDS & CARDS */
 .features-grid,
 .stats-grid,
 .steps-grid {
@@ -176,7 +176,7 @@ nav {
   transform: translateY(-5px);
 }
 
-/* ── DASHBOARD STATS ────────────────────────────────────────────────── */
+/* DASHBOARD STATS */
 .stat-label {
   display: block;
   color: var(--text-gray);
@@ -198,7 +198,7 @@ nav {
   color: #ffb84d;
 }
 
-/* ── TERMINAL ───────────────────────────────────────────────────────── */
+/* TERMINAL */
 .terminal-section {
   max-width: 900px;
   margin: 60px auto;
@@ -253,7 +253,7 @@ nav {
   min-height: 250px;
 }
 
-/* ── FORM INPUTS ────────────────────────────────────────────────────── */
+/* FORM INPUTS  */
 input[type="file"],
 input[type="number"] {
   width: 100%;
@@ -271,7 +271,7 @@ input:focus {
   outline: none;
 }
 
-/* ── UTILS ──────────────────────────────────────────────────────────── */
+/* UTILS */
 .hidden {
   display: none !important;
 }
