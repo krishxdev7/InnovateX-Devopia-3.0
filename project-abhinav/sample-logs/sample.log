@@ -1,0 +1,1153 @@
+2024-03-10 00:00:16 [INFO] Disk usage at 8607% on /dev/sda1
+2024-03-10 00:00:26 [INFO] Database query executed in 682ms
+2024-03-10 00:00:33 [INFO] Disk usage at 3342% on /dev/sda1
+2024-03-10 00:00:38 [ERROR] Rate limit triggered for IP 192.168.1.2535
+2024-03-10 00:00:53 [WARNING] Cache miss — fetching from database
+2024-03-10 00:00:54 [DEBUG] Health check passed
+2024-03-10 00:01:09 [WARNING] Background job completed: task_id=3936
+2024-03-10 00:01:10 [ERROR] Session token refreshed for session_id=406
+2024-03-10 00:01:23 [WARNING] Health check passed
+2024-03-10 00:01:40 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:01:47 [INFO] Background job completed: task_id=3243
+2024-03-10 00:02:04 [DEBUG] Request processed in 4105ms — endpoint /api/data
+2024-03-10 00:02:09 [INFO] Session token refreshed for session_id=5711
+2024-03-10 00:02:23 [INFO] Database query executed in 3643ms
+2024-03-10 00:02:26 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:02:38 [ERROR] Disk usage at 5822% on /dev/sda1
+2024-03-10 00:02:43 [WARNING] Database query executed in 9601ms
+2024-03-10 00:02:47 [WARNING] Cache miss — fetching from database
+2024-03-10 00:03:05 [ERROR] Database query executed in 2394ms
+2024-03-10 00:03:23 [DEBUG] Rate limit triggered for IP 192.168.1.3966
+2024-03-10 00:03:35 [INFO] File uploaded: size=1005KB
+2024-03-10 00:03:53 [ERROR] Health check passed
+2024-03-10 00:04:00 [INFO] Session token refreshed for session_id=6183
+2024-03-10 00:04:12 [ERROR] Cache miss — fetching from database
+2024-03-10 00:04:25 [DEBUG] File uploaded: size=231KB
+2024-03-10 00:04:35 [ERROR] Cache miss — fetching from database
+2024-03-10 00:04:41 [WARNING] Disk usage at 3713% on /dev/sda1
+2024-03-10 00:04:46 [DEBUG] Disk usage at 8092% on /dev/sda1
+2024-03-10 00:05:04 [INFO] Session token refreshed for session_id=5294
+2024-03-10 00:05:05 [ERROR] Database query executed in 1235ms
+2024-03-10 00:05:19 [DEBUG] Disk usage at 8588% on /dev/sda1
+2024-03-10 00:05:30 [DEBUG] Background job completed: task_id=3960
+2024-03-10 00:05:44 [INFO] Rate limit triggered for IP 192.168.1.8734
+2024-03-10 00:05:58 [ERROR] Database query executed in 9527ms
+2024-03-10 00:06:00 [WARNING] Rate limit triggered for IP 192.168.1.5765
+2024-03-10 00:06:16 [WARNING] Cache miss — fetching from database
+2024-03-10 00:06:25 [ERROR] Health check passed
+2024-03-10 00:06:39 [WARNING] Request processed in 9092ms — endpoint /api/data
+2024-03-10 00:06:57 [INFO] Rate limit triggered for IP 192.168.1.2675
+2024-03-10 00:07:10 [WARNING] Disk usage at 3071% on /dev/sda1
+2024-03-10 00:07:25 [ERROR] Request processed in 3906ms — endpoint /api/data
+2024-03-10 00:07:37 [INFO] File uploaded: size=6465KB
+2024-03-10 00:07:50 [WARNING] Background job completed: task_id=3316
+2024-03-10 00:07:53 [ERROR] User login successful for user_id=7091
+2024-03-10 00:08:00 [DEBUG] User login successful for user_id=4889
+2024-03-10 00:08:13 [ERROR] Session token refreshed for session_id=8695
+2024-03-10 00:08:16 [WARNING] Session token refreshed for session_id=8015
+2024-03-10 00:08:25 [WARNING] File uploaded: size=5998KB
+2024-03-10 00:08:39 [INFO] Cache miss — fetching from database
+2024-03-10 00:08:46 [ERROR] Database query executed in 3723ms
+2024-03-10 00:08:50 [WARNING] Request processed in 2260ms — endpoint /api/data
+2024-03-10 00:09:08 [INFO] User login successful for user_id=9965
+2024-03-10 00:09:23 [DEBUG] User login successful for user_id=887
+2024-03-10 00:09:24 [DEBUG] Request processed in 1819ms — endpoint /api/data
+2024-03-10 00:09:41 [INFO] Health check passed
+2024-03-10 00:09:53 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:10:07 [DEBUG] Rate limit triggered for IP 192.168.1.4119
+2024-03-10 00:10:13 [ERROR] Disk usage at 4366% on /dev/sda1
+2024-03-10 00:10:19 [WARNING] Background job completed: task_id=103
+2024-03-10 00:10:37 [WARNING] Health check passed
+2024-03-10 00:10:41 [INFO] Background job completed: task_id=9880
+2024-03-10 00:10:42 [INFO] User login successful for user_id=839
+2024-03-10 00:10:47 [WARNING] Background job completed: task_id=8932
+2024-03-10 00:10:55 [WARNING] Health check passed
+2024-03-10 00:11:01 [INFO] Database query executed in 9073ms
+2024-03-10 00:11:12 [ERROR] Disk usage at 4718% on /dev/sda1
+2024-03-10 00:11:28 [INFO] Background job completed: task_id=2493
+2024-03-10 00:11:45 [ERROR] Cache miss — fetching from database
+2024-03-10 00:11:59 [ERROR] Health check passed
+2024-03-10 00:12:13 [DEBUG] Session token refreshed for session_id=9339
+2024-03-10 00:12:20 [DEBUG] Request processed in 5735ms — endpoint /api/data
+2024-03-10 00:12:21 [INFO] Rate limit triggered for IP 192.168.1.3029
+2024-03-10 00:12:33 [WARNING] File uploaded: size=9785KB
+2024-03-10 00:12:50 [WARNING] Background job completed: task_id=1799
+2024-03-10 00:13:05 [INFO] File uploaded: size=4359KB
+2024-03-10 00:13:12 [INFO] Database query executed in 2192ms
+2024-03-10 00:13:15 [ERROR] Rate limit triggered for IP 192.168.1.3698
+2024-03-10 00:13:32 [INFO] Cache miss — fetching from database
+2024-03-10 00:13:50 [ERROR] Database query executed in 4696ms
+2024-03-10 00:13:57 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:14:05 [ERROR] Session token refreshed for session_id=1503
+2024-03-10 00:14:21 [ERROR] Disk usage at 4297% on /dev/sda1
+2024-03-10 00:14:24 [ERROR] Background job completed: task_id=6664
+2024-03-10 00:14:31 [DEBUG] Database query executed in 828ms
+2024-03-10 00:14:33 [ERROR] Rate limit triggered for IP 192.168.1.6832
+2024-03-10 00:14:43 [ERROR] Background job completed: task_id=310
+2024-03-10 00:14:44 [WARNING] Cache miss — fetching from database
+2024-03-10 00:14:52 [WARNING] Health check passed
+2024-03-10 00:14:58 [DEBUG] Request processed in 1040ms — endpoint /api/data
+2024-03-10 00:15:11 [ERROR] Rate limit triggered for IP 192.168.1.7423
+2024-03-10 00:15:22 [WARNING] Rate limit triggered for IP 192.168.1.8513
+2024-03-10 00:15:38 [DEBUG] Disk usage at 5263% on /dev/sda1
+2024-03-10 00:15:42 [DEBUG] Database query executed in 8067ms
+2024-03-10 00:15:49 [DEBUG] Request processed in 2347ms — endpoint /api/data
+2024-03-10 00:15:54 [INFO] User login successful for user_id=2075
+2024-03-10 00:16:06 [ERROR] Session token refreshed for session_id=7518
+2024-03-10 00:16:19 [DEBUG] Request processed in 9839ms — endpoint /api/data
+2024-03-10 00:16:27 [WARNING] User login successful for user_id=5156
+2024-03-10 00:16:36 [DEBUG] File uploaded: size=1638KB
+2024-03-10 00:16:44 [DEBUG] File uploaded: size=4061KB
+2024-03-10 00:16:57 [WARNING] Request processed in 4484ms — endpoint /api/data
+2024-03-10 00:17:05 [DEBUG] Disk usage at 7035% on /dev/sda1
+2024-03-10 00:17:11 [INFO] Background job completed: task_id=7947
+2024-03-10 00:17:28 [ERROR] File uploaded: size=4547KB
+2024-03-10 00:17:30 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:17:47 [DEBUG] Background job completed: task_id=4934
+2024-03-10 00:17:54 [DEBUG] Health check passed
+2024-03-10 00:17:56 [INFO] Session token refreshed for session_id=1312
+2024-03-10 00:18:03 [ERROR] Cache miss — fetching from database
+2024-03-10 00:18:20 [WARNING] Request processed in 6638ms — endpoint /api/data
+2024-03-10 00:18:23 [INFO] Cache miss — fetching from database
+2024-03-10 00:18:39 [WARNING] Cache miss — fetching from database
+2024-03-10 00:18:47 [ERROR] Database query executed in 5173ms
+2024-03-10 00:19:01 [INFO] Request processed in 342ms — endpoint /api/data
+2024-03-10 00:19:15 [WARNING] Database query executed in 3324ms
+2024-03-10 00:19:22 [ERROR] Health check passed
+2024-03-10 00:19:32 [DEBUG] Request processed in 6264ms — endpoint /api/data
+2024-03-10 00:19:39 [ERROR] Database query executed in 7288ms
+2024-03-10 00:19:46 [DEBUG] Rate limit triggered for IP 192.168.1.6923
+2024-03-10 00:19:51 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:19:57 [ERROR] User login successful for user_id=676
+2024-03-10 00:20:08 [WARNING] Request processed in 2084ms — endpoint /api/data
+2024-03-10 00:20:17 [ERROR] Request processed in 1054ms — endpoint /api/data
+2024-03-10 00:20:20 [DEBUG] Health check passed
+2024-03-10 00:20:29 [DEBUG] User login successful for user_id=9424
+2024-03-10 00:20:43 [DEBUG] Database query executed in 5061ms
+2024-03-10 00:20:56 [ERROR] User login successful for user_id=5279
+2024-03-10 00:21:03 [INFO] Session token refreshed for session_id=3015
+2024-03-10 00:21:18 [WARNING] Background job completed: task_id=5109
+2024-03-10 00:21:30 [WARNING] User login successful for user_id=7072
+2024-03-10 00:21:32 [WARNING] Cache miss — fetching from database
+2024-03-10 00:21:45 [DEBUG] Disk usage at 6250% on /dev/sda1
+2024-03-10 00:22:02 [ERROR] Health check passed
+2024-03-10 00:22:12 [ERROR] Health check passed
+2024-03-10 00:22:30 [ERROR] Health check passed
+2024-03-10 00:22:43 [WARNING] Request processed in 6948ms — endpoint /api/data
+2024-03-10 00:22:55 [INFO] Background job completed: task_id=5614
+2024-03-10 00:23:06 [WARNING] Cache miss — fetching from database
+2024-03-10 00:23:24 [ERROR] Session token refreshed for session_id=1527
+2024-03-10 00:23:39 [ERROR] User login successful for user_id=2081
+2024-03-10 00:23:52 [DEBUG] Database query executed in 5082ms
+2024-03-10 00:23:57 [ERROR] User login successful for user_id=8860
+2024-03-10 00:24:02 [DEBUG] File uploaded: size=6426KB
+2024-03-10 00:24:18 [DEBUG] File uploaded: size=6576KB
+2024-03-10 00:24:21 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:24:24 [ERROR] Cache miss — fetching from database
+2024-03-10 00:24:40 [WARNING] Background job completed: task_id=6383
+2024-03-10 00:24:50 [WARNING] User login successful for user_id=4014
+2024-03-10 00:24:54 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:24:55 [WARNING] Health check passed
+2024-03-10 00:25:04 [DEBUG] Health check passed
+2024-03-10 00:25:15 [INFO] Health check passed
+2024-03-10 00:25:30 [INFO] File uploaded: size=5038KB
+2024-03-10 00:25:32 [DEBUG] Session token refreshed for session_id=6697
+2024-03-10 00:25:47 [WARNING] Database query executed in 1462ms
+2024-03-10 00:26:03 [DEBUG] Database query executed in 7007ms
+2024-03-10 00:26:21 [INFO] User login successful for user_id=4398
+2024-03-10 00:26:28 [INFO] Rate limit triggered for IP 192.168.1.9247
+2024-03-10 00:26:34 [WARNING] Disk usage at 7836% on /dev/sda1
+2024-03-10 00:26:42 [DEBUG] Background job completed: task_id=9237
+2024-03-10 00:26:53 [INFO] Disk usage at 7245% on /dev/sda1
+2024-03-10 00:27:10 [INFO] Health check passed
+2024-03-10 00:27:26 [ERROR] Database query executed in 1180ms
+2024-03-10 00:27:42 [ERROR] Session token refreshed for session_id=7361
+2024-03-10 00:27:48 [INFO] File uploaded: size=6621KB
+2024-03-10 00:27:57 [WARNING] Background job completed: task_id=8377
+2024-03-10 00:28:01 [ERROR] Cache miss — fetching from database
+2024-03-10 00:28:06 [WARNING] Session token refreshed for session_id=6317
+2024-03-10 00:28:21 [WARNING] Cache miss — fetching from database
+2024-03-10 00:28:33 [DEBUG] Health check passed
+2024-03-10 00:28:46 [ERROR] Database query executed in 7362ms
+2024-03-10 00:28:51 [INFO] User login successful for user_id=708
+2024-03-10 00:28:59 [DEBUG] Rate limit triggered for IP 192.168.1.5601
+2024-03-10 00:29:07 [INFO] Database query executed in 8092ms
+2024-03-10 00:29:17 [WARNING] Rate limit triggered for IP 192.168.1.7522
+2024-03-10 00:29:19 [WARNING] Disk usage at 9655% on /dev/sda1
+2024-03-10 00:29:32 [ERROR] User login successful for user_id=9502
+2024-03-10 00:29:49 [ERROR] Request processed in 9580ms — endpoint /api/data
+2024-03-10 00:30:05 [ERROR] User login successful for user_id=9274
+2024-03-10 00:30:06 [WARNING] Request processed in 4057ms — endpoint /api/data
+2024-03-10 00:30:07 [ERROR] Cache miss — fetching from database
+2024-03-10 00:30:09 [WARNING] File uploaded: size=429KB
+2024-03-10 00:30:10 [DEBUG] Background job completed: task_id=2616
+2024-03-10 00:30:23 [DEBUG] Health check passed
+2024-03-10 00:30:32 [INFO] Rate limit triggered for IP 192.168.1.1914
+2024-03-10 00:30:48 [INFO] Rate limit triggered for IP 192.168.1.8506
+2024-03-10 00:30:58 [ERROR] Background job completed: task_id=7859
+2024-03-10 00:31:14 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:31:15 [WARNING] Cache miss — fetching from database
+2024-03-10 00:31:19 [DEBUG] Health check passed
+2024-03-10 00:31:22 [WARNING] Database query executed in 7145ms
+2024-03-10 00:31:31 [ERROR] Session token refreshed for session_id=6860
+2024-03-10 00:31:33 [INFO] User login successful for user_id=7270
+2024-03-10 00:31:49 [DEBUG] Disk usage at 6127% on /dev/sda1
+2024-03-10 00:32:07 [DEBUG] Rate limit triggered for IP 192.168.1.8907
+2024-03-10 00:32:22 [ERROR] Rate limit triggered for IP 192.168.1.4690
+2024-03-10 00:32:28 [WARNING] Disk usage at 8924% on /dev/sda1
+2024-03-10 00:32:36 [ERROR] Disk usage at 9080% on /dev/sda1
+2024-03-10 00:32:51 [INFO] File uploaded: size=4786KB
+2024-03-10 00:33:01 [ERROR] Database query executed in 362ms
+2024-03-10 00:33:04 [INFO] Background job completed: task_id=4948
+2024-03-10 00:33:14 [WARNING] Disk usage at 8299% on /dev/sda1
+2024-03-10 00:33:28 [DEBUG] User login successful for user_id=7680
+2024-03-10 00:33:37 [INFO] Rate limit triggered for IP 192.168.1.6174
+2024-03-10 00:33:45 [ERROR] Cache miss — fetching from database
+2024-03-10 00:33:49 [ERROR] Request processed in 4065ms — endpoint /api/data
+2024-03-10 00:33:55 [ERROR] Request processed in 6044ms — endpoint /api/data
+2024-03-10 00:34:12 [ERROR] User login successful for user_id=4934
+2024-03-10 00:34:16 [DEBUG] Background job completed: task_id=3516
+2024-03-10 00:34:27 [DEBUG] Health check passed
+2024-03-10 00:34:40 [DEBUG] Health check passed
+2024-03-10 00:34:49 [WARNING] Health check passed
+2024-03-10 00:34:56 [ERROR] Session token refreshed for session_id=7812
+2024-03-10 00:35:07 [DEBUG] File uploaded: size=4939KB
+2024-03-10 00:35:22 [ERROR] User login successful for user_id=2417
+2024-03-10 00:35:27 [ERROR] Health check passed
+2024-03-10 00:35:35 [ERROR] Disk usage at 3858% on /dev/sda1
+2024-03-10 00:35:40 [INFO] File uploaded: size=3345KB
+2024-03-10 00:35:55 [DEBUG] Session token refreshed for session_id=409
+2024-03-10 00:36:12 [WARNING] Rate limit triggered for IP 192.168.1.5551
+2024-03-10 00:36:16 [DEBUG] Database query executed in 6019ms
+2024-03-10 00:36:33 [ERROR] Database query executed in 6061ms
+2024-03-10 00:36:37 [WARNING] File uploaded: size=7099KB
+2024-03-10 00:36:40 [INFO] Database query executed in 1733ms
+2024-03-10 00:36:54 [ERROR] Disk usage at 9031% on /dev/sda1
+2024-03-10 00:37:04 [ERROR] Background job completed: task_id=6305
+2024-03-10 00:37:09 [WARNING] Rate limit triggered for IP 192.168.1.1824
+2024-03-10 00:37:13 [DEBUG] Request processed in 9943ms — endpoint /api/data
+2024-03-10 00:37:19 [ERROR] Rate limit triggered for IP 192.168.1.896
+2024-03-10 00:37:20 [ERROR] File uploaded: size=7780KB
+2024-03-10 00:37:30 [INFO] Disk usage at 1427% on /dev/sda1
+2024-03-10 00:37:32 [ERROR] Request processed in 2878ms — endpoint /api/data
+2024-03-10 00:37:34 [WARNING] File uploaded: size=370KB
+2024-03-10 00:37:36 [INFO] Request processed in 3601ms — endpoint /api/data
+2024-03-10 00:37:37 [WARNING] Rate limit triggered for IP 192.168.1.9057
+2024-03-10 00:37:54 [ERROR] User login successful for user_id=7382
+2024-03-10 00:38:02 [WARNING] Cache miss — fetching from database
+2024-03-10 00:38:19 [WARNING] Rate limit triggered for IP 192.168.1.4127
+2024-03-10 00:38:25 [INFO] Background job completed: task_id=5086
+2024-03-10 00:38:30 [ERROR] Session token refreshed for session_id=6926
+2024-03-10 00:38:38 [ERROR] Disk usage at 4760% on /dev/sda1
+2024-03-10 00:38:54 [DEBUG] Rate limit triggered for IP 192.168.1.4094
+2024-03-10 00:39:04 [WARNING] Rate limit triggered for IP 192.168.1.8944
+2024-03-10 00:39:18 [WARNING] Cache miss — fetching from database
+2024-03-10 00:39:29 [ERROR] Background job completed: task_id=1959
+2024-03-10 00:39:45 [ERROR] Disk usage at 2510% on /dev/sda1
+2024-03-10 00:39:53 [DEBUG] User login successful for user_id=7498
+2024-03-10 00:40:02 [WARNING] Cache miss — fetching from database
+2024-03-10 00:40:15 [INFO] Health check passed
+2024-03-10 00:40:21 [DEBUG] Disk usage at 2332% on /dev/sda1
+2024-03-10 00:40:32 [ERROR] Database query executed in 1134ms
+2024-03-10 00:40:35 [DEBUG] Health check passed
+2024-03-10 00:40:52 [WARNING] Rate limit triggered for IP 192.168.1.4420
+2024-03-10 00:41:02 [DEBUG] Request processed in 3338ms — endpoint /api/data
+2024-03-10 00:41:12 [DEBUG] Background job completed: task_id=5280
+2024-03-10 00:41:22 [ERROR] Background job completed: task_id=3373
+2024-03-10 00:41:30 [WARNING] Request processed in 8281ms — endpoint /api/data
+2024-03-10 00:41:36 [ERROR] User login successful for user_id=2589
+2024-03-10 00:41:38 [WARNING] Database query executed in 9273ms
+2024-03-10 00:41:55 [INFO] Request processed in 9600ms — endpoint /api/data
+2024-03-10 00:42:08 [INFO] Disk usage at 3832% on /dev/sda1
+2024-03-10 00:42:20 [DEBUG] Request processed in 880ms — endpoint /api/data
+2024-03-10 00:42:32 [INFO] Session token refreshed for session_id=960
+2024-03-10 00:42:36 [INFO] Health check passed
+2024-03-10 00:42:39 [INFO] Disk usage at 31% on /dev/sda1
+2024-03-10 00:42:42 [INFO] User login successful for user_id=3943
+2024-03-10 00:42:48 [ERROR] Disk usage at 9319% on /dev/sda1
+2024-03-10 00:42:53 [WARNING] Health check passed
+2024-03-10 00:42:56 [ERROR] Cache miss — fetching from database
+2024-03-10 00:43:11 [WARNING] Disk usage at 4% on /dev/sda1
+2024-03-10 00:43:26 [WARNING] File uploaded: size=1481KB
+2024-03-10 00:43:39 [ERROR] User login successful for user_id=7288
+2024-03-10 00:43:43 [DEBUG] User login successful for user_id=6103
+2024-03-10 00:43:50 [DEBUG] User login successful for user_id=6991
+2024-03-10 00:43:51 [DEBUG] File uploaded: size=8197KB
+2024-03-10 00:44:06 [INFO] File uploaded: size=8630KB
+2024-03-10 00:44:09 [ERROR] Disk usage at 1046% on /dev/sda1
+2024-03-10 00:44:12 [ERROR] Request processed in 478ms — endpoint /api/data
+2024-03-10 00:44:22 [INFO] User login successful for user_id=201
+2024-03-10 00:44:36 [WARNING] Database query executed in 969ms
+2024-03-10 00:44:39 [INFO] Cache miss — fetching from database
+2024-03-10 00:44:50 [DEBUG] Health check passed
+2024-03-10 00:44:51 [ERROR] File uploaded: size=5168KB
+2024-03-10 00:45:03 [INFO] User login successful for user_id=3416
+2024-03-10 00:45:04 [DEBUG] Background job completed: task_id=2953
+2024-03-10 00:45:06 [WARNING] Background job completed: task_id=4979
+2024-03-10 00:45:15 [DEBUG] Background job completed: task_id=199
+2024-03-10 00:45:31 [WARNING] Health check passed
+2024-03-10 00:45:41 [INFO] User login successful for user_id=303
+2024-03-10 00:45:44 [INFO] Rate limit triggered for IP 192.168.1.4258
+2024-03-10 00:45:47 [DEBUG] Database query executed in 7604ms
+2024-03-10 00:46:04 [INFO] Rate limit triggered for IP 192.168.1.3173
+2024-03-10 00:46:17 [INFO] Disk usage at 3077% on /dev/sda1
+2024-03-10 00:46:25 [DEBUG] Disk usage at 5537% on /dev/sda1
+2024-03-10 00:46:38 [INFO] Cache miss — fetching from database
+2024-03-10 00:46:43 [WARNING] Request processed in 4256ms — endpoint /api/data
+2024-03-10 00:46:51 [DEBUG] Health check passed
+2024-03-10 00:47:04 [WARNING] User login successful for user_id=4191
+2024-03-10 00:47:11 [DEBUG] Request processed in 1525ms — endpoint /api/data
+2024-03-10 00:47:20 [ERROR] Request processed in 8664ms — endpoint /api/data
+2024-03-10 00:47:37 [INFO] Cache miss — fetching from database
+2024-03-10 00:47:41 [WARNING] Background job completed: task_id=4973
+2024-03-10 00:47:47 [DEBUG] Request processed in 2124ms — endpoint /api/data
+2024-03-10 00:48:01 [DEBUG] Rate limit triggered for IP 192.168.1.1783
+2024-03-10 00:48:13 [DEBUG] File uploaded: size=6938KB
+2024-03-10 00:48:20 [INFO] Session token refreshed for session_id=3907
+2024-03-10 00:48:24 [INFO] Background job completed: task_id=71
+2024-03-10 00:48:32 [WARNING] Session token refreshed for session_id=7308
+2024-03-10 00:48:48 [WARNING] Session token refreshed for session_id=3844
+2024-03-10 00:49:04 [WARNING] Disk usage at 1103% on /dev/sda1
+2024-03-10 00:49:09 [WARNING] Request processed in 4165ms — endpoint /api/data
+2024-03-10 00:49:22 [INFO] User login successful for user_id=1631
+2024-03-10 00:49:32 [INFO] Rate limit triggered for IP 192.168.1.8404
+2024-03-10 00:49:35 [WARNING] Cache miss — fetching from database
+2024-03-10 00:49:44 [INFO] File uploaded: size=5826KB
+2024-03-10 00:49:52 [INFO] Rate limit triggered for IP 192.168.1.2866
+2024-03-10 00:50:06 [INFO] Health check passed
+2024-03-10 00:50:17 [WARNING] Request processed in 2151ms — endpoint /api/data
+2024-03-10 00:50:34 [DEBUG] Database query executed in 5230ms
+2024-03-10 00:50:52 [DEBUG] Database query executed in 9099ms
+2024-03-10 00:51:06 [WARNING] File uploaded: size=6037KB
+2024-03-10 00:51:08 [INFO] Health check passed
+2024-03-10 00:51:18 [WARNING] User login successful for user_id=3000
+2024-03-10 00:51:33 [DEBUG] Background job completed: task_id=5651
+2024-03-10 00:51:37 [ERROR] Session token refreshed for session_id=994
+2024-03-10 00:51:39 [ERROR] Database query executed in 3167ms
+2024-03-10 00:51:53 [DEBUG] Session token refreshed for session_id=9816
+2024-03-10 00:52:07 [DEBUG] Rate limit triggered for IP 192.168.1.471
+2024-03-10 00:52:13 [INFO] User login successful for user_id=5461
+2024-03-10 00:52:30 [INFO] Disk usage at 4185% on /dev/sda1
+2024-03-10 00:52:34 [WARNING] Request processed in 4548ms — endpoint /api/data
+2024-03-10 00:52:52 [INFO] Background job completed: task_id=9976
+2024-03-10 00:52:57 [DEBUG] Background job completed: task_id=4121
+2024-03-10 00:53:07 [DEBUG] Health check passed
+2024-03-10 00:53:14 [INFO] Disk usage at 6471% on /dev/sda1
+2024-03-10 00:53:22 [INFO] Request processed in 2872ms — endpoint /api/data
+2024-03-10 00:53:26 [DEBUG] Request processed in 8539ms — endpoint /api/data
+2024-03-10 00:53:38 [DEBUG] Request processed in 8475ms — endpoint /api/data
+2024-03-10 00:53:40 [ERROR] Cache miss — fetching from database
+2024-03-10 00:53:49 [DEBUG] Background job completed: task_id=2658
+2024-03-10 00:54:03 [ERROR] Rate limit triggered for IP 192.168.1.7947
+2024-03-10 00:54:15 [WARNING] Cache miss — fetching from database
+2024-03-10 00:54:23 [ERROR] Health check passed
+2024-03-10 00:54:25 [DEBUG] Background job completed: task_id=6092
+2024-03-10 00:54:36 [WARNING] User login successful for user_id=2680
+2024-03-10 00:54:54 [INFO] Database query executed in 2516ms
+2024-03-10 00:55:10 [ERROR] File uploaded: size=2007KB
+2024-03-10 00:55:27 [DEBUG] Database query executed in 1765ms
+2024-03-10 00:55:37 [DEBUG] Rate limit triggered for IP 192.168.1.6109
+2024-03-10 00:55:38 [ERROR] User login successful for user_id=6511
+2024-03-10 00:55:47 [ERROR] Session token refreshed for session_id=9250
+2024-03-10 00:55:57 [INFO] Request processed in 5869ms — endpoint /api/data
+2024-03-10 00:56:05 [WARNING] Database query executed in 5397ms
+2024-03-10 00:56:12 [ERROR] Rate limit triggered for IP 192.168.1.3482
+2024-03-10 00:56:27 [INFO] Request processed in 2232ms — endpoint /api/data
+2024-03-10 00:56:29 [INFO] Cache miss — fetching from database
+2024-03-10 00:56:44 [DEBUG] Database query executed in 2531ms
+2024-03-10 00:56:55 [WARNING] Request processed in 9273ms — endpoint /api/data
+2024-03-10 00:57:00 [DEBUG] Cache miss — fetching from database
+2024-03-10 00:57:10 [INFO] Session token refreshed for session_id=6786
+2024-03-10 00:57:28 [ERROR] Database query executed in 7672ms
+2024-03-10 00:57:46 [WARNING] Session token refreshed for session_id=182
+2024-03-10 00:57:57 [DEBUG] File uploaded: size=9080KB
+2024-03-10 00:58:04 [ERROR] Database query executed in 5135ms
+2024-03-10 00:58:17 [WARNING] User login successful for user_id=3262
+2024-03-10 00:58:21 [ERROR] Database query executed in 2037ms
+2024-03-10 00:58:30 [ERROR] Rate limit triggered for IP 192.168.1.9432
+2024-03-10 00:58:41 [ERROR] Rate limit triggered for IP 192.168.1.1133
+2024-03-10 00:58:45 [ERROR] Session token refreshed for session_id=819
+2024-03-10 00:58:48 [WARNING] Health check passed
+2024-03-10 00:58:53 [DEBUG] Request processed in 9299ms — endpoint /api/data
+2024-03-10 00:59:06 [ERROR] Disk usage at 9972% on /dev/sda1
+2024-03-10 00:59:15 [WARNING] Session token refreshed for session_id=6972
+2024-03-10 00:59:29 [INFO] Session token refreshed for session_id=7812
+2024-03-10 00:59:34 [INFO] Health check passed
+2024-03-10 00:59:43 [ERROR] File uploaded: size=4760KB
+2024-03-10 00:59:57 [INFO] File uploaded: size=4846KB
+2024-03-10 01:00:13 [WARNING] Disk usage at 5226% on /dev/sda1
+2024-03-10 01:00:27 [INFO] Session token refreshed for session_id=6233
+2024-03-10 01:00:30 [INFO] User login successful for user_id=8748
+2024-03-10 01:00:33 [DEBUG] Session token refreshed for session_id=3540
+2024-03-10 01:00:44 [ERROR] Database query executed in 3770ms
+2024-03-10 01:00:50 [INFO] Background job completed: task_id=5066
+2024-03-10 01:01:07 [ERROR] Database query executed in 8255ms
+2024-03-10 01:01:25 [INFO] Session token refreshed for session_id=1351
+2024-03-10 01:01:31 [WARNING] Disk usage at 5267% on /dev/sda1
+2024-03-10 01:01:34 [ERROR] Disk usage at 5740% on /dev/sda1
+2024-03-10 01:01:52 [WARNING] Health check passed
+2024-03-10 01:02:08 [ERROR] Background job completed: task_id=2955
+2024-03-10 01:02:20 [ERROR] Background job completed: task_id=695
+2024-03-10 01:02:30 [INFO] Rate limit triggered for IP 192.168.1.1038
+2024-03-10 01:02:46 [WARNING] Background job completed: task_id=4704
+2024-03-10 01:03:04 [WARNING] Request processed in 2948ms — endpoint /api/data
+2024-03-10 01:03:19 [INFO] User login successful for user_id=9707
+2024-03-10 01:03:26 [INFO] Rate limit triggered for IP 192.168.1.8040
+2024-03-10 01:03:36 [ERROR] Database query executed in 8905ms
+2024-03-10 01:03:48 [DEBUG] Cache miss — fetching from database
+2024-03-10 01:03:50 [ERROR] Database query executed in 1197ms
+2024-03-10 01:03:57 [DEBUG] Request processed in 5494ms — endpoint /api/data
+2024-03-10 01:03:59 [WARNING] Background job completed: task_id=637
+2024-03-10 01:51:13 [ERROR] Background job completed: task_id=1420
+2024-03-10 01:51:26 [ERROR] Session token refreshed for session_id=66
+2024-03-10 01:51:33 [INFO] Session token refreshed for session_id=2604
+2024-03-10 01:51:35 [DEBUG] User login successful for user_id=1725
+2024-03-10 01:51:53 [INFO] Session token refreshed for session_id=5375
+2024-03-10 01:51:58 [DEBUG] File uploaded: size=462KB
+2024-03-10 01:52:03 [WARNING] User login successful for user_id=8893
+2024-03-10 01:52:10 [ERROR] User login successful for user_id=355
+2024-03-10 01:52:26 [DEBUG] User login successful for user_id=9641
+2024-03-10 01:52:42 [ERROR] File uploaded: size=5548KB
+2024-03-10 01:53:00 [ERROR] Request processed in 7730ms — endpoint /api/data
+2024-03-10 01:53:08 [INFO] Rate limit triggered for IP 192.168.1.8281
+2024-03-10 01:53:16 [INFO] Health check passed
+2024-03-10 01:53:22 [DEBUG] User login successful for user_id=1454
+2024-03-10 01:53:38 [INFO] Cache miss — fetching from database
+2024-03-10 01:53:47 [WARNING] Request processed in 9216ms — endpoint /api/data
+2024-03-10 01:53:57 [INFO] Rate limit triggered for IP 192.168.1.8691
+2024-03-10 01:54:01 [WARNING] Database query executed in 3586ms
+2024-03-10 01:54:13 [ERROR] Database query executed in 9611ms
+2024-03-10 01:54:27 [INFO] File uploaded: size=7480KB
+2024-03-10 01:54:36 [WARNING] User login successful for user_id=1085
+2024-03-10 01:54:52 [DEBUG] File uploaded: size=279KB
+2024-03-10 01:54:53 [INFO] Session token refreshed for session_id=2401
+2024-03-10 01:55:10 [WARNING] Rate limit triggered for IP 192.168.1.3287
+2024-03-10 01:55:19 [INFO] File uploaded: size=9289KB
+2024-03-10 01:55:30 [DEBUG] Database query executed in 8398ms
+2024-03-10 01:55:40 [WARNING] User login successful for user_id=2104
+2024-03-10 01:56:00 [ERROR] File uploaded: size=5030KB
+2024-03-10 01:56:13 [ERROR] Health check passed
+2024-03-10 01:56:33 [ERROR] Database query executed in 1694ms
+2024-03-10 01:56:44 [INFO] Request processed in 6207ms — endpoint /api/data
+2024-03-10 01:57:03 [ERROR] Session token refreshed for session_id=7137
+2024-03-10 01:57:19 [ERROR] Rate limit triggered for IP 192.168.1.3850
+2024-03-10 01:57:32 [INFO] Session token refreshed for session_id=2119
+2024-03-10 01:57:39 [WARNING] Disk usage at 3618% on /dev/sda1
+2024-03-10 01:57:53 [INFO] Disk usage at 4974% on /dev/sda1
+2024-03-10 01:58:09 [INFO] Disk usage at 8502% on /dev/sda1
+2024-03-10 01:58:29 [DEBUG] User login successful for user_id=9624
+2024-03-10 01:58:38 [ERROR] Health check passed
+2024-03-10 01:58:46 [INFO] Health check passed
+2024-03-10 01:59:01 [DEBUG] Background job completed: task_id=6900
+2024-03-10 01:59:07 [ERROR] Request processed in 6734ms — endpoint /api/data
+2024-03-10 01:59:26 [DEBUG] Session token refreshed for session_id=7862
+2024-03-10 01:59:42 [DEBUG] File uploaded: size=6336KB
+2024-03-10 01:59:53 [INFO] User login successful for user_id=2745
+2024-03-10 02:00:13 [WARNING] Session token refreshed for session_id=9359
+2024-03-10 02:00:32 [WARNING] Background job completed: task_id=6861
+2024-03-10 02:00:35 [INFO] Cache miss — fetching from database
+2024-03-10 02:00:41 [ERROR] Disk usage at 109% on /dev/sda1
+2024-03-10 02:00:48 [WARNING] Request processed in 4946ms — endpoint /api/data
+2024-03-10 02:00:59 [DEBUG] File uploaded: size=514KB
+2024-03-10 02:01:14 [WARNING] Health check passed
+2024-03-10 02:01:31 [INFO] Session token refreshed for session_id=5942
+2024-03-10 02:01:42 [INFO] Disk usage at 2192% on /dev/sda1
+2024-03-10 02:01:53 [INFO] Database query executed in 1137ms
+2024-03-10 02:02:05 [ERROR] User login successful for user_id=6050
+2024-03-10 02:02:11 [DEBUG] Cache miss — fetching from database
+2024-03-10 02:02:17 [WARNING] Disk usage at 1969% on /dev/sda1
+2024-03-10 02:02:22 [WARNING] Request processed in 5357ms — endpoint /api/data
+2024-03-10 02:02:35 [ERROR] Health check passed
+2024-03-10 02:02:45 [INFO] Cache miss — fetching from database
+2024-03-10 02:03:00 [ERROR] User login successful for user_id=5404
+2024-03-10 02:03:09 [INFO] Database query executed in 6072ms
+2024-03-10 02:03:15 [WARNING] Disk usage at 6398% on /dev/sda1
+2024-03-10 02:03:19 [WARNING] Disk usage at 6541% on /dev/sda1
+2024-03-10 02:03:22 [ERROR] Disk usage at 4804% on /dev/sda1
+2024-03-10 02:03:26 [WARNING] Request processed in 5517ms — endpoint /api/data
+2024-03-10 02:03:29 [INFO] Cache miss — fetching from database
+2024-03-10 02:03:36 [DEBUG] Session token refreshed for session_id=9686
+2024-03-10 02:03:49 [ERROR] Cache miss — fetching from database
+2024-03-10 02:04:03 [ERROR] Disk usage at 911% on /dev/sda1
+2024-03-10 02:04:18 [WARNING] Cache miss — fetching from database
+2024-03-10 02:04:25 [ERROR] User login successful for user_id=7159
+2024-03-10 02:04:38 [DEBUG] User login successful for user_id=3316
+2024-03-10 02:04:41 [ERROR] User login successful for user_id=269
+2024-03-10 02:04:50 [WARNING] Background job completed: task_id=8453
+2024-03-10 02:04:52 [ERROR] File uploaded: size=6686KB
+2024-03-10 02:04:54 [DEBUG] Rate limit triggered for IP 192.168.1.6898
+2024-03-10 02:05:04 [DEBUG] Disk usage at 210% on /dev/sda1
+2024-03-10 02:05:07 [ERROR] Rate limit triggered for IP 192.168.1.74
+2024-03-10 02:05:24 [INFO] Request processed in 8282ms — endpoint /api/data
+2024-03-10 02:05:35 [INFO] Background job completed: task_id=537
+2024-03-10 02:05:41 [DEBUG] Background job completed: task_id=86
+2024-03-10 02:05:46 [WARNING] File uploaded: size=7703KB
+2024-03-10 02:06:02 [INFO] Health check passed
+2024-03-10 02:06:08 [ERROR] Database query executed in 2931ms
+2024-03-10 02:06:17 [INFO] Request processed in 827ms — endpoint /api/data
+2024-03-10 02:06:37 [ERROR] Cache miss — fetching from database
+2024-03-10 02:06:51 [WARNING] Cache miss — fetching from database
+2024-03-10 02:06:52 [ERROR] Request processed in 3972ms — endpoint /api/data
+2024-03-10 02:06:53 [ERROR] Database query executed in 1923ms
+2024-03-10 02:07:01 [ERROR] Cache miss — fetching from database
+2024-03-10 02:07:09 [WARNING] Request processed in 489ms — endpoint /api/data
+2024-03-10 02:07:17 [DEBUG] Rate limit triggered for IP 192.168.1.9457
+2024-03-10 02:07:36 [DEBUG] Request processed in 1487ms — endpoint /api/data
+2024-03-10 02:07:47 [ERROR] Health check passed
+2024-03-10 02:07:59 [DEBUG] Background job completed: task_id=8391
+2024-03-10 02:08:13 [WARNING] User login successful for user_id=4450
+2024-03-10 02:08:22 [WARNING] Cache miss — fetching from database
+2024-03-10 02:08:37 [DEBUG] User login successful for user_id=5998
+2024-03-10 02:08:44 [DEBUG] Disk usage at 2263% on /dev/sda1
+2024-03-10 02:08:47 [WARNING] Request processed in 2839ms — endpoint /api/data
+2024-03-10 02:09:01 [DEBUG] User login successful for user_id=2079
+2024-03-10 02:09:12 [ERROR] Background job completed: task_id=6990
+2024-03-10 02:09:14 [DEBUG] Session token refreshed for session_id=5307
+2024-03-10 02:09:33 [INFO] Health check passed
+2024-03-10 02:09:39 [WARNING] Background job completed: task_id=5357
+2024-03-10 02:09:50 [INFO] User login successful for user_id=1451
+2024-03-10 02:10:02 [DEBUG] Background job completed: task_id=1777
+2024-03-10 02:10:05 [DEBUG] Rate limit triggered for IP 192.168.1.9888
+2024-03-10 02:10:09 [ERROR] Database query executed in 7876ms
+2024-03-10 02:10:11 [WARNING] Background job completed: task_id=2431
+2024-03-10 02:10:12 [INFO] Background job completed: task_id=1361
+2024-03-10 02:10:15 [INFO] Rate limit triggered for IP 192.168.1.6716
+2024-03-10 02:10:23 [WARNING] File uploaded: size=2571KB
+2024-03-10 02:10:27 [INFO] Database query executed in 6520ms
+2024-03-10 02:10:44 [INFO] Health check passed
+2024-03-10 02:11:02 [WARNING] Cache miss — fetching from database
+2024-03-10 02:11:04 [ERROR] Database query executed in 6000ms
+2024-03-10 02:11:11 [INFO] Database query executed in 1963ms
+2024-03-10 02:11:29 [WARNING] Health check passed
+2024-03-10 02:11:41 [INFO] Database query executed in 7807ms
+2024-03-10 02:12:00 [INFO] Session token refreshed for session_id=2231
+2024-03-10 02:12:11 [ERROR] Session token refreshed for session_id=7791
+2024-03-10 02:12:15 [DEBUG] File uploaded: size=3512KB
+2024-03-10 02:12:29 [DEBUG] Background job completed: task_id=1968
+2024-03-10 02:12:49 [DEBUG] Cache miss — fetching from database
+2024-03-10 02:13:02 [WARNING] Disk usage at 2263% on /dev/sda1
+2024-03-10 02:13:07 [WARNING] Disk usage at 5899% on /dev/sda1
+2024-03-10 02:13:21 [ERROR] User login successful for user_id=4524
+2024-03-10 02:13:25 [DEBUG] User login successful for user_id=8061
+2024-03-10 02:13:39 [ERROR] Request processed in 8635ms — endpoint /api/data
+2024-03-10 02:13:48 [ERROR] Disk usage at 2145% on /dev/sda1
+2024-03-10 02:13:53 [WARNING] Disk usage at 50% on /dev/sda1
+2024-03-10 02:13:55 [WARNING] Cache miss — fetching from database
+2024-03-10 02:14:08 [ERROR] Session token refreshed for session_id=2494
+2024-03-10 02:14:18 [ERROR] Health check passed
+2024-03-10 02:14:21 [INFO] Request processed in 6197ms — endpoint /api/data
+2024-03-10 02:14:30 [ERROR] Disk usage at 9719% on /dev/sda1
+2024-03-10 02:14:45 [WARNING] Rate limit triggered for IP 192.168.1.5878
+2024-03-10 02:14:50 [INFO] Background job completed: task_id=1709
+2024-03-10 02:14:54 [WARNING] Session token refreshed for session_id=1112
+2024-03-10 02:15:09 [INFO] Database query executed in 4595ms
+2024-03-10 02:15:23 [WARNING] Disk usage at 4094% on /dev/sda1
+2024-03-10 02:15:41 [WARNING] User login successful for user_id=5933
+2024-03-10 02:15:58 [DEBUG] Session token refreshed for session_id=120
+2024-03-10 02:16:16 [WARNING] File uploaded: size=5659KB
+2024-03-10 02:16:32 [INFO] Cache miss — fetching from database
+2024-03-10 02:16:47 [ERROR] Background job completed: task_id=1899
+2024-03-10 02:17:02 [DEBUG] File uploaded: size=9541KB
+--- Log rotated ---
+WARNING: disk threshold exceeded
+
+2024-03-10 02:17:05 [ERROR] User login successful for user_id=5827
+2024-03-10 02:17:20 [DEBUG] Session token refreshed for session_id=581
+2024-03-10 02:17:34 [INFO] Session token refreshed for session_id=5962
+2024-03-10 02:17:36 [DEBUG] File uploaded: size=5782KB
+2024-03-10 02:17:39 [WARNING] User login successful for user_id=101
+2024-03-10 02:17:42 [DEBUG] User login successful for user_id=9938
+2024-03-10 02:17:57 [INFO] User login successful for user_id=4303
+2024-03-10 02:18:01 [WARNING] Rate limit triggered for IP 192.168.1.178
+2024-03-10 02:18:13 [INFO] Health check passed
+2024-03-10 02:18:28 [DEBUG] Request processed in 4902ms — endpoint /api/data
+2024-03-10 02:18:41 [WARNING] Cache miss — fetching from database
+2024-03-10 02:18:52 [ERROR] File uploaded: size=7775KB
+2024-03-10 02:18:58 [WARNING] User login successful for user_id=5277
+2024-03-10 02:19:02 [DEBUG] Session token refreshed for session_id=7005
+2024-03-10 02:19:11 [WARNING] Database query executed in 7385ms
+2024-03-10 02:19:21 [ERROR] Request processed in 3613ms — endpoint /api/data
+2024-03-10 02:19:33 [INFO] Cache miss — fetching from database
+2024-03-10 02:19:36 [DEBUG] File uploaded: size=7671KB
+2024-03-10 02:19:42 [WARNING] Health check passed
+2024-03-10 02:19:48 [WARNING] Session token refreshed for session_id=8845
+2024-03-10 02:19:55 [WARNING] Cache miss — fetching from database
+2024-03-10 02:20:08 [DEBUG] Background job completed: task_id=4616
+2024-03-10 02:20:14 [DEBUG] User login successful for user_id=3243
+2024-03-10 02:20:29 [DEBUG] Health check passed
+2024-03-10 02:20:32 [INFO] Rate limit triggered for IP 192.168.1.5085
+2024-03-10 02:20:41 [DEBUG] Request processed in 5062ms — endpoint /api/data
+2024-03-10 02:20:42 [ERROR] Rate limit triggered for IP 192.168.1.5391
+2024-03-10 02:20:52 [DEBUG] Background job completed: task_id=3493
+2024-03-10 02:20:53 [ERROR] User login successful for user_id=6475
+2024-03-10 02:21:06 [DEBUG] Background job completed: task_id=5613
+2024-03-10 02:21:14 [WARNING] Background job completed: task_id=2452
+2024-03-10 02:21:20 [INFO] Database query executed in 785ms
+2024-03-10 02:21:35 [INFO] User login successful for user_id=8051
+2024-03-10 02:21:43 [WARNING] User login successful for user_id=7049
+2024-03-10 02:21:56 [WARNING] Background job completed: task_id=5163
+2024-03-10 02:22:07 [DEBUG] Background job completed: task_id=1807
+2024-03-10 02:22:11 [DEBUG] User login successful for user_id=5915
+2024-03-10 02:22:20 [WARNING] File uploaded: size=8819KB
+2024-03-10 02:22:28 [WARNING] Disk usage at 3705% on /dev/sda1
+2024-03-10 02:22:43 [WARNING] Cache miss — fetching from database
+2024-03-10 02:22:47 [INFO] Health check passed
+2024-03-10 02:22:49 [DEBUG] Database query executed in 212ms
+2024-03-10 02:22:59 [INFO] Cache miss — fetching from database
+2024-03-10 02:23:03 [ERROR] Background job completed: task_id=6422
+2024-03-10 02:23:18 [DEBUG] User login successful for user_id=9400
+2024-03-10 02:23:23 [WARNING] Request processed in 2316ms — endpoint /api/data
+2024-03-10 02:23:33 [DEBUG] Disk usage at 5940% on /dev/sda1
+2024-03-10 02:23:36 [DEBUG] Request processed in 9166ms — endpoint /api/data
+2024-03-10 02:23:42 [DEBUG] Health check passed
+2024-03-10 02:23:55 [INFO] Background job completed: task_id=6217
+2024-03-10 02:24:00 [ERROR] File uploaded: size=3841KB
+2024-03-10 02:24:04 [DEBUG] User login successful for user_id=2914
+2024-03-10 02:24:18 [WARNING] Rate limit triggered for IP 192.168.1.6569
+2024-03-10 02:24:20 [WARNING] User login successful for user_id=4112
+2024-03-10 02:24:34 [INFO] Session token refreshed for session_id=2365
+2024-03-10 02:24:47 [DEBUG] File uploaded: size=2756KB
+2024-03-10 02:24:49 [INFO] File uploaded: size=4263KB
+2024-03-10 02:24:51 [ERROR] Cache miss — fetching from database
+2024-03-10 02:25:06 [DEBUG] Session token refreshed for session_id=7015
+2024-03-10 02:25:07 [WARNING] File uploaded: size=2715KB
+2024-03-10 02:25:13 [INFO] User login successful for user_id=9365
+2024-03-10 02:25:25 [INFO] Rate limit triggered for IP 192.168.1.5474
+2024-03-10 02:25:28 [DEBUG] Session token refreshed for session_id=4494
+2024-03-10 02:25:37 [DEBUG] Database query executed in 8719ms
+2024-03-10 02:25:44 [ERROR] Request processed in 227ms — endpoint /api/data
+2024-03-10 02:25:58 [INFO] Database query executed in 855ms
+2024-03-10 02:26:09 [INFO] File uploaded: size=339KB
+2024-03-10 02:26:16 [WARNING] User login successful for user_id=2392
+2024-03-10 02:26:31 [INFO] Health check passed
+2024-03-10 02:26:33 [WARNING] Session token refreshed for session_id=681
+2024-03-10 02:26:46 [INFO] User login successful for user_id=829
+2024-03-10 02:26:56 [DEBUG] Disk usage at 7327% on /dev/sda1
+2024-03-10 02:26:59 [ERROR] Disk usage at 8205% on /dev/sda1
+2024-03-10 02:27:01 [INFO] Request processed in 9624ms — endpoint /api/data
+2024-03-10 02:27:09 [WARNING] Health check passed
+2024-03-10 02:27:24 [INFO] Request processed in 3774ms — endpoint /api/data
+2024-03-10 02:27:31 [WARNING] Session token refreshed for session_id=4435
+2024-03-10 02:27:40 [INFO] Health check passed
+2024-03-10 02:27:44 [WARNING] Database query executed in 9726ms
+2024-03-10 02:27:52 [INFO] File uploaded: size=5088KB
+2024-03-10 02:28:04 [DEBUG] Cache miss — fetching from database
+2024-03-10 02:28:10 [INFO] Health check passed
+2024-03-10 02:28:21 [INFO] Background job completed: task_id=5408
+2024-03-10 02:28:24 [INFO] Session token refreshed for session_id=3664
+2024-03-10 02:28:38 [DEBUG] Background job completed: task_id=7867
+2024-03-10 02:28:43 [DEBUG] User login successful for user_id=6372
+2024-03-10 02:28:58 [DEBUG] File uploaded: size=6458KB
+2024-03-10 02:28:59 [WARNING] Background job completed: task_id=5310
+2024-03-10 02:29:11 [ERROR] Health check passed
+2024-03-10 02:29:22 [WARNING] Cache miss — fetching from database
+2024-03-10 02:29:32 [ERROR] Background job completed: task_id=9417
+2024-03-10 02:29:44 [ERROR] Request processed in 1355ms — endpoint /api/data
+2024-03-10 02:29:45 [ERROR] Disk usage at 8006% on /dev/sda1
+2024-03-10 02:29:59 [DEBUG] Health check passed
+2024-03-10 02:30:03 [ERROR] Disk usage at 1738% on /dev/sda1
+2024-03-10 02:30:11 [INFO] Request processed in 2223ms — endpoint /api/data
+2024-03-10 02:30:14 [ERROR] Background job completed: task_id=9218
+2024-03-10 02:30:28 [ERROR] Background job completed: task_id=4977
+2024-03-10 02:30:29 [WARNING] Health check passed
+2024-03-10 02:30:40 [INFO] Background job completed: task_id=5522
+2024-03-10 05:42:55 [DEBUG] Background job completed: task_id=86
+2024-03-10 05:43:16 [INFO] Rate limit triggered for IP 192.168.1.1659
+2024-03-10 05:43:28 [INFO] Database query executed in 8559ms
+2024-03-10 05:43:49 [INFO] Health check passed
+2024-03-10 05:44:08 [INFO] Rate limit triggered for IP 192.168.1.8895
+2024-03-10 05:44:30 [ERROR] Background job completed: task_id=5226
+2024-03-10 05:44:31 [DEBUG] Request processed in 4169ms — endpoint /api/data
+2024-03-10 05:44:51 [INFO] User login successful for user_id=7869
+2024-03-10 05:45:07 [ERROR] Database query executed in 5297ms
+2024-03-10 05:45:10 [WARNING] Health check passed
+2024-03-10 05:45:34 [DEBUG] Background job completed: task_id=6644
+2024-03-10 05:45:37 [DEBUG] Health check passed
+2024-03-10 05:45:52 [ERROR] Health check passed
+2024-03-10 05:45:57 [DEBUG] Rate limit triggered for IP 192.168.1.9617
+2024-03-10 05:46:11 [ERROR] Cache miss — fetching from database
+2024-03-10 05:46:33 [WARNING] Rate limit triggered for IP 192.168.1.8892
+2024-03-10 05:46:46 [WARNING] Database query executed in 4178ms
+2024-03-10 05:46:57 [INFO] Health check passed
+2024-03-10 05:47:00 [DEBUG] Request processed in 8484ms — endpoint /api/data
+2024-03-10 05:47:12 [WARNING] Background job completed: task_id=1200
+2024-03-10 05:47:28 [WARNING] Rate limit triggered for IP 192.168.1.8238
+2024-03-10 05:47:35 [ERROR] User login successful for user_id=173
+2024-03-10 05:47:41 [INFO] Cache miss — fetching from database
+2024-03-10 05:47:44 [ERROR] Rate limit triggered for IP 192.168.1.9542
+2024-03-10 05:48:01 [INFO] Background job completed: task_id=8496
+2024-03-10 05:48:13 [ERROR] Session token refreshed for session_id=2541
+2024-03-10 05:48:14 [DEBUG] Background job completed: task_id=4049
+2024-03-10 05:48:23 [WARNING] Session token refreshed for session_id=1306
+2024-03-10 05:48:38 [WARNING] Disk usage at 5528% on /dev/sda1
+2024-03-10 05:48:47 [DEBUG] Health check passed
+2024-03-10 05:48:58 [DEBUG] Request processed in 3607ms — endpoint /api/data
+2024-03-10 05:49:09 [ERROR] Session token refreshed for session_id=3666
+2024-03-10 05:49:22 [INFO] Disk usage at 7937% on /dev/sda1
+2024-03-10 05:49:37 [ERROR] Background job completed: task_id=1260
+2024-03-10 05:50:01 [WARNING] Session token refreshed for session_id=6001
+2024-03-10 05:50:14 [ERROR] Disk usage at 733% on /dev/sda1
+2024-03-10 05:50:35 [ERROR] Rate limit triggered for IP 192.168.1.8902
+2024-03-10 05:50:47 [DEBUG] Rate limit triggered for IP 192.168.1.9569
+2024-03-10 05:51:06 [ERROR] Background job completed: task_id=9491
+2024-03-10 05:51:31 [DEBUG] Rate limit triggered for IP 192.168.1.4127
+2024-03-10 05:51:53 [INFO] User login successful for user_id=3501
+2024-03-10 05:52:02 [ERROR] File uploaded: size=6750KB
+2024-03-10 05:52:04 [ERROR] User login successful for user_id=8235
+2024-03-10 05:52:09 [DEBUG] Cache miss — fetching from database
+2024-03-10 05:52:12 [ERROR] Health check passed
+2024-03-10 05:52:23 [ERROR] Cache miss — fetching from database
+2024-03-10 05:52:31 [ERROR] Database query executed in 7634ms
+2024-03-10 05:52:53 [WARNING] Background job completed: task_id=9017
+2024-03-10 05:53:13 [DEBUG] Rate limit triggered for IP 192.168.1.9141
+2024-03-10 05:53:33 [ERROR] File uploaded: size=4053KB
+2024-03-10 05:53:42 [WARNING] File uploaded: size=4063KB
+2024-03-10 05:54:04 [ERROR] File uploaded: size=2036KB
+2024-03-10 05:54:20 [DEBUG] Cache miss — fetching from database
+2024-03-10 05:54:24 [WARNING] Disk usage at 6650% on /dev/sda1
+2024-03-10 05:54:30 [ERROR] Session token refreshed for session_id=6853
+2024-03-10 05:54:33 [DEBUG] Background job completed: task_id=9814
+2024-03-10 05:54:52 [DEBUG] Health check passed
+2024-03-10 05:55:00 [INFO] Background job completed: task_id=7767
+2024-03-10 05:55:12 [DEBUG] Rate limit triggered for IP 192.168.1.2013
+2024-03-10 05:55:29 [WARNING] Background job completed: task_id=9460
+2024-03-10 05:55:35 [ERROR] Database query executed in 2299ms
+2024-03-10 05:55:49 [DEBUG] Disk usage at 8816% on /dev/sda1
+2024-03-10 05:56:12 [ERROR] Disk usage at 10% on /dev/sda1
+2024-03-10 05:56:31 [ERROR] Request processed in 4184ms — endpoint /api/data
+2024-03-10 05:56:51 [WARNING] User login successful for user_id=4252
+2024-03-10 05:56:56 [ERROR] Disk usage at 6995% on /dev/sda1
+2024-03-10 05:57:01 [DEBUG] User login successful for user_id=6485
+2024-03-10 05:57:24 [WARNING] Request processed in 3625ms — endpoint /api/data
+2024-03-10 05:57:32 [ERROR] Session token refreshed for session_id=1608
+2024-03-10 05:57:46 [INFO] User login successful for user_id=8324
+2024-03-10 05:58:00 [DEBUG] Health check passed
+2024-03-10 05:58:01 [WARNING] Session token refreshed for session_id=2498
+2024-03-10 05:58:20 [WARNING] File uploaded: size=560KB
+2024-03-10 05:58:40 [DEBUG] Request processed in 4087ms — endpoint /api/data
+2024-03-10 05:58:42 [DEBUG] Disk usage at 7348% on /dev/sda1
+2024-03-10 05:59:04 [WARNING] Background job completed: task_id=4321
+2024-03-10 05:59:21 [DEBUG] Cache miss — fetching from database
+2024-03-10 05:59:23 [ERROR] Cache miss — fetching from database
+2024-03-10 05:59:47 [INFO] Health check passed
+2024-03-10 05:59:50 [ERROR] Background job completed: task_id=7210
+2024-03-10 06:00:02 [DEBUG] Database query executed in 5629ms
+2024-03-10 06:00:27 [WARNING] Request processed in 5615ms — endpoint /api/data
+2024-03-10 06:00:47 [ERROR] Cache miss — fetching from database
+2024-03-10 06:00:54 [DEBUG] Rate limit triggered for IP 192.168.1.75
+2024-03-10 06:00:56 [ERROR] Session token refreshed for session_id=8627
+2024-03-10 06:01:13 [WARNING] Background job completed: task_id=7403
+2024-03-10 06:01:27 [DEBUG] Disk usage at 6176% on /dev/sda1
+2024-03-10 06:01:48 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:02:05 [ERROR] Request processed in 3997ms — endpoint /api/data
+2024-03-10 06:02:08 [INFO] User login successful for user_id=35
+2024-03-10 06:02:15 [DEBUG] Database query executed in 2291ms
+2024-03-10 06:02:23 [WARNING] Rate limit triggered for IP 192.168.1.5261
+2024-03-10 06:02:35 [ERROR] Cache miss — fetching from database
+2024-03-10 06:02:44 [ERROR] Request processed in 5670ms — endpoint /api/data
+2024-03-10 06:03:02 [WARNING] Cache miss — fetching from database
+2024-03-10 06:03:14 [ERROR] Rate limit triggered for IP 192.168.1.7487
+2024-03-10 06:03:22 [DEBUG] Request processed in 4173ms — endpoint /api/data
+2024-03-10 06:03:44 [WARNING] Cache miss — fetching from database
+2024-03-10 06:03:56 [INFO] Session token refreshed for session_id=956
+2024-03-10 06:03:59 [INFO] User login successful for user_id=7449
+2024-03-10 06:04:00 [WARNING] Health check passed
+2024-03-10 06:04:04 [ERROR] Session token refreshed for session_id=2809
+2024-03-10 06:04:10 [ERROR] Cache miss — fetching from database
+2024-03-10 06:04:27 [INFO] User login successful for user_id=6699
+2024-03-10 06:04:51 [DEBUG] Disk usage at 4293% on /dev/sda1
+2024-03-10 06:04:55 [WARNING] Background job completed: task_id=2960
+2024-03-10 06:05:09 [INFO] Session token refreshed for session_id=8254
+2024-03-10 06:05:32 [ERROR] Cache miss — fetching from database
+2024-03-10 06:05:51 [ERROR] File uploaded: size=2496KB
+2024-03-10 06:05:54 [ERROR] User login successful for user_id=3536
+2024-03-10 06:05:59 [ERROR] File uploaded: size=3326KB
+2024-03-10 06:06:24 [DEBUG] Disk usage at 782% on /dev/sda1
+2024-03-10 06:06:28 [ERROR] Health check passed
+2024-03-10 06:06:41 [DEBUG] Session token refreshed for session_id=9934
+2024-03-10 06:06:56 [INFO] Cache miss — fetching from database
+2024-03-10 06:07:05 [ERROR] File uploaded: size=2616KB
+2024-03-10 06:07:16 [ERROR] Health check passed
+2024-03-10 06:07:17 [ERROR] Cache miss — fetching from database
+2024-03-10 06:07:36 [WARNING] Cache miss — fetching from database
+2024-03-10 06:07:44 [ERROR] File uploaded: size=1680KB
+2024-03-10 06:07:47 [ERROR] Session token refreshed for session_id=8378
+2024-03-10 06:08:03 [ERROR] File uploaded: size=6791KB
+2024-03-10 06:08:17 [WARNING] Background job completed: task_id=6038
+2024-03-10 06:08:28 [ERROR] User login successful for user_id=4088
+2024-03-10 06:08:52 [INFO] Database query executed in 9676ms
+2024-03-10 06:08:59 [ERROR] Request processed in 7427ms — endpoint /api/data
+2024-03-10 06:09:04 [INFO] Rate limit triggered for IP 192.168.1.6182
+2024-03-10 06:09:16 [ERROR] User login successful for user_id=4915
+2024-03-10 06:09:23 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:09:31 [WARNING] Session token refreshed for session_id=1958
+2024-03-10 06:09:44 [DEBUG] File uploaded: size=7682KB
+2024-03-10 06:09:55 [ERROR] Request processed in 8885ms — endpoint /api/data
+2024-03-10 06:10:20 [WARNING] Request processed in 6314ms — endpoint /api/data
+2024-03-10 06:10:39 [ERROR] Session token refreshed for session_id=9472
+2024-03-10 06:11:00 [INFO] Request processed in 1908ms — endpoint /api/data
+2024-03-10 06:11:23 [INFO] Session token refreshed for session_id=8692
+2024-03-10 06:11:44 [WARNING] Disk usage at 3721% on /dev/sda1
+2024-03-10 06:12:09 [WARNING] Rate limit triggered for IP 192.168.1.3390
+2024-03-10 06:12:27 [ERROR] Disk usage at 1824% on /dev/sda1
+2024-03-10 06:12:50 [WARNING] Background job completed: task_id=5946
+2024-03-10 06:13:15 [INFO] Cache miss — fetching from database
+2024-03-10 06:13:21 [DEBUG] File uploaded: size=8501KB
+2024-03-10 06:13:25 [ERROR] Database query executed in 1176ms
+2024-03-10 06:13:44 [ERROR] Background job completed: task_id=4458
+2024-03-10 06:13:53 [WARNING] Disk usage at 224% on /dev/sda1
+2024-03-10 06:14:15 [INFO] Disk usage at 3937% on /dev/sda1
+2024-03-10 06:14:20 [WARNING] Cache miss — fetching from database
+2024-03-10 06:14:25 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:14:42 [WARNING] Health check passed
+2024-03-10 06:14:58 [INFO] Background job completed: task_id=1466
+2024-03-10 06:15:01 [INFO] File uploaded: size=6728KB
+2024-03-10 06:15:02 [DEBUG] User login successful for user_id=8606
+2024-03-10 06:15:10 [WARNING] Cache miss — fetching from database
+2024-03-10 06:15:18 [DEBUG] Disk usage at 8000% on /dev/sda1
+2024-03-10 06:15:29 [DEBUG] Background job completed: task_id=6771
+2024-03-10 06:15:36 [DEBUG] Health check passed
+2024-03-10 06:15:39 [ERROR] Background job completed: task_id=8016
+2024-03-10 06:15:44 [INFO] Disk usage at 5709% on /dev/sda1
+2024-03-10 06:15:56 [INFO] Background job completed: task_id=7244
+2024-03-10 06:16:13 [WARNING] Cache miss — fetching from database
+2024-03-10 06:16:38 [ERROR] Database query executed in 4832ms
+2024-03-10 06:16:51 [INFO] Cache miss — fetching from database
+2024-03-10 06:17:05 [ERROR] User login successful for user_id=2012
+2024-03-10 06:17:16 [INFO] Rate limit triggered for IP 192.168.1.9588
+2024-03-10 06:17:38 [DEBUG] File uploaded: size=142KB
+2024-03-10 06:17:39 [ERROR] File uploaded: size=8941KB
+2024-03-10 06:17:51 [INFO] Disk usage at 2649% on /dev/sda1
+2024-03-10 06:17:59 [WARNING] Database query executed in 7400ms
+2024-03-10 06:18:15 [INFO] User login successful for user_id=6353
+2024-03-10 06:18:32 [INFO] Rate limit triggered for IP 192.168.1.3708
+2024-03-10 06:18:52 [ERROR] User login successful for user_id=7547
+2024-03-10 06:19:04 [WARNING] Background job completed: task_id=9504
+2024-03-10 06:19:16 [INFO] Database query executed in 9253ms
+2024-03-10 06:19:25 [INFO] Background job completed: task_id=5364
+2024-03-10 06:19:33 [DEBUG] Rate limit triggered for IP 192.168.1.8954
+2024-03-10 06:19:41 [DEBUG] File uploaded: size=5303KB
+2024-03-10 06:19:50 [ERROR] User login successful for user_id=8518
+2024-03-10 06:20:13 [INFO] Request processed in 6489ms — endpoint /api/data
+2024-03-10 06:20:22 [DEBUG] Background job completed: task_id=1955
+2024-03-10 06:20:34 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:20:50 [ERROR] User login successful for user_id=9717
+2024-03-10 06:21:00 [ERROR] Cache miss — fetching from database
+2024-03-10 06:21:18 [WARNING] User login successful for user_id=4083
+2024-03-10 06:21:40 [ERROR] Background job completed: task_id=5008
+2024-03-10 06:22:02 [ERROR] Database query executed in 116ms
+2024-03-10 06:22:15 [INFO] Disk usage at 1405% on /dev/sda1
+2024-03-10 06:22:16 [ERROR] User login successful for user_id=3730
+2024-03-10 06:22:27 [ERROR] Session token refreshed for session_id=7627
+2024-03-10 06:22:33 [DEBUG] Request processed in 3ms — endpoint /api/data
+2024-03-10 06:22:56 [WARNING] Disk usage at 5593% on /dev/sda1
+2024-03-10 06:22:57 [WARNING] Cache miss — fetching from database
+2024-03-10 06:23:18 [WARNING] Cache miss — fetching from database
+2024-03-10 06:23:40 [ERROR] Rate limit triggered for IP 192.168.1.2348
+2024-03-10 06:24:05 [ERROR] Request processed in 102ms — endpoint /api/data
+2024-03-10 06:24:26 [DEBUG] Rate limit triggered for IP 192.168.1.6658
+2024-03-10 06:24:47 [WARNING] Disk usage at 2058% on /dev/sda1
+2024-03-10 06:25:12 [ERROR] Rate limit triggered for IP 192.168.1.1072
+2024-03-10 06:25:30 [INFO] Disk usage at 6198% on /dev/sda1
+2024-03-10 06:25:38 [WARNING] Request processed in 1466ms — endpoint /api/data
+2024-03-10 06:26:01 [ERROR] Request processed in 8996ms — endpoint /api/data
+2024-03-10 06:34:11 [DEBUG] Disk usage at 2832% on /dev/sda1
+2024-03-10 06:34:12 [DEBUG] File uploaded: size=3367KB
+2024-03-10 06:34:19 [INFO] Rate limit triggered for IP 192.168.1.8901
+2024-03-10 06:34:20 [INFO] Cache miss — fetching from database
+2024-03-10 06:34:31 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:34:36 [INFO] Cache miss — fetching from database
+2024-03-10 06:34:48 [WARNING] File uploaded: size=533KB
+2024-03-10 06:34:51 [DEBUG] Rate limit triggered for IP 192.168.1.7933
+2024-03-10 06:34:56 [DEBUG] Database query executed in 5282ms
+2024-03-10 06:34:58 [WARNING] Background job completed: task_id=5860
+2024-03-10 06:35:04 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:35:10 [ERROR] Disk usage at 8843% on /dev/sda1
+2024-03-10 06:35:11 [INFO] Disk usage at 3398% on /dev/sda1
+2024-03-10 06:35:16 [WARNING] Health check passed
+2024-03-10 06:35:24 [ERROR] Database query executed in 475ms
+2024-03-10 06:35:36 [WARNING] Cache miss — fetching from database
+2024-03-10 06:35:44 [INFO] Database query executed in 3540ms
+2024-03-10 06:35:52 [WARNING] Health check passed
+2024-03-10 06:36:01 [DEBUG] Database query executed in 6096ms
+2024-03-10 06:36:02 [ERROR] File uploaded: size=7927KB
+2024-03-10 06:36:06 [INFO] Health check passed
+2024-03-10 06:36:07 [DEBUG] File uploaded: size=5549KB
+2024-03-10 06:36:09 [WARNING] Database query executed in 2713ms
+2024-03-10 06:36:21 [ERROR] Rate limit triggered for IP 192.168.1.6441
+2024-03-10 06:36:33 [DEBUG] File uploaded: size=7786KB
+2024-03-10 06:36:45 [INFO] Rate limit triggered for IP 192.168.1.9230
+2024-03-10 06:36:55 [WARNING] File uploaded: size=178KB
+2024-03-10 06:36:59 [INFO] File uploaded: size=8467KB
+2024-03-10 06:37:04 [DEBUG] Rate limit triggered for IP 192.168.1.8857
+2024-03-10 06:37:11 [INFO] Disk usage at 6980% on /dev/sda1
+2024-03-10 06:37:23 [DEBUG] Database query executed in 5009ms
+2024-03-10 06:37:34 [WARNING] Background job completed: task_id=2295
+2024-03-10 06:37:44 [WARNING] Disk usage at 3868% on /dev/sda1
+2024-03-10 06:37:47 [ERROR] Cache miss — fetching from database
+2024-03-10 06:37:51 [DEBUG] Session token refreshed for session_id=8096
+2024-03-10 06:37:59 [INFO] Request processed in 3791ms — endpoint /api/data
+2024-03-10 06:38:01 [DEBUG] Disk usage at 3890% on /dev/sda1
+2024-03-10 06:38:04 [ERROR] User login successful for user_id=6565
+2024-03-10 06:38:08 [WARNING] User login successful for user_id=7086
+2024-03-10 06:38:12 [ERROR] Database query executed in 8355ms
+2024-03-10 06:38:16 [ERROR] Request processed in 7784ms — endpoint /api/data
+2024-03-10 06:38:20 [ERROR] Session token refreshed for session_id=9589
+2024-03-10 06:38:30 [ERROR] Health check passed
+2024-03-10 06:38:41 [DEBUG] Database query executed in 6647ms
+2024-03-10 06:38:51 [ERROR] Database query executed in 2987ms
+2024-03-10 06:38:54 [ERROR] Request processed in 8030ms — endpoint /api/data
+2024-03-10 06:38:58 [INFO] User login successful for user_id=4210
+2024-03-10 06:39:10 [ERROR] Cache miss — fetching from database
+2024-03-10 06:39:14 [INFO] Database query executed in 8424ms
+2024-03-10 06:39:23 [DEBUG] Session token refreshed for session_id=1470
+2024-03-10 06:39:31 [WARNING] Disk usage at 8959% on /dev/sda1
+2024-03-10 06:39:43 [WARNING] Rate limit triggered for IP 192.168.1.4107
+2024-03-10 06:39:53 [WARNING] Health check passed
+2024-03-10 06:40:02 [DEBUG] Background job completed: task_id=1575
+2024-03-10 06:40:03 [ERROR] File uploaded: size=1145KB
+2024-03-10 06:40:06 [ERROR] Cache miss — fetching from database
+2024-03-10 06:40:09 [DEBUG] User login successful for user_id=3133
+2024-03-10 06:40:11 [INFO] Session token refreshed for session_id=3133
+2024-03-10 06:40:22 [WARNING] Disk usage at 4491% on /dev/sda1
+2024-03-10 06:40:34 [DEBUG] Background job completed: task_id=7571
+2024-03-10 06:40:38 [DEBUG] File uploaded: size=3100KB
+2024-03-10 06:40:40 [INFO] Session token refreshed for session_id=5798
+2024-03-10 06:40:43 [WARNING] Session token refreshed for session_id=543
+2024-03-10 06:40:50 [INFO] File uploaded: size=7703KB
+2024-03-10 06:40:54 [DEBUG] Disk usage at 9953% on /dev/sda1
+2024-03-10 06:41:01 [DEBUG] Disk usage at 9078% on /dev/sda1
+2024-03-10 06:41:07 [INFO] Health check passed
+2024-03-10 06:41:09 [INFO] User login successful for user_id=9207
+2024-03-10 06:41:21 [WARNING] Health check passed
+2024-03-10 06:41:33 [INFO] Rate limit triggered for IP 192.168.1.8985
+2024-03-10 06:41:45 [DEBUG] File uploaded: size=7181KB
+2024-03-10 06:41:54 [WARNING] Session token refreshed for session_id=6165
+2024-03-10 06:41:59 [DEBUG] Database query executed in 3374ms
+2024-03-10 06:42:01 [DEBUG] File uploaded: size=3813KB
+2024-03-10 06:42:08 [INFO] Disk usage at 1385% on /dev/sda1
+2024-03-10 06:42:11 [WARNING] Request processed in 65ms — endpoint /api/data
+2024-03-10 06:42:17 [ERROR] Health check passed
+2024-03-10 06:42:23 [ERROR] Cache miss — fetching from database
+2024-03-10 06:42:29 [WARNING] User login successful for user_id=4687
+2024-03-10 06:42:36 [DEBUG] Database query executed in 899ms
+2024-03-10 06:42:42 [DEBUG] Health check passed
+2024-03-10 06:42:44 [INFO] Health check passed
+2024-03-10 06:42:54 [INFO] Health check passed
+2024-03-10 06:42:58 [INFO] Disk usage at 8866% on /dev/sda1
+2024-03-10 06:43:03 [INFO] Rate limit triggered for IP 192.168.1.3046
+2024-03-10 06:43:14 [ERROR] User login successful for user_id=4018
+2024-03-10 06:43:17 [INFO] Disk usage at 3889% on /dev/sda1
+2024-03-10 06:43:19 [ERROR] Cache miss — fetching from database
+2024-03-10 06:43:31 [INFO] Request processed in 9305ms — endpoint /api/data
+2024-03-10 06:43:32 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:43:44 [DEBUG] Health check passed
+2024-03-10 06:43:51 [INFO] Cache miss — fetching from database
+2024-03-10 06:43:58 [DEBUG] Session token refreshed for session_id=7762
+2024-03-10 06:44:05 [INFO] Background job completed: task_id=1051
+2024-03-10 06:44:09 [WARNING] Cache miss — fetching from database
+2024-03-10 06:44:21 [DEBUG] Session token refreshed for session_id=9800
+2024-03-10 06:44:22 [ERROR] Rate limit triggered for IP 192.168.1.3567
+2024-03-10 06:44:34 [INFO] Cache miss — fetching from database
+2024-03-10 06:44:40 [INFO] Rate limit triggered for IP 192.168.1.1361
+2024-03-10 06:44:42 [DEBUG] Rate limit triggered for IP 192.168.1.207
+2024-03-10 06:44:47 [DEBUG] Background job completed: task_id=1926
+2024-03-10 06:44:54 [INFO] Health check passed
+2024-03-10 06:45:00 [ERROR] User login successful for user_id=2086
+2024-03-10 06:45:06 [INFO] Disk usage at 9344% on /dev/sda1
+2024-03-10 06:45:09 [INFO] Background job completed: task_id=7338
+2024-03-10 06:45:10 [WARNING] User login successful for user_id=6780
+2024-03-10 06:45:14 [DEBUG] File uploaded: size=5601KB
+2024-03-10 06:45:26 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:45:31 [DEBUG] User login successful for user_id=2270
+2024-03-10 06:45:33 [WARNING] Session token refreshed for session_id=160
+2024-03-10 06:45:35 [ERROR] Cache miss — fetching from database
+2024-03-10 06:45:39 [INFO] Background job completed: task_id=6552
+2024-03-10 06:45:49 [INFO] File uploaded: size=6619KB
+2024-03-10 06:45:56 [WARNING] Cache miss — fetching from database
+2024-03-10 06:45:58 [INFO] Cache miss — fetching from database
+2024-03-10 06:46:00 [ERROR] Cache miss — fetching from database
+2024-03-10 06:46:01 [INFO] User login successful for user_id=3149
+2024-03-10 06:46:02 [INFO] File uploaded: size=4933KB
+2024-03-10 06:46:05 [ERROR] Background job completed: task_id=9246
+2024-03-10 06:46:10 [INFO] File uploaded: size=4203KB
+2024-03-10 06:46:15 [INFO] Session token refreshed for session_id=7684
+2024-03-10 06:46:26 [DEBUG] Session token refreshed for session_id=7766
+2024-03-10 06:46:33 [INFO] Cache miss — fetching from database
+2024-03-10 06:46:43 [INFO] File uploaded: size=4404KB
+2024-03-10 06:46:53 [ERROR] Background job completed: task_id=3085
+2024-03-10 06:46:58 [DEBUG] Health check passed
+2024-03-10 06:47:07 [ERROR] Background job completed: task_id=5233
+2024-03-10 06:47:10 [ERROR] Rate limit triggered for IP 192.168.1.6694
+2024-03-10 06:47:20 [ERROR] Background job completed: task_id=8808
+2024-03-10 06:47:22 [DEBUG] User login successful for user_id=3934
+2024-03-10 06:47:34 [ERROR] Health check passed
+2024-03-10 06:47:43 [DEBUG] Session token refreshed for session_id=9941
+2024-03-10 06:47:46 [WARNING] Disk usage at 9706% on /dev/sda1
+2024-03-10 06:47:51 [INFO] Background job completed: task_id=4440
+2024-03-10 06:48:02 [WARNING] Request processed in 1372ms — endpoint /api/data
+2024-03-10 06:48:06 [DEBUG] User login successful for user_id=7063
+2024-03-10 06:48:07 [DEBUG] Health check passed
+2024-03-10 06:48:18 [DEBUG] File uploaded: size=5074KB
+2024-03-10 06:48:19 [INFO] Request processed in 9284ms — endpoint /api/data
+2024-03-10 06:48:31 [ERROR] Cache miss — fetching from database
+2024-03-10 06:48:34 [ERROR] Background job completed: task_id=6695
+2024-03-10 06:48:36 [INFO] Database query executed in 357ms
+2024-03-10 06:48:41 [DEBUG] User login successful for user_id=6015
+2024-03-10 06:48:45 [DEBUG] Request processed in 1004ms — endpoint /api/data
+2024-03-10 06:48:46 [ERROR] Cache miss — fetching from database
+2024-03-10 06:48:48 [WARNING] Health check passed
+2024-03-10 06:48:56 [ERROR] Health check passed
+2024-03-10 06:48:57 [ERROR] Disk usage at 5182% on /dev/sda1
+2024-03-10 06:49:06 [ERROR] Disk usage at 2414% on /dev/sda1
+2024-03-10 06:49:14 [DEBUG] Rate limit triggered for IP 192.168.1.7531
+2024-03-10 06:49:26 [INFO] Disk usage at 9017% on /dev/sda1
+2024-03-10 06:49:33 [ERROR] File uploaded: size=6591KB
+2024-03-10 06:49:35 [INFO] Cache miss — fetching from database
+2024-03-10 06:49:38 [DEBUG] Background job completed: task_id=7896
+2024-03-10 06:49:50 [ERROR] Request processed in 8818ms — endpoint /api/data
+2024-03-10 06:49:52 [WARNING] File uploaded: size=2956KB
+2024-03-10 06:49:56 [INFO] Request processed in 4183ms — endpoint /api/data
+2024-03-10 06:50:02 [WARNING] Cache miss — fetching from database
+2024-03-10 06:50:12 [ERROR] Session token refreshed for session_id=6233
+2024-03-10 06:50:24 [DEBUG] Session token refreshed for session_id=8001
+2024-03-10 06:50:36 [INFO] Background job completed: task_id=371
+2024-03-10 06:50:45 [INFO] Cache miss — fetching from database
+2024-03-10 06:50:50 [DEBUG] Disk usage at 5456% on /dev/sda1
+2024-03-10 06:51:02 [WARNING] Disk usage at 4602% on /dev/sda1
+2024-03-10 06:51:13 [ERROR] User login successful for user_id=1724
+2024-03-10 06:51:24 [DEBUG] Database query executed in 320ms
+2024-03-10 06:51:27 [DEBUG] Background job completed: task_id=1187
+2024-03-10 06:51:36 [ERROR] Rate limit triggered for IP 192.168.1.7700
+2024-03-10 06:51:37 [WARNING] Disk usage at 2834% on /dev/sda1
+2024-03-10 06:51:46 [DEBUG] Request processed in 6175ms — endpoint /api/data
+2024-03-10 06:51:57 [INFO] Database query executed in 6461ms
+2024-03-10 06:51:59 [INFO] Health check passed
+2024-03-10 06:52:08 [WARNING] User login successful for user_id=7324
+2024-03-10 06:52:10 [DEBUG] Rate limit triggered for IP 192.168.1.1868
+2024-03-10 06:52:21 [INFO] Database query executed in 6912ms
+2024-03-10 06:52:32 [WARNING] Cache miss — fetching from database
+2024-03-10 06:52:34 [WARNING] Database query executed in 7564ms
+2024-03-10 06:52:38 [WARNING] Rate limit triggered for IP 192.168.1.1649
+2024-03-10 06:52:50 [WARNING] User login successful for user_id=2078
+2024-03-10 06:52:51 [WARNING] Health check passed
+2024-03-10 06:53:01 [WARNING] User login successful for user_id=6501
+2024-03-10 06:53:04 [INFO] Health check passed
+2024-03-10 06:53:13 [DEBUG] Session token refreshed for session_id=6840
+2024-03-10 06:53:15 [WARNING] File uploaded: size=1553KB
+2024-03-10 06:53:24 [ERROR] Database query executed in 3682ms
+2024-03-10 06:53:31 [ERROR] Health check passed
+2024-03-10 06:53:38 [INFO] Rate limit triggered for IP 192.168.1.1259
+2024-03-10 06:53:42 [ERROR] Database query executed in 4979ms
+2024-03-10 06:53:51 [INFO] Health check passed
+2024-03-10 06:53:55 [ERROR] Session token refreshed for session_id=5374
+2024-03-10 06:53:57 [ERROR] Background job completed: task_id=9425
+2024-03-10 06:53:58 [INFO] Disk usage at 760% on /dev/sda1
+2024-03-10 06:54:04 [WARNING] Background job completed: task_id=2052
+2024-03-10 06:54:14 [WARNING] Health check passed
+2024-03-10 06:54:23 [INFO] File uploaded: size=955KB
+2024-03-10 06:54:29 [ERROR] Health check passed
+2024-03-10 06:54:34 [ERROR] Rate limit triggered for IP 192.168.1.6864
+2024-03-10 06:54:45 [DEBUG] Rate limit triggered for IP 192.168.1.5437
+2024-03-10 06:54:54 [DEBUG] Health check passed
+2024-03-10 06:55:02 [WARNING] Request processed in 4996ms — endpoint /api/data
+2024-03-10 06:55:08 [INFO] Disk usage at 7667% on /dev/sda1
+2024-03-10 06:55:09 [INFO] Disk usage at 3569% on /dev/sda1
+2024-03-10 06:55:18 [DEBUG] Database query executed in 3007ms
+2024-03-10 06:55:19 [DEBUG] File uploaded: size=9379KB
+2024-03-10 06:55:26 [WARNING] Cache miss — fetching from database
+2024-03-10 06:55:30 [INFO] Background job completed: task_id=5307
+2024-03-10 06:55:38 [ERROR] Database query executed in 9183ms
+2024-03-10 06:55:42 [INFO] Rate limit triggered for IP 192.168.1.1096
+2024-03-10 06:55:45 [ERROR] File uploaded: size=7398KB
+2024-03-10 06:55:56 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:56:01 [ERROR] Background job completed: task_id=978
+2024-03-10 06:56:12 [INFO] Rate limit triggered for IP 192.168.1.6547
+2024-03-10 06:56:16 [WARNING] User login successful for user_id=9179
+2024-03-10 06:56:24 [INFO] Disk usage at 2445% on /dev/sda1
+2024-03-10 06:56:31 [INFO] Health check passed
+2024-03-10 06:56:41 [ERROR] User login successful for user_id=9444
+2024-03-10 06:56:49 [INFO] Request processed in 9868ms — endpoint /api/data
+2024-03-10 06:56:53 [DEBUG] Request processed in 2342ms — endpoint /api/data
+2024-03-10 06:57:05 [WARNING] Health check passed
+2024-03-10 06:57:08 [DEBUG] Disk usage at 4941% on /dev/sda1
+2024-03-10 06:57:19 [INFO] Cache miss — fetching from database
+2024-03-10 06:57:27 [WARNING] Database query executed in 4297ms
+2024-03-10 06:57:38 [ERROR] Request processed in 3350ms — endpoint /api/data
+2024-03-10 06:57:49 [DEBUG] Rate limit triggered for IP 192.168.1.1712
+2024-03-10 06:57:56 [WARNING] Database query executed in 1548ms
+2024-03-10 06:57:59 [ERROR] Session token refreshed for session_id=4376
+2024-03-10 06:58:05 [ERROR] Cache miss — fetching from database
+2024-03-10 06:58:15 [DEBUG] File uploaded: size=8016KB
+2024-03-10 06:58:17 [INFO] Health check passed
+2024-03-10 06:58:25 [WARNING] Request processed in 904ms — endpoint /api/data
+2024-03-10 06:58:26 [DEBUG] Cache miss — fetching from database
+2024-03-10 06:58:35 [DEBUG] User login successful for user_id=4940
+2024-03-10 06:58:41 [INFO] Cache miss — fetching from database
+2024-03-10 06:58:43 [ERROR] Session token refreshed for session_id=8440
+2024-03-10 06:58:48 [DEBUG] Health check passed
+2024-03-10 06:58:56 [DEBUG] Database query executed in 6832ms
+2024-03-10 06:59:05 [ERROR] Request processed in 7224ms — endpoint /api/data
+2024-03-10 06:59:10 [ERROR] Health check passed
+2024-03-10 06:59:20 [INFO] File uploaded: size=3409KB
+2024-03-10 06:59:25 [DEBUG] Disk usage at 1459% on /dev/sda1
+2024-03-10 06:59:27 [ERROR] User login successful for user_id=8605
+2024-03-10 06:59:33 [DEBUG] Rate limit triggered for IP 192.168.1.7088
+2024-03-10 06:59:34 [DEBUG] Request processed in 2314ms — endpoint /api/data
+2024-03-10 06:59:46 [WARNING] Background job completed: task_id=7051
+2024-03-10 06:59:49 [INFO] Cache miss — fetching from database
+2024-03-10 06:59:53 [WARNING] Health check passed
+2024-03-10 07:00:01 [ERROR] Health check passed
+2024-03-10 07:00:07 [ERROR] Request processed in 5954ms — endpoint /api/data
+2024-03-10 07:00:13 [INFO] Disk usage at 2542% on /dev/sda1
+2024-03-10 07:00:20 [ERROR] Health check passed
+2024-03-10 07:00:21 [ERROR] Background job completed: task_id=5863
+2024-03-10 07:00:26 [ERROR] User login successful for user_id=589
+2024-03-10 07:00:30 [INFO] Request processed in 6451ms — endpoint /api/data
+2024-03-10 07:00:42 [DEBUG] Rate limit triggered for IP 192.168.1.1844
+2024-03-10 07:00:49 [WARNING] Session token refreshed for session_id=1503
+2024-03-10 07:00:56 [ERROR] User login successful for user_id=5544
+2024-03-10 07:01:03 [INFO] Database query executed in 4647ms
+2024-03-10 07:01:12 [DEBUG] Background job completed: task_id=6840
+2024-03-10 07:01:17 [INFO] File uploaded: size=8015KB
+2024-03-10 07:01:20 [ERROR] Rate limit triggered for IP 192.168.1.8178
+2024-03-10 07:01:24 [DEBUG] Cache miss — fetching from database
+2024-03-10 07:01:25 [WARNING] File uploaded: size=554KB
+2024-03-10 07:01:29 [WARNING] Request processed in 3888ms — endpoint /api/data
+2024-03-10 07:01:30 [DEBUG] User login successful for user_id=3299
+2024-03-10 07:01:33 [INFO] User login successful for user_id=8420
+2024-03-10 07:01:34 [ERROR] Request processed in 5604ms — endpoint /api/data
+2024-03-10 07:01:42 [WARNING] Request processed in 8714ms — endpoint /api/data
+2024-03-10 07:01:43 [DEBUG] Background job completed: task_id=3859
+2024-03-10 07:01:44 [WARNING] Database query executed in 555ms
+2024-03-10 07:01:45 [INFO] Request processed in 9216ms — endpoint /api/data
+2024-03-10 07:01:57 [DEBUG] Cache miss — fetching from database
+2024-03-10 07:02:08 [ERROR] Database query executed in 4275ms
+2024-03-10 07:02:15 [WARNING] Rate limit triggered for IP 192.168.1.5977
+2024-03-10 07:02:26 [WARNING] Database query executed in 6237ms
+2024-03-10 07:02:27 [DEBUG] Disk usage at 453% on /dev/sda1
+2024-03-10 07:02:34 [INFO] Cache miss — fetching from database
+2024-03-10 07:02:39 [DEBUG] User login successful for user_id=5312
+2024-03-10 07:02:49 [ERROR] Background job completed: task_id=6935
+2024-03-10 07:02:56 [INFO] Disk usage at 7416% on /dev/sda1
+2024-03-10 07:03:04 [WARNING] File uploaded: size=9075KB
+2024-03-10 07:03:13 [INFO] Health check passed
+2024-03-10 07:03:16 [INFO] Disk usage at 3083% on /dev/sda1
+2024-03-10 07:03:22 [INFO] Rate limit triggered for IP 192.168.1.9278
+2024-03-10 07:03:30 [ERROR] User login successful for user_id=9720
+2024-03-10 07:03:42 [DEBUG] Rate limit triggered for IP 192.168.1.476
+2024-03-10 07:03:46 [ERROR] Request processed in 4208ms — endpoint /api/data
+2024-03-10 07:03:58 [INFO] Health check passed
+2024-03-10 07:04:04 [DEBUG] Database query executed in 9870ms
+2024-03-10 07:04:15 [INFO] Session token refreshed for session_id=571
+2024-03-10 07:04:26 [ERROR] Background job completed: task_id=361
+2024-03-10 07:04:31 [DEBUG] Disk usage at 246% on /dev/sda1
+2024-03-10 07:04:37 [WARNING] Database query executed in 6145ms
+2024-03-10 07:04:46 [INFO] Disk usage at 2886% on /dev/sda1
+2024-03-10 07:04:57 [INFO] Database query executed in 615ms
+2024-03-10 07:05:08 [WARNING] Disk usage at 7919% on /dev/sda1
+2024-03-10 07:05:14 [INFO] Disk usage at 3066% on /dev/sda1
+2024-03-10 07:05:19 [ERROR] File uploaded: size=2199KB
+2024-03-10 07:05:24 [DEBUG] Database query executed in 463ms
+2024-03-10 07:05:36 [WARNING] Rate limit triggered for IP 192.168.1.528
+2024-03-10 07:05:38 [INFO] Session token refreshed for session_id=4882
