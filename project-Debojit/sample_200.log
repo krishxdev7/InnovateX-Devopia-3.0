@@ -1,200 +1,200 @@
+2026-04-11 09:59:56 CRITICAL Backup process initiated
 2026-04-11 09:59:58 INFO Disk usage normal
-2026-04-11 09:59:59 INFO Database connection established
-2026-04-11 10:00:05 WARNING User login successful
-2026-04-11 10:00:11 INFO Backup process initiated
-2026-04-11 10:00:13 WARNING Disk usage normal
-2026-04-11 10:00:15 CRITICAL Service restarted
-2026-04-11 10:00:16 CRITICAL API request received
-2026-04-11 10:00:17 INFO User login successful
-2026-04-11 10:00:27 CRITICAL Cache cleared
-2026-04-11 10:00:32 CRITICAL Database connection established
-2026-04-11 10:00:35 INFO Backup process initiated
-2026-04-11 10:00:36 INFO Disk usage normal
-2026-04-11 10:00:46 CRITICAL File accessed
-2026-04-11 10:00:55 DEBUG System rebooted unexpectedly
-2026-04-11 10:01:01 WARNING Backup process initiated
-2026-04-11 10:01:10 WARNING System rebooted unexpectedly
-2026-04-11 10:01:13 ERROR Background job started
-2026-04-11 10:01:17 ERROR Database connection established
-2026-04-11 10:01:25 DEBUG Backup process initiated
-2026-04-11 11:38:25 ERROR File accessed
-2026-04-11 11:38:26 INFO Network packet received
-2026-04-11 11:38:29 WARNING Background job started
-2026-04-11 11:38:32 WARNING System rebooted unexpectedly
-2026-04-11 11:38:33 DEBUG Cache cleared
-2026-04-11 11:38:34 ERROR Backup process initiated
-2026-04-11 11:38:41 WARNING API request received
-2026-04-11 11:38:43 DEBUG Database connection established
-2026-04-11 15:02:43 ERROR System rebooted unexpectedly
-2026-04-11 15:02:49 INFO Database connection established
-2026-04-11 18:21:49 WARNING System health OK
-2026-04-11 18:21:57 WARNING Service restarted
-2026-04-11 18:22:07 WARNING Backup process initiated
-2026-04-11 18:22:10 ERROR Unauthorized access attempt detected
-2026-04-11 18:22:16 ERROR File accessed
-2026-04-11 18:22:24 ERROR Cache cleared
-2026-04-11 18:22:33 INFO Disk usage normal
-2026-04-11 18:22:34 DEBUG Unauthorized access attempt detected
-2026-04-11 18:22:44 DEBUG System rebooted unexpectedly
-2026-04-11 19:24:44 INFO System health OK
-2026-04-11 19:24:53 ERROR Database connection established
-2026-04-11 19:24:56 INFO Disk usage normal
-2026-04-11 23:05:56 WARNING Disk usage normal
-2026-04-11 23:06:06 INFO Unauthorized access attempt detected
-2026-04-11 23:06:14 WARNING API request received
-2026-04-11 23:06:15 DEBUG API request received
-2026-04-11 23:06:16 ERROR User login successful
-2026-04-11 23:06:17 ERROR System rebooted unexpectedly
-2026-04-11 23:06:23 WARNING File accessed
-2026-04-11 23:06:32 ERROR User login successful
-2026-04-11 23:06:37 DEBUG Disk usage normal
-2026-04-11 23:06:44 DEBUG Database connection established
-2026-04-11 23:06:54 ERROR Service restarted
-2026-04-11 23:06:57 CRITICAL Cache cleared
-2026-04-11 23:06:59 DEBUG System rebooted unexpectedly
-2026-04-11 23:07:05 CRITICAL System rebooted unexpectedly
-2026-04-11 23:07:12 WARNING Service restarted
-2026-04-11 23:07:15 INFO System health OK
-2026-04-11 23:07:24 INFO Service restarted
-2026-04-11 23:07:31 ERROR API request received
-2026-04-11 23:07:41 CRITICAL Cache cleared
-2026-04-11 23:07:44 ERROR Network packet received
-2026-04-11 23:07:50 WARNING Unauthorized access attempt detected
-2026-04-11 23:07:53 INFO File accessed
-2026-04-11 23:08:03 ERROR System rebooted unexpectedly
-2026-04-11 23:08:09 DEBUG System health OK
-2026-04-11 23:08:12 ERROR System rebooted unexpectedly
-2026-04-11 23:08:22 WARNING Disk usage normal
-2026-04-11 23:08:29 DEBUG Service restarted
-2026-04-11 23:08:33 ERROR Background job started
-2026-04-11 23:08:34 CRITICAL Unauthorized access attempt detected
-2026-04-12 00:48:34 INFO Disk usage normal
-2026-04-12 00:48:40 DEBUG Database connection established
-2026-04-12 00:48:46 WARNING System rebooted unexpectedly
-2026-04-12 00:48:53 CRITICAL System health OK
-2026-04-12 00:49:03 CRITICAL User login successful
-2026-04-12 00:49:07 INFO System health OK
-2026-04-12 00:49:09 DEBUG System health OK
-2026-04-12 00:49:14 DEBUG System rebooted unexpectedly
-2026-04-12 03:13:14 ERROR Disk usage normal
-2026-04-12 03:13:19 INFO Backup process initiated
-2026-04-12 03:13:25 DEBUG API request received
-2026-04-12 03:13:29 INFO Background job started
-2026-04-12 03:13:32 INFO Cache cleared
-2026-04-12 07:47:32 ERROR Disk usage normal
-2026-04-12 07:47:39 CRITICAL Unauthorized access attempt detected
-2026-04-12 07:47:43 ERROR Network packet received
-2026-04-12 07:47:48 WARNING System health OK
-2026-04-12 07:47:57 DEBUG Disk usage normal
-2026-04-12 07:48:02 DEBUG Disk usage normal
-2026-04-12 07:48:08 ERROR Disk usage normal
-2026-04-12 07:48:16 INFO Backup process initiated
-2026-04-12 07:48:17 DEBUG Unauthorized access attempt detected
-2026-04-12 10:21:17 WARNING Database connection established
-2026-04-12 10:21:25 CRITICAL Backup process initiated
-2026-04-12 10:21:29 INFO Database connection established
-2026-04-12 10:21:30 ERROR Network packet received
-2026-04-12 10:21:31 CRITICAL API request received
-2026-04-12 10:21:37 DEBUG Unauthorized access attempt detected
-2026-04-12 10:21:44 CRITICAL Cache cleared
-2026-04-12 10:21:46 INFO System health OK
-2026-04-12 10:21:55 INFO User login successful
-2026-04-12 10:22:04 DEBUG Database connection established
-2026-04-12 10:22:06 INFO Service restarted
-2026-04-12 10:22:08 DEBUG Background job started
-2026-04-12 10:22:17 CRITICAL Background job started
-2026-04-12 10:22:20 ERROR Database connection established
-2026-04-12 10:22:28 INFO System rebooted unexpectedly
-2026-04-12 10:22:36 INFO Background job started
-2026-04-12 10:22:38 ERROR Cache cleared
-2026-04-12 10:22:41 ERROR File accessed
-2026-04-12 10:22:42 DEBUG Disk usage normal
-2026-04-12 10:22:45 WARNING System health OK
-2026-04-12 10:22:47 DEBUG Network packet received
-2026-04-12 10:22:49 DEBUG User login successful
-2026-04-12 10:22:58 WARNING Database connection established
-2026-04-12 10:23:08 ERROR Disk usage normal
-2026-04-12 10:23:18 WARNING Background job started
-2026-04-12 10:23:26 ERROR User login successful
-2026-04-12 10:23:33 WARNING Background job started
-2026-04-12 10:23:39 INFO Disk usage normal
-2026-04-12 10:23:43 WARNING Backup process initiated
-2026-04-12 10:23:50 ERROR File accessed
-2026-04-12 10:23:59 INFO System health OK
-2026-04-12 10:24:01 DEBUG Database connection established
-2026-04-12 10:24:05 WARNING Background job started
-2026-04-12 10:24:15 INFO API request received
-2026-04-12 10:24:23 CRITICAL System rebooted unexpectedly
-2026-04-12 10:24:25 WARNING Database connection established
-2026-04-12 10:24:35 DEBUG User login successful
-2026-04-12 10:24:36 CRITICAL User login successful
-2026-04-12 14:49:36 ERROR Service restarted
-2026-04-12 14:49:46 INFO System rebooted unexpectedly
-2026-04-12 14:49:53 CRITICAL Service restarted
-2026-04-12 15:12:53 INFO System health OK
-2026-04-12 15:13:03 WARNING System rebooted unexpectedly
-2026-04-12 15:13:05 CRITICAL API request received
-2026-04-12 15:13:08 ERROR Backup process initiated
-2026-04-12 15:13:15 DEBUG Unauthorized access attempt detected
-2026-04-12 15:13:17 DEBUG File accessed
-2026-04-12 15:13:18 CRITICAL Cache cleared
-2026-04-12 15:13:28 WARNING Cache cleared
-2026-04-12 15:13:30 DEBUG Background job started
-2026-04-12 15:13:38 DEBUG User login successful
-2026-04-12 15:13:41 ERROR Network packet received
-2026-04-12 15:13:47 CRITICAL Network packet received
-2026-04-12 15:13:50 CRITICAL User login successful
-2026-04-12 15:14:00 CRITICAL System rebooted unexpectedly
-2026-04-12 18:57:00 WARNING Background job started
-2026-04-12 18:57:10 CRITICAL Disk usage normal
-2026-04-12 18:57:17 ERROR Database connection established
-2026-04-12 18:57:27 CRITICAL System rebooted unexpectedly
-2026-04-12 18:57:36 DEBUG Cache cleared
-2026-04-12 18:57:42 DEBUG Disk usage normal
-2026-04-12 18:57:50 DEBUG Backup process initiated
-2026-04-12 18:57:58 INFO Service restarted
-2026-04-12 18:58:00 ERROR File accessed
-2026-04-12 18:58:01 WARNING Network packet received
-2026-04-12 18:58:02 WARNING Service restarted
-2026-04-12 18:58:11 INFO System rebooted unexpectedly
-2026-04-12 18:58:16 INFO Network packet received
-2026-04-12 18:58:26 ERROR API request received
-2026-04-12 18:58:33 INFO Unauthorized access attempt detected
-2026-04-12 18:58:39 INFO User login successful
-2026-04-12 18:58:42 WARNING Database connection established
-2026-04-12 18:58:49 CRITICAL Cache cleared
-2026-04-12 21:21:49 INFO System rebooted unexpectedly
-2026-04-12 21:21:59 WARNING System rebooted unexpectedly
-2026-04-12 21:22:06 WARNING Service restarted
-2026-04-12 22:54:06 WARNING Cache cleared
-2026-04-12 22:54:10 ERROR Backup process initiated
-2026-04-12 22:54:17 DEBUG Database connection established
-2026-04-12 22:54:18 INFO File accessed
-2026-04-12 22:54:28 WARNING Disk usage normal
-2026-04-12 22:54:29 INFO API request received
-2026-04-12 22:54:32 INFO Disk usage normal
-2026-04-12 22:54:41 ERROR API request received
-2026-04-13 00:35:41 CRITICAL Unauthorized access attempt detected
-2026-04-13 01:23:41 DEBUG Service restarted
-2026-04-13 01:23:43 INFO Service restarted
-2026-04-13 02:08:43 WARNING Background job started
-2026-04-13 02:08:44 DEBUG Service restarted
-2026-04-13 02:08:48 WARNING Backup process initiated
-2026-04-13 02:08:56 DEBUG Database connection established
-2026-04-13 02:08:59 WARNING Background job started
-2026-04-13 05:28:59 INFO Disk usage normal
-2026-04-13 05:29:00 DEBUG Service restarted
-2026-04-13 05:29:05 ERROR System health OK
-2026-04-13 05:29:07 DEBUG File accessed
-2026-04-13 05:29:14 INFO File accessed
-2026-04-13 05:29:20 DEBUG Backup process initiated
-2026-04-13 05:29:29 DEBUG Database connection established
-2026-04-13 05:29:39 DEBUG Cache cleared
-2026-04-13 05:29:41 DEBUG Backup process initiated
-2026-04-13 05:29:50 INFO System rebooted unexpectedly
-2026-04-13 05:29:59 INFO Network packet received
-2026-04-13 05:30:00 WARNING API request received
-2026-04-13 05:30:07 INFO Network packet received
-2026-04-13 05:30:17 ERROR Cache cleared
-2026-04-13 05:30:22 WARNING Unauthorized access attempt detected
-2026-04-13 05:30:24 CRITICAL System health OK
+2026-04-11 10:00:06 INFO System rebooted unexpectedly
+2026-04-11 10:00:11 CRITICAL Service restarted
+2026-04-11 10:00:20 CRITICAL Disk usage normal
+2026-04-11 10:00:30 CRITICAL API request received
+2026-04-11 11:46:30 ERROR System rebooted unexpectedly
+2026-04-11 11:46:35 ERROR System health OK
+2026-04-11 11:46:37 ERROR Database connection established
+2026-04-11 14:20:37 WARNING Service restarted
+2026-04-11 14:20:43 CRITICAL System health OK
+2026-04-11 14:20:51 WARNING System health OK
+2026-04-11 14:20:58 CRITICAL Network packet received
+2026-04-11 14:21:04 CRITICAL Unauthorized access attempt detected
+2026-04-11 15:01:04 ERROR Service restarted
+2026-04-11 15:01:07 DEBUG API request received
+2026-04-11 15:01:09 WARNING System rebooted unexpectedly
+2026-04-11 15:01:12 CRITICAL Network packet received
+2026-04-11 15:01:19 WARNING Network packet received
+2026-04-11 15:01:26 ERROR API request received
+2026-04-11 15:01:35 WARNING API request received
+2026-04-11 15:01:45 ERROR Network packet received
+2026-04-11 15:01:47 ERROR Database connection established
+2026-04-11 15:01:55 CRITICAL Background job started
+2026-04-11 15:02:04 WARNING Network packet received
+2026-04-11 15:02:11 CRITICAL Background job started
+2026-04-11 15:02:21 WARNING Backup process initiated
+2026-04-11 15:02:26 INFO Background job started
+2026-04-11 15:02:30 INFO API request received
+2026-04-11 15:02:31 CRITICAL Background job started
+2026-04-11 15:02:35 ERROR Network packet received
+2026-04-11 18:06:35 CRITICAL User login successful
+2026-04-11 18:06:37 WARNING Backup process initiated
+2026-04-11 18:06:39 DEBUG Database connection established
+2026-04-11 18:06:47 WARNING Disk usage normal
+2026-04-11 18:06:49 ERROR Network packet received
+2026-04-11 18:06:59 INFO System health OK
+2026-04-11 18:07:09 CRITICAL Disk usage normal
+2026-04-11 18:07:17 DEBUG API request received
+2026-04-11 18:07:20 CRITICAL Disk usage normal
+2026-04-11 21:45:20 CRITICAL System health OK
+2026-04-11 21:45:26 CRITICAL Background job started
+2026-04-11 21:45:29 WARNING Database connection established
+2026-04-11 21:45:35 ERROR System rebooted unexpectedly
+2026-04-11 21:45:45 WARNING Unauthorized access attempt detected
+2026-04-11 21:45:49 WARNING Background job started
+2026-04-11 21:45:51 WARNING Backup process initiated
+2026-04-11 21:45:55 WARNING Background job started
+2026-04-11 21:46:04 DEBUG Database connection established
+2026-04-11 21:46:14 INFO System rebooted unexpectedly
+2026-04-11 21:46:18 ERROR System rebooted unexpectedly
+2026-04-12 01:11:18 CRITICAL Service restarted
+2026-04-12 01:11:25 ERROR Network packet received
+2026-04-12 01:11:31 DEBUG Disk usage normal
+2026-04-12 01:11:33 WARNING API request received
+2026-04-12 01:11:35 CRITICAL System rebooted unexpectedly
+2026-04-12 01:11:41 ERROR Backup process initiated
+2026-04-12 01:11:47 ERROR Disk usage normal
+2026-04-12 01:11:56 INFO Database connection established
+2026-04-12 01:11:59 ERROR Disk usage normal
+2026-04-12 01:12:07 DEBUG System rebooted unexpectedly
+2026-04-12 01:12:14 DEBUG Background job started
+2026-04-12 01:12:21 INFO File accessed
+2026-04-12 01:12:31 DEBUG System rebooted unexpectedly
+2026-04-12 01:12:32 INFO Cache cleared
+2026-04-12 01:12:33 INFO System rebooted unexpectedly
+2026-04-12 01:12:35 INFO Disk usage normal
+2026-04-12 02:03:35 WARNING System health OK
+2026-04-12 02:03:44 ERROR Background job started
+2026-04-12 02:03:51 CRITICAL Network packet received
+2026-04-12 05:44:51 DEBUG Backup process initiated
+2026-04-12 05:45:00 CRITICAL User login successful
+2026-04-12 05:45:04 WARNING Cache cleared
+2026-04-12 05:45:10 INFO User login successful
+2026-04-12 05:45:18 CRITICAL System rebooted unexpectedly
+2026-04-12 05:45:19 CRITICAL Unauthorized access attempt detected
+2026-04-12 05:45:20 CRITICAL System health OK
+2026-04-12 06:27:20 DEBUG Backup process initiated
+2026-04-12 06:27:23 WARNING System rebooted unexpectedly
+2026-04-12 06:27:31 INFO System health OK
+2026-04-12 06:27:35 ERROR Database connection established
+2026-04-12 06:27:37 DEBUG Service restarted
+2026-04-12 06:27:42 DEBUG Unauthorized access attempt detected
+2026-04-12 06:27:47 CRITICAL Network packet received
+2026-04-12 06:27:56 WARNING Service restarted
+2026-04-12 06:28:04 WARNING Network packet received
+2026-04-12 06:28:14 DEBUG Background job started
+2026-04-12 06:49:14 ERROR System health OK
+2026-04-12 06:49:23 ERROR File accessed
+2026-04-12 06:49:30 ERROR Database connection established
+2026-04-12 06:49:38 CRITICAL Cache cleared
+2026-04-12 06:49:46 DEBUG System health OK
+2026-04-12 06:49:56 CRITICAL Database connection established
+2026-04-12 06:50:06 DEBUG Unauthorized access attempt detected
+2026-04-12 06:50:10 CRITICAL System rebooted unexpectedly
+2026-04-12 06:50:16 DEBUG System rebooted unexpectedly
+2026-04-12 06:50:24 DEBUG File accessed
+2026-04-12 06:50:29 DEBUG Backup process initiated
+2026-04-12 11:49:29 ERROR Disk usage normal
+2026-04-12 11:49:34 ERROR User login successful
+2026-04-12 11:49:41 CRITICAL Database connection established
+2026-04-12 11:49:46 DEBUG Service restarted
+2026-04-12 11:49:52 ERROR System rebooted unexpectedly
+2026-04-12 11:50:02 DEBUG File accessed
+2026-04-12 13:06:02 ERROR Unauthorized access attempt detected
+2026-04-12 13:06:10 CRITICAL Cache cleared
+2026-04-12 13:06:14 WARNING Service restarted
+2026-04-12 13:06:19 ERROR Service restarted
+2026-04-12 13:06:23 DEBUG File accessed
+2026-04-12 13:06:33 DEBUG Cache cleared
+2026-04-12 13:06:41 CRITICAL Unauthorized access attempt detected
+2026-04-12 13:06:46 DEBUG File accessed
+2026-04-12 13:06:50 CRITICAL System health OK
+2026-04-12 13:06:53 WARNING Disk usage normal
+2026-04-12 13:06:59 DEBUG Cache cleared
+2026-04-12 13:07:01 CRITICAL Unauthorized access attempt detected
+2026-04-12 13:07:11 DEBUG Cache cleared
+2026-04-12 13:07:12 CRITICAL Backup process initiated
+2026-04-12 13:07:13 INFO System rebooted unexpectedly
+2026-04-12 13:07:22 WARNING System rebooted unexpectedly
+2026-04-12 13:07:27 ERROR Disk usage normal
+2026-04-12 13:07:35 INFO System rebooted unexpectedly
+2026-04-12 13:07:36 WARNING Database connection established
+2026-04-12 13:07:43 DEBUG API request received
+2026-04-12 13:07:51 WARNING File accessed
+2026-04-12 13:07:55 DEBUG Cache cleared
+2026-04-12 14:19:55 ERROR System rebooted unexpectedly
+2026-04-12 14:20:01 DEBUG File accessed
+2026-04-12 14:20:05 CRITICAL Database connection established
+2026-04-12 14:20:09 CRITICAL API request received
+2026-04-12 14:20:15 CRITICAL Background job started
+2026-04-12 14:20:22 INFO Unauthorized access attempt detected
+2026-04-12 14:20:28 INFO Disk usage normal
+2026-04-12 14:20:37 DEBUG Cache cleared
+2026-04-12 14:20:45 DEBUG Network packet received
+2026-04-12 14:20:52 WARNING User login successful
+2026-04-12 14:20:55 WARNING Cache cleared
+2026-04-12 14:21:00 ERROR Unauthorized access attempt detected
+2026-04-12 14:21:08 INFO Backup process initiated
+2026-04-12 14:21:09 INFO Background job started
+2026-04-12 14:21:17 ERROR Service restarted
+2026-04-12 17:30:17 WARNING Backup process initiated
+2026-04-12 17:30:23 DEBUG User login successful
+2026-04-12 17:30:32 ERROR User login successful
+2026-04-12 17:30:35 CRITICAL User login successful
+2026-04-12 17:30:43 WARNING Service restarted
+2026-04-12 17:30:52 CRITICAL Background job started
+2026-04-12 17:30:57 INFO System health OK
+2026-04-12 19:17:57 CRITICAL User login successful
+2026-04-12 19:18:01 WARNING Background job started
+2026-04-12 19:18:03 CRITICAL Cache cleared
+2026-04-12 19:18:05 CRITICAL Cache cleared
+2026-04-12 19:18:14 CRITICAL System health OK
+2026-04-12 19:18:20 DEBUG Cache cleared
+2026-04-12 19:18:28 WARNING Backup process initiated
+2026-04-12 19:18:29 CRITICAL Network packet received
+2026-04-12 19:18:38 CRITICAL User login successful
+2026-04-12 19:18:41 ERROR Service restarted
+2026-04-12 19:18:49 CRITICAL Service restarted
+2026-04-12 19:18:54 INFO System rebooted unexpectedly
+2026-04-12 19:18:57 DEBUG Unauthorized access attempt detected
+2026-04-12 20:46:57 CRITICAL User login successful
+2026-04-12 20:47:02 INFO User login successful
+2026-04-12 20:47:12 CRITICAL File accessed
+2026-04-12 20:47:15 INFO User login successful
+2026-04-12 20:47:19 CRITICAL Database connection established
+2026-04-12 20:47:29 CRITICAL System rebooted unexpectedly
+2026-04-12 20:47:37 WARNING System rebooted unexpectedly
+2026-04-12 20:47:38 WARNING System health OK
+2026-04-12 20:47:41 INFO System rebooted unexpectedly
+2026-04-12 21:32:41 WARNING Service restarted
+2026-04-12 21:32:50 INFO Network packet received
+2026-04-13 00:13:50 ERROR Disk usage normal
+2026-04-13 00:13:59 WARNING System health OK
+2026-04-13 00:14:04 INFO Cache cleared
+2026-04-13 00:14:10 INFO Background job started
+2026-04-13 00:14:19 ERROR System rebooted unexpectedly
+2026-04-13 00:14:23 INFO Database connection established
+2026-04-13 00:14:33 WARNING System rebooted unexpectedly
+2026-04-13 00:14:38 CRITICAL Backup process initiated
+2026-04-13 00:14:45 CRITICAL Service restarted
+2026-04-13 00:14:52 WARNING System rebooted unexpectedly
+2026-04-13 00:14:59 CRITICAL Background job started
+2026-04-13 00:15:01 INFO System rebooted unexpectedly
+2026-04-13 00:15:03 ERROR Background job started
+2026-04-13 00:15:06 WARNING Unauthorized access attempt detected
+2026-04-13 03:06:06 INFO API request received
+2026-04-13 03:06:08 CRITICAL Service restarted
+2026-04-13 03:06:09 ERROR API request received
+2026-04-13 03:06:16 WARNING System rebooted unexpectedly
+2026-04-13 03:06:23 CRITICAL Disk usage normal
+2026-04-13 03:06:27 ERROR Unauthorized access attempt detected
+2026-04-13 03:06:28 CRITICAL Background job started
+2026-04-13 03:06:37 CRITICAL Cache cleared
+2026-04-13 06:59:37 DEBUG API request received
+2026-04-13 06:59:45 INFO Cache cleared
+2026-04-13 06:59:52 INFO System health OK
+2026-04-13 09:50:52 ERROR Background job started
+2026-04-13 09:50:54 DEBUG File accessed
+2026-04-13 09:50:59 ERROR Unauthorized access attempt detected
