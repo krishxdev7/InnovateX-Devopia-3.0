@@ -1,0 +1,284 @@
+/* THEME & FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@500;700&family=Syne:wght@800&display=swap');
+
+:root {
+  --bg-black: #050505;
+  --card-bg: #0d0d0d;
+  --neon-mint: #00ffa3;
+  --text-white: #ffffff;
+  --text-gray: #888888;
+  --text-dim: #7a7a85;
+  --grid-color: #111111;
+  --border-color: #1a1a1a;
+}
+
+/* BASE STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-black);
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+  color: var(--text-white);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* NAVIGATION  */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--neon-mint);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-gray);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--text-white);
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 6rem;
+  line-height: 1.0;
+  letter-spacing: -3px;
+  margin-bottom: 25px;
+}
+
+.hero h1 .accent {
+  color: var(--neon-mint);
+  display: block;
+}
+
+.hero h1 .dim {
+  color: var(--text-dim);
+  display: block;
+}
+
+.hero-sub {
+  max-width: 650px;
+  margin: 0 auto 40px;
+  color: var(--text-gray);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.hero-role {
+  color: var(--text-gray);
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+/* BUTTONS  */
+.btn-primary {
+  background-color: var(--neon-mint);
+  color: #000;
+  padding: 16px 36px;
+  border-radius: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 0 20px rgba(0, 255, 163, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(0, 255, 163, 0.4);
+}
+
+/* SECTION LAYOUT */
+.section-container {
+  max-width: 1100px;
+  margin: 100px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.8rem;
+  margin-bottom: 50px;
+}
+
+/* GRIDS & CARDS */
+.features-grid,
+.stats-grid,
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.feature-card,
+.upload-card,
+.stat-card,
+.step {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 40px;
+  border-radius: 16px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.feature-card:hover,
+.step:hover {
+  border-color: var(--neon-mint);
+  transform: translateY(-5px);
+}
+
+/* DASHBOARD STATS */
+.stat-label {
+  display: block;
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.text-red {
+  color: #ff4d4d;
+}
+
+.text-amber {
+  color: #ffb84d;
+}
+
+/* TERMINAL */
+.terminal-section {
+  max-width: 900px;
+  margin: 60px auto;
+}
+
+.terminal {
+  background: #000;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+  background: #111;
+  padding: 14px 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-r {
+  background: #ff5f56;
+}
+
+.dot-y {
+  background: #ffbd2e;
+}
+
+.dot-g {
+  background: #27c93f;
+}
+
+.terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-gray);
+  margin: 0 auto;
+}
+
+.terminal-body {
+  padding: 30px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  min-height: 250px;
+}
+
+/* FORM INPUTS  */
+input[type="file"],
+input[type="number"] {
+  width: 100%;
+  background: #111;
+  border: 1px solid var(--border-color);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0 25px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+input:focus {
+  border-color: var(--neon-mint);
+  outline: none;
+}
+
+/* UTILS */
+.hidden {
+  display: none !important;
+}
+
+.stats-placeholder {
+  text-align: center;
+  color: var(--text-dim);
+  margin-bottom: 30px;
+  font-style: italic;
+}
