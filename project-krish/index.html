@@ -91,6 +91,63 @@
 
 
 
+            <div class="workspace-grid">
+                
+                <div class="upload-container fade-in delay-2">
+                    <div class="upload-zone" id="drop-zone">
+                        <input type="file" id="file-input" hidden>
+                        <div class="upload-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                            </svg>
+                        </div>
+                        <h3>Upload Log File</h3>
+                        <p class="t-dim">Drag and drop your .log or .txt file here or click to browse.</p>
+                        <button class="btn-secondary" onclick="document.getElementById('file-input').click()">Select File</button>
+                    </div>
+                </div>
+
+                <div class="terminal output-terminal fade-in delay-3">
+                    <div class="terminal-header">
+                        <div class="dot dot-r"></div>
+                        <div class="dot dot-y"></div>
+                        <div class="dot dot-g"></div>
+                        <span class="terminal-title">live_analysis.sh — processing</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="t-dim">[SYSTEM] Awaiting file upload...</div>
+                        <div class="t-dim">[SYSTEM] Ready for bit-stream analysis.</div>
+                        <div class="t-green typing-effect">_</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+
+        dropZone.onclick = () => fileInput.click();
+
+        fileInput.onchange = (e) => {
+            const fileName = e.target.files[0].name;
+            const terminalBody = document.querySelector('.output-terminal .terminal-body');
+            terminalBody.innerHTML += `
+                <div class="t-white mt-1">> Initializing scan for: ${fileName}</div>
+                <div class="t-green">> [OK] File checksum verified.</div>
+                <div class="t-amber">> [WARN] Analyzing 14,000 temporal entry points...</div>
+                <div class="t-green">> Analysis Complete. Scroll up for results.</div>
+            `;
+        };
+    </script>
+</body>
+
+
+
+
+
   
     
 
