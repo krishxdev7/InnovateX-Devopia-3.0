@@ -1,82 +1,87 @@
 #!/usr/bin/env python3
-"""
-Evidence Protector – Automated Log Integrity Monitor
-Scans log files, extracts timestamps, and flags suspicious time gaps.
-"""
+"""Evidence Protector - Automated Log Integrity Monitor."""
+
+from __future__ import annotations
 
 import argparse
 import csv
 import json
-import os
 import re
 import sys
-from dataclasses import dataclass, asdict
-from datetime import datetime, timedelta
-from typing import List, Optional, Tuple
+from dataclasses import asdict, dataclass
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from typing import Optional
 
 
-# ─────────────────────────────────────────────
-#  Timestamp patterns (most common log formats)
-# ─────────────────────────────────────────────
-TIMESTAMP_PATTERNS: List[Tuple[str, str]] = [
-    # ISO 8601:  2024-01-15T14:32:10  /  2024-01-15T14:32:10.123Z
-    (r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?",
-     "%Y-%m-%dT%H:%M:%S"),
-    # Common syslog / Apache: 15/Jan/2024:14:32:10
-    (r"\d{2}/\w{3}/\d{4}:\d{2}:\d{2}:\d{2}",
-     "%d/%b/%Y:%H:%M:%S"),
-    # Standard datetime: 2024-01-15 14:32:10
-    (r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}",
-     "%Y-%m-%d %H:%M:%S"),
-    # US-style: 01/15/2024 14:32:10
-    (r"\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}",
-     "%m/%d/%Y %H:%M:%S"),
-    # Syslog short: Jan 15 14:32:10  (no year — assume current)
-    (r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2} \d{2}:\d{2}:\d{2}",
-     "%b %d %H:%M:%S"),
-    # Epoch seconds (10-digit)
-    (r"\b\d{10}\b", "EPOCH"),
-]
+ISO_8601_RE = re.compile(
+    r"\b\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:?\d{2})?\b"
+)
+APACHE_RE = re.compile(r"\b\d{2}/[A-Za-z]{3}/\d{4}:\d{2}:\d{2}:\d{2}\b")
+STANDARD_RE = re.compile(r"\b\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\b")
+US_STYLE_RE = re.compile(r"\b\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}\b")
+SYSLOG_SHORT_RE = re.compile(
+    r"\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{1,2} \d{2}:\d{2}:\d{2}\b"
+)
+EPOCH_RE = re.compile(r"\b\d{10}\b")
+
+SEVERITY_LOW = "LOW"
+SEVERITY_MEDIUM = "MEDIUM"
+SEVERITY_HIGH = "HIGH"
+SEVERITY_CRITICAL = "CRITICAL"
+SEVERITY_ORDER = (SEVERITY_LOW, SEVERITY_MEDIUM, SEVERITY_HIGH, SEVERITY_CRITICAL)
+
+ANSI_RESET = "\033[0m"
+ANSI_BOLD = "\033[1m"
+SEVERITY_COLOR = {
+    SEVERITY_LOW: "\033[93m",       # yellow
+    SEVERITY_MEDIUM: "\033[33m",    # dark yellow
+    SEVERITY_HIGH: "\033[91m",      # light red
+    SEVERITY_CRITICAL: "\033[1;31m" # bold red
+}
 
 
-@dataclass
+@dataclass(frozen=True)
 class LogEntry:
+    """Represents one parsed log line."""
+
     line_number: int
     timestamp: datetime
     raw_line: str
 
 
-@dataclass
+@dataclass(frozen=True)
 class Gap:
+    """Represents one suspicious time gap."""
+
     gap_id: int
     start_line: int
     end_line: int
-    start_time: str
-    end_time: str
-    duration_seconds: float
+    start_time: datetime
+    end_time: datetime
+    duration_seconds: int
     duration_human: str
-    severity: str          # LOW / MEDIUM / HIGH / CRITICAL
+    severity: str
 
 
-@dataclass
+@dataclass(frozen=True)
 class ParseStats:
+    """Aggregated parse statistics for a log file."""
+
     total_lines: int
     parsed_lines: int
     skipped_lines: int
-    first_entry: Optional[str]
-    last_entry: Optional[str]
+    first_timestamp: Optional[datetime]
+    last_timestamp: Optional[datetime]
 
 
-# ─────────────────────────────────────────────
-#  Helpers
-# ─────────────────────────────────────────────
-
-def human_duration(seconds: float) -> str:
-    td = timedelta(seconds=seconds)
-    days = td.days
-    hours, rem = divmod(td.seconds, 3600)
+def human_duration(seconds: int) -> str:
+    """Convert seconds into a compact human-readable duration string."""
+    duration = timedelta(seconds=seconds)
+    days = duration.days
+    hours, rem = divmod(duration.seconds, 3600)
     minutes, secs = divmod(rem, 60)
-    parts = []
+    parts: list[str] = []
     if days:
         parts.append(f"{days}d")
     if hours:
@@ -87,267 +92,374 @@ def human_duration(seconds: float) -> str:
     return " ".join(parts)
 
 
-def severity_label(seconds: float, threshold: float) -> str:
-    ratio = seconds / threshold
+def classify_severity(delta_seconds: int, threshold_seconds: int) -> str:
+    """Classify a gap duration relative to threshold."""
+    ratio = delta_seconds / threshold_seconds
     if ratio < 2:
-        return "LOW"
-    elif ratio < 5:
-        return "MEDIUM"
-    elif ratio < 20:
-        return "HIGH"
-    else:
-        return "CRITICAL"
+        return SEVERITY_LOW
+    if ratio <= 5:
+        return SEVERITY_MEDIUM
+    if ratio <= 20:
+        return SEVERITY_HIGH
+    return SEVERITY_CRITICAL
+
+
+def _parse_iso_8601(raw_value: str) -> Optional[datetime]:
+    """Parse ISO 8601 text and normalize to naive UTC when timezone is present."""
+    normalized = raw_value
+    if normalized.endswith("Z"):
+        normalized = normalized[:-1] + "+00:00"
+    if re.search(r"[+-]\d{4}$", normalized):
+        normalized = normalized[:-5] + normalized[-5:-2] + ":" + normalized[-2:]
+    try:
+        parsed = datetime.fromisoformat(normalized)
+    except ValueError:
+        return None
+    if parsed.tzinfo is not None:
+        return parsed.astimezone(timezone.utc).replace(tzinfo=None)
+    return parsed
 
 
 def extract_timestamp(line: str) -> Optional[datetime]:
-    """Try each known pattern; return first successful parse."""
-    for pattern, fmt in TIMESTAMP_PATTERNS:
-        match = re.search(pattern, line)
-        if not match:
-            continue
-        raw = match.group()
+    """Extract and parse the first supported timestamp found in a line."""
+    iso_match = ISO_8601_RE.search(line)
+    if iso_match:
+        parsed_iso = _parse_iso_8601(iso_match.group(0))
+        if parsed_iso is not None:
+            return parsed_iso
+
+    apache_match = APACHE_RE.search(line)
+    if apache_match:
         try:
-            if fmt == "EPOCH":
-                return datetime.fromtimestamp(int(raw))
-            # Strip timezone suffix for simple strptime
-            clean = re.sub(r"Z$|[+-]\d{2}:\d{2}$", "", raw)
-            ts = datetime.strptime(clean, fmt)
-            # Inject current year for short syslog format
-            if ts.year == 1900:
-                ts = ts.replace(year=datetime.now().year)
-            return ts
+            return datetime.strptime(apache_match.group(0), "%d/%b/%Y:%H:%M:%S")
         except ValueError:
-            continue
+            pass
+
+    standard_match = STANDARD_RE.search(line)
+    if standard_match:
+        try:
+            return datetime.strptime(standard_match.group(0), "%Y-%m-%d %H:%M:%S")
+        except ValueError:
+            pass
+
+    us_style_match = US_STYLE_RE.search(line)
+    if us_style_match:
+        try:
+            return datetime.strptime(us_style_match.group(0), "%m/%d/%Y %H:%M:%S")
+        except ValueError:
+            pass
+
+    syslog_match = SYSLOG_SHORT_RE.search(line)
+    if syslog_match:
+        try:
+            parsed = datetime.strptime(syslog_match.group(0), "%b %d %H:%M:%S")
+            return parsed.replace(year=datetime.now().year)
+        except ValueError:
+            pass
+
+    epoch_match = EPOCH_RE.search(line)
+    if epoch_match:
+        try:
+            epoch_value = int(epoch_match.group(0))
+            return datetime.fromtimestamp(epoch_value, tz=timezone.utc).replace(tzinfo=None)
+        except (ValueError, OSError):
+            pass
+
     return None
 
 
-# ─────────────────────────────────────────────
-#  Core scanner
-# ─────────────────────────────────────────────
-
-def scan_log(
-    filepath: str,
-    threshold_seconds: int,
-    verbose: bool = False,
-) -> Tuple[List[Gap], ParseStats]:
-    """Parse the log file and detect suspicious time gaps."""
-    entries: List[LogEntry] = []
+def parse_log_file(logfile: Path, verbose: bool) -> tuple[list[LogEntry], ParseStats]:
+    """Parse a log file line-by-line and collect entries/statistics."""
+    entries: list[LogEntry] = []
     total_lines = 0
-    skipped = 0
+    skipped_lines = 0
 
-    with open(filepath, "r", encoding="utf-8", errors="replace") as fh:
-        for lineno, line in enumerate(fh, start=1):
-            total_lines += 1
-            line = line.rstrip()
-            ts = extract_timestamp(line)
-            if ts is None:
-                skipped += 1
-                if verbose:
-                    print(f"  [SKIP] Line {lineno}: no timestamp found")
-                continue
-            entries.append(LogEntry(line_number=lineno, timestamp=ts, raw_line=line))
+    try:
+        with logfile.open("r", encoding="utf-8", errors="replace") as handle:
+            for line_number, raw_line in enumerate(handle, start=1):
+                total_lines += 1
+                text = raw_line.rstrip("\r\n")
+                parsed = extract_timestamp(text)
+                if parsed is None:
+                    skipped_lines += 1
+                    if verbose:
+                        print(f"[SKIP] line {line_number}: no parseable timestamp")
+                    continue
+                entries.append(LogEntry(line_number=line_number, timestamp=parsed, raw_line=text))
+    except FileNotFoundError as exc:
+        raise RuntimeError(f"Log file not found: {logfile}") from exc
+    except PermissionError as exc:
+        raise RuntimeError(f"Permission denied reading log file: {logfile}") from exc
+    except OSError as exc:
+        raise RuntimeError(f"Failed to read log file '{logfile}': {exc}") from exc
 
     stats = ParseStats(
         total_lines=total_lines,
         parsed_lines=len(entries),
-        skipped_lines=skipped,
-        first_entry=entries[0].timestamp.isoformat() if entries else None,
-        last_entry=entries[-1].timestamp.isoformat() if entries else None,
+        skipped_lines=skipped_lines,
+        first_timestamp=entries[0].timestamp if entries else None,
+        last_timestamp=entries[-1].timestamp if entries else None,
     )
+    return entries, stats
 
-    gaps: List[Gap] = []
-    gap_id = 1
-    threshold = timedelta(seconds=threshold_seconds)
 
-    for i in range(1, len(entries)):
-        prev = entries[i - 1]
-        curr = entries[i]
-        delta = curr.timestamp - prev.timestamp
-
-        # Ignore negative deltas (out-of-order entries) silently
-        if delta < timedelta(0):
+def detect_gaps(entries: list[LogEntry], threshold_seconds: int) -> list[Gap]:
+    """Detect suspicious timestamp gaps from parsed entries."""
+    gaps: list[Gap] = []
+    for index in range(1, len(entries)):
+        previous = entries[index - 1]
+        current = entries[index]
+        delta_seconds = int((current.timestamp - previous.timestamp).total_seconds())
+        if delta_seconds <= 0:
             continue
-
-        if delta > threshold:
-            secs = delta.total_seconds()
-            gaps.append(Gap(
-                gap_id=gap_id,
-                start_line=prev.line_number,
-                end_line=curr.line_number,
-                start_time=prev.timestamp.isoformat(),
-                end_time=curr.timestamp.isoformat(),
-                duration_seconds=secs,
-                duration_human=human_duration(secs),
-                severity=severity_label(secs, threshold_seconds),
-            ))
-            gap_id += 1
-
-    return gaps, stats
-
-
-# ─────────────────────────────────────────────
-#  Output formatters
-# ─────────────────────────────────────────────
-
-SEVERITY_COLOR = {
-    "LOW": "\033[93m",       # yellow
-    "MEDIUM": "\033[33m",    # dark yellow
-    "HIGH": "\033[91m",      # light red
-    "CRITICAL": "\033[1;31m" # bold red
-}
-RESET = "\033[0m"
-BOLD = "\033[1m"
+        if delta_seconds <= threshold_seconds:
+            continue
+        gaps.append(
+            Gap(
+                gap_id=len(gaps) + 1,
+                start_line=previous.line_number,
+                end_line=current.line_number,
+                start_time=previous.timestamp,
+                end_time=current.timestamp,
+                duration_seconds=delta_seconds,
+                duration_human=human_duration(delta_seconds),
+                severity=classify_severity(delta_seconds, threshold_seconds),
+            )
+        )
+    return gaps
 
 
-def print_terminal_report(gaps: List[Gap], stats: ParseStats, threshold: int, filepath: str):
-    width = 72
-    print("\n" + "═" * width)
-    print(f"{BOLD}  🔍 EVIDENCE PROTECTOR — Log Integrity Report{RESET}")
-    print("═" * width)
-    print(f"  File     : {filepath}")
-    print(f"  Threshold: {human_duration(threshold)} ({threshold}s)")
-    print(f"  Total lines parsed : {stats.parsed_lines:,} / {stats.total_lines:,}")
-    print(f"  Malformed / skipped: {stats.skipped_lines:,}")
-    if stats.first_entry:
-        print(f"  Log span : {stats.first_entry}  →  {stats.last_entry}")
-    print("─" * width)
+def build_stats_span(stats: ParseStats) -> str:
+    """Build a printable log span string."""
+    if stats.first_timestamp is None or stats.last_timestamp is None:
+        return "N/A"
+    return f"{stats.first_timestamp.isoformat()} -> {stats.last_timestamp.isoformat()}"
+
+
+def print_terminal_report(
+    logfile: Path, threshold_seconds: int, stats: ParseStats, gaps: list[Gap]
+) -> None:
+    """Print a colorized terminal report."""
+    print("=" * 78)
+    print(f"{ANSI_BOLD}Evidence Protector - Log Integrity Report{ANSI_RESET}")
+    print("=" * 78)
+    print(f"File path    : {logfile}")
+    print(f"Threshold    : {threshold_seconds}s ({human_duration(threshold_seconds)})")
+    print(f"Total lines  : {stats.total_lines}")
+    print(f"Parsed lines : {stats.parsed_lines}")
+    print(f"Skipped lines: {stats.skipped_lines}")
+    print(f"Log span     : {build_stats_span(stats)}")
+    print("-" * 78)
 
     if not gaps:
-        print(f"\n  {BOLD}✅  No suspicious gaps detected.{RESET}  Log appears intact.\n")
-        print("═" * width + "\n")
+        print(f"{ANSI_BOLD}No suspicious gaps found.{ANSI_RESET}")
+        print("=" * 78)
         return
 
-    print(f"\n  {BOLD}⚠️  {len(gaps)} suspicious gap(s) detected:{RESET}\n")
-
-    for g in gaps:
-        color = SEVERITY_COLOR.get(g.severity, "")
-        print(f"  {color}[{g.severity}]{RESET}  Gap #{g.gap_id}")
-        print(f"    Lines   : {g.start_line} → {g.end_line}")
-        print(f"    From    : {g.start_time}")
-        print(f"    To      : {g.end_time}")
-        print(f"    Missing : {BOLD}{g.duration_human}{RESET}  ({g.duration_seconds:.0f}s)")
-        print()
-
-    # Summary bar
-    counts = {s: sum(1 for g in gaps if g.severity == s)
-              for s in ("LOW", "MEDIUM", "HIGH", "CRITICAL")}
-    print("─" * width)
-    print("  Severity summary: ", end="")
-    for sev, cnt in counts.items():
-        if cnt:
-            col = SEVERITY_COLOR[sev]
-            print(f"{col}{sev}={cnt}{RESET}  ", end="")
-    print()
-    print("═" * width + "\n")
-
-
-def write_csv(gaps: List[Gap], output_path: str):
-    fields = ["gap_id", "start_line", "end_line", "start_time",
-              "end_time", "duration_seconds", "duration_human", "severity"]
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fields)
-        writer.writeheader()
-        for g in gaps:
-            writer.writerow(asdict(g))
-    print(f"  📄 CSV report saved → {output_path}")
+    print(f"Detected {len(gaps)} suspicious gap(s):")
+    for gap in gaps:
+        color = SEVERITY_COLOR.get(gap.severity, "")
+        print(
+            f"{color}[{gap.severity}]{ANSI_RESET} Gap #{gap.gap_id} | "
+            f"lines {gap.start_line}->{gap.end_line} | "
+            f"{gap.start_time.isoformat()} -> {gap.end_time.isoformat()} | "
+            f"{gap.duration_human} ({gap.duration_seconds}s)"
+        )
+    print("-" * 78)
+    severity_counts = {severity: 0 for severity in SEVERITY_ORDER}
+    for gap in gaps:
+        severity_counts[gap.severity] += 1
+    print("Severity counts: ", end="")
+    chunks: list[str] = []
+    for severity in SEVERITY_ORDER:
+        count = severity_counts[severity]
+        if count > 0:
+            chunks.append(f"{SEVERITY_COLOR[severity]}{severity}={count}{ANSI_RESET}")
+    print("  ".join(chunks))
+    print("=" * 78)
 
 
-def write_json(gaps: List[Gap], stats: ParseStats, output_path: str):
+def ensure_parent_dir(output_path: Path) -> None:
+    """Ensure the parent directory for an output file exists."""
+    try:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+    except OSError as exc:
+        raise RuntimeError(f"Failed to create output directory '{output_path.parent}': {exc}") from exc
+
+
+def serialize_gap(gap: Gap) -> dict[str, object]:
+    """Convert Gap dataclass into a JSON/CSV-safe mapping."""
+    data = asdict(gap)
+    data["start_time"] = gap.start_time.isoformat()
+    data["end_time"] = gap.end_time.isoformat()
+    return data
+
+
+def serialize_stats(stats: ParseStats) -> dict[str, object]:
+    """Convert ParseStats dataclass into a JSON-safe mapping."""
+    data = asdict(stats)
+    data["first_timestamp"] = (
+        stats.first_timestamp.isoformat() if stats.first_timestamp is not None else None
+    )
+    data["last_timestamp"] = (
+        stats.last_timestamp.isoformat() if stats.last_timestamp is not None else None
+    )
+    return data
+
+
+def write_csv_report(output_path: Path, gaps: list[Gap]) -> None:
+    """Write gaps to CSV report."""
+    ensure_parent_dir(output_path)
+    fieldnames = [
+        "gap_id",
+        "start_line",
+        "end_line",
+        "start_time",
+        "end_time",
+        "duration_seconds",
+        "duration_human",
+        "severity",
+    ]
+    try:
+        with output_path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+            writer.writeheader()
+            for gap in gaps:
+                writer.writerow(serialize_gap(gap))
+    except OSError as exc:
+        raise RuntimeError(f"Failed to write CSV report '{output_path}': {exc}") from exc
+    print(f"CSV report: {output_path}")
+
+
+def write_json_report(output_path: Path, logfile: Path, threshold_seconds: int, stats: ParseStats, gaps: list[Gap]) -> None:
+    """Write full scan result to JSON report."""
+    ensure_parent_dir(output_path)
     payload = {
-        "stats": asdict(stats),
-        "gaps": [asdict(g) for g in gaps],
+        "file": str(logfile),
+        "threshold_seconds": threshold_seconds,
+        "stats": serialize_stats(stats),
+        "gaps": [serialize_gap(gap) for gap in gaps],
     }
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(payload, f, indent=2, default=str)
-    print(f"  📄 JSON report saved → {output_path}")
+    try:
+        with output_path.open("w", encoding="utf-8") as handle:
+            json.dump(payload, handle, indent=2)
+    except OSError as exc:
+        raise RuntimeError(f"Failed to write JSON report '{output_path}': {exc}") from exc
+    print(f"JSON report: {output_path}")
 
 
-# ─────────────────────────────────────────────
-#  CLI
-# ─────────────────────────────────────────────
+def default_output_path(logfile: Path, output_mode: str) -> Path:
+    """Return default output report path for CSV or JSON mode."""
+    output_dir = Path.cwd() / "output"
+    suffix = ".csv" if output_mode == "csv" else ".json"
+    return output_dir / f"{logfile.stem}_gaps{suffix}"
+
+
+def resolve_output_paths(logfile: Path, output_mode: str, out_file: Optional[str]) -> tuple[Optional[Path], Optional[Path]]:
+    """Resolve output target paths for CSV and JSON reports."""
+    csv_path: Optional[Path] = None
+    json_path: Optional[Path] = None
+
+    if output_mode == "terminal":
+        return csv_path, json_path
+
+    if output_mode in {"csv", "json"}:
+        if out_file:
+            custom = Path(out_file)
+            if output_mode == "csv":
+                csv_path = custom
+            else:
+                json_path = custom
+        else:
+            if output_mode == "csv":
+                csv_path = default_output_path(logfile, "csv")
+            else:
+                json_path = default_output_path(logfile, "json")
+        return csv_path, json_path
+
+    if out_file:
+        base = Path(out_file)
+        if base.suffix.lower() == ".csv":
+            csv_path = base
+            json_path = base.with_suffix(".json")
+        elif base.suffix.lower() == ".json":
+            csv_path = base.with_suffix(".csv")
+            json_path = base
+        else:
+            csv_path = base.with_suffix(".csv")
+            json_path = base.with_suffix(".json")
+    else:
+        csv_path = default_output_path(logfile, "csv")
+        json_path = default_output_path(logfile, "json")
+    return csv_path, json_path
+
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(
-        prog="log_monitor",
-        description="Evidence Protector – Automated Log Integrity Monitor",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python log_monitor.py system.log
-  python log_monitor.py system.log --threshold 120 --output csv
-  python log_monitor.py auth.log -t 300 -o json --out-file report.json
-  python log_monitor.py app.log --verbose --output both
-        """,
+    """Build and return the CLI parser."""
+    parser = argparse.ArgumentParser(
+        description="Evidence Protector - Automated Log Integrity Monitor"
     )
-    p.add_argument("logfile", help="Path to the .log file to analyse")
-    p.add_argument(
-        "-t", "--threshold",
-        type=int, default=300,
-        metavar="SECONDS",
-        help="Gap threshold in seconds (default: 300 = 5 min)",
+    parser.add_argument("logfile", help="Path to the log file to scan")
+    parser.add_argument(
+        "-t",
+        "--threshold",
+        type=int,
+        default=300,
+        help="Gap threshold in seconds (default: 300)",
     )
-    p.add_argument(
-        "-o", "--output",
-        choices=["terminal", "csv", "json", "both"],
+    parser.add_argument(
+        "-o",
+        "--output",
+        choices=("terminal", "csv", "json", "both"),
         default="terminal",
-        help="Output format (default: terminal)",
+        help="Output mode (default: terminal)",
     )
-    p.add_argument(
+    parser.add_argument(
         "--out-file",
-        metavar="PATH",
-        help="Output file path for CSV/JSON (auto-named if omitted)",
+        help="Custom output file path (mode-specific, or base path for --output both)",
     )
-    p.add_argument(
-        "-v", "--verbose",
+    parser.add_argument(
+        "-v",
+        "--verbose",
         action="store_true",
-        help="Print skipped lines during parsing",
+        help="Print skipped lines while parsing",
     )
-    return p
+    return parser
 
 
-def main():
+def main() -> int:
+    """CLI entrypoint."""
     parser = build_parser()
     args = parser.parse_args()
 
-    # ── Validate input ──────────────────────────────────────────
-    if not os.path.isfile(args.logfile):
-        print(f"[ERROR] File not found: {args.logfile}", file=sys.stderr)
-        sys.exit(1)
-
+    logfile = Path(args.logfile)
     if args.threshold <= 0:
-        print("[ERROR] Threshold must be a positive integer.", file=sys.stderr)
-        sys.exit(1)
+        print("Error: threshold must be a positive integer.", file=sys.stderr)
+        return 2
+    if not logfile.exists():
+        print(f"Error: log file not found: {logfile}", file=sys.stderr)
+        return 2
+    if not logfile.is_file():
+        print(f"Error: path is not a file: {logfile}", file=sys.stderr)
+        return 2
 
-    print(f"\n  Scanning: {args.logfile} …")
-
-    # ── Scan ────────────────────────────────────────────────────
     try:
-        gaps, stats = scan_log(args.logfile, args.threshold, verbose=args.verbose)
-    except PermissionError:
-        print(f"[ERROR] Permission denied: {args.logfile}", file=sys.stderr)
-        sys.exit(1)
-    except Exception as e:
-        print(f"[ERROR] Unexpected error while scanning: {e}", file=sys.stderr)
-        sys.exit(1)
+        entries, stats = parse_log_file(logfile, verbose=args.verbose)
+        gaps = detect_gaps(entries, args.threshold)
+        csv_path, json_path = resolve_output_paths(logfile, args.output, args.out_file)
 
-    # ── Output ──────────────────────────────────────────────────
-    base_name = os.path.splitext(args.logfile)[0]
+        if args.output in {"terminal", "both"}:
+            print_terminal_report(logfile, args.threshold, stats, gaps)
+        if csv_path is not None:
+            write_csv_report(csv_path, gaps)
+        if json_path is not None:
+            write_json_report(json_path, logfile, args.threshold, stats, gaps)
+    except RuntimeError as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        return 2
 
-    fmt = args.output
-    if fmt in ("terminal", "both"):
-        print_terminal_report(gaps, stats, args.threshold, args.logfile)
-
-    if fmt in ("csv", "both"):
-        csv_path = args.out_file if (args.out_file and fmt == "csv") else f"{base_name}_gaps.csv"
-        write_csv(gaps, csv_path)
-
-    if fmt in ("json", "both"):
-        json_path = args.out_file if (args.out_file and fmt == "json") else f"{base_name}_gaps.json"
-        write_json(gaps, stats, json_path)
-
-    # ── Exit code: 1 if gaps found (useful for CI pipelines) ───
-    sys.exit(1 if gaps else 0)
+    return 1 if gaps else 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

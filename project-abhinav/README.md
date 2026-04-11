@@ -1,129 +1,118 @@
-# 🔍 Evidence Protector – Automated Log Integrity Monitor
+# <span style="color:#1E90FF;">Evidence Protector</span>  
+### <span style="color:#20B2AA;">Automated Log Integrity Monitor</span>
 
-A Python CLI tool that scans large log files, extracts timestamps, and
-automatically flags suspicious time gaps that may indicate log tampering.
-
----
-
-## Features
-
-| Feature | Details |
-|---|---|
-| **Multi-format timestamps** | ISO 8601, Apache/syslog, US-style, epoch seconds |
-| **Configurable threshold** | Any gap duration — default 5 min |
-| **Severity rating** | LOW / MEDIUM / HIGH / CRITICAL based on gap size |
-| **3 output modes** | Coloured terminal · CSV · JSON |
-| **Resilient parsing** | Malformed lines skipped gracefully, never crash |
-| **CI-friendly exit codes** | Exits `1` if gaps found, `0` if clean |
-| **Zero dependencies** | Pure Python standard library only |
+`Evidence Protector` is a production-ready Python CLI tool for detecting suspicious time gaps in log streams.  
+It is designed for incident analysis, evidence validation, and CI-style integrity checks.
 
 ---
 
-## Quick Start
+## <span style="color:#4169E1;">Project Structure</span>
 
-```bash
-# 1. Generate a sample log with built-in gaps
-python generate_sample_log.py
-
-# 2. Scan it (default 5-min threshold)
-python log_monitor.py sample.log
-
-# 3. Use a custom threshold (2 minutes)
-python log_monitor.py sample.log --threshold 120
-
-# 4. Export as CSV
-python log_monitor.py sample.log --output csv
-
-# 5. Export as JSON with custom filename
-python log_monitor.py sample.log -t 300 -o json --out-file report.json
-
-# 6. Both terminal + CSV at once
-python log_monitor.py sample.log --output both
-
-# 7. Verbose mode (see every skipped line)
-python log_monitor.py sample.log --verbose
-```
-
----
-
-## Sample Output
-
-```
-════════════════════════════════════════════════════════════════════════
-  🔍 EVIDENCE PROTECTOR — Log Integrity Report
-════════════════════════════════════════════════════════════════════════
-  File     : sample.log
-  Threshold: 5m 0s (300s)
-  Total lines parsed : 1,153 / 1,156
-  Malformed / skipped: 3
-  Log span : 2024-03-10T00:00:18  →  2024-03-10T11:44:32
-────────────────────────────────────────────────────────────────────────
-
-  ⚠️  3 suspicious gap(s) detected:
-
-  [LOW]  Gap #1
-    Lines   : 403 → 404
-    From    : 2024-03-10T02:00:14
-    To      : 2024-03-10T02:47:22
-    Missing : 47m 8s  (2828s)
-
-  [CRITICAL]  Gap #2
-    Lines   : 657 → 658
-    From    : 2024-03-10T04:50:11
-    To      : 2024-03-10T08:02:19
-    Missing : 3h 12m 8s  (11528s)
-
-  [LOW]  Gap #3
-    Lines   : 958 → 959
-    From    : 2024-03-10T10:17:45
-    To      : 2024-03-10T10:25:51
-    Missing : 8m 6s  (486s)
-
-────────────────────────────────────────────────────────────────────────
-  Severity summary: LOW=2  CRITICAL=1
-════════════════════════════════════════════════════════════════════════
-```
-
----
-
-## Severity Scale
-
-| Rating | Gap size vs threshold |
-|---|---|
-| **LOW** | < 2× threshold |
-| **MEDIUM** | 2× – 5× threshold |
-| **HIGH** | 5× – 20× threshold |
-| **CRITICAL** | > 20× threshold |
-
----
-
-## Supported Log Formats
-
-```
-2024-03-10T14:32:10Z          ← ISO 8601
-2024-03-10 14:32:10           ← Standard datetime
-15/Mar/2024:14:32:10          ← Apache / Nginx
-03/10/2024 14:32:10           ← US-style
-Mar 10 14:32:10               ← Syslog short
-1710074530                    ← Unix epoch
-```
-
----
-
-## Output Files
-
-| Format | Contents |
-|---|---|
-| **CSV** | One row per gap: gap_id, start/end lines, timestamps, duration, severity |
-| **JSON** | Full stats block + gaps array, machine-readable |
-
----
-
-## Project Structure
-
-```
-evidence_protector/
-├── log_monitor.py          ← Main CLI tool
-├── generate_sample_log.py  ← Test log generator
+```text
+project-abhinav/
+├── src/
+│   ├── log_monitor.py
+│   └── generate_sample_log.py
+├── sample-logs/
+│   └── sample.log
+├── output/
+│   ├── Output.md
+│   └── reports/
+│       ├── report.csv
+│       ├── report.json
+│       └── sample_gaps.json
 └── README.md
 ```
+
+---
+
+## <span style="color:#4169E1;">Key Features</span>
+
+| Capability | Details |
+|---|---|
+| Multi-format parsing | ISO 8601, Apache/Nginx, standard datetime, US datetime, syslog short, Unix epoch |
+| Gap detection | Detects timestamp gaps above configurable threshold |
+| Severity classification | LOW, MEDIUM, HIGH, CRITICAL based on threshold multiples |
+| Safe parsing | Malformed lines are skipped without crashing |
+| Flexible output | Terminal, CSV, JSON, or both |
+| CI-friendly behavior | Exit code `1` when gaps are found, `0` when clean |
+| Dependency policy | Python standard library only |
+
+---
+
+## <span style="color:#4169E1;">Timestamp Formats Supported</span>
+
+```text
+2024-03-10T14:32:10Z      (ISO 8601)
+15/Mar/2024:14:32:10      (Apache/Nginx)
+2024-03-10 14:32:10       (Standard datetime)
+03/10/2024 14:32:10       (US-style datetime)
+Mar 10 14:32:10           (Syslog short)
+1710074530                (Unix epoch, 10-digit)
+```
+
+---
+
+## <span style="color:#4169E1;">Severity Model</span>
+
+| Severity | Rule (gap vs threshold) |
+|---|---|
+| LOW | `< 2x` |
+| MEDIUM | `2x - 5x` |
+| HIGH | `> 5x - 20x` |
+| CRITICAL | `> 20x` |
+
+---
+
+## <span style="color:#4169E1;">Usage</span>
+
+Run from `project-abhinav/`:
+
+```bash
+python src/generate_sample_log.py
+python src/log_monitor.py sample-logs/sample.log
+python src/log_monitor.py sample-logs/sample.log --threshold 120
+python src/log_monitor.py sample-logs/sample.log --output csv
+python src/log_monitor.py sample-logs/sample.log -o json --out-file output/report.json
+python src/log_monitor.py sample-logs/sample.log --output both --verbose
+```
+
+### CLI Options
+
+| Option | Description | Default |
+|---|---|---|
+| `logfile` | Path to `.log` file | Required |
+| `-t, --threshold` | Gap threshold in seconds | `300` |
+| `-o, --output` | `terminal`, `csv`, `json`, `both` | `terminal` |
+| `--out-file` | Custom output filename/path | Auto-derived |
+| `-v, --verbose` | Print skipped line notices | Off |
+
+---
+
+## <span style="color:#4169E1;">Current Sample Scan Result</span>
+
+For `sample-logs/sample.log` at threshold `300s`:
+
+- Total lines: `1043`
+- Parsed lines: `1040`
+- Skipped lines: `3`
+- Gaps detected: `3`
+  - Gap 1: `47m 9s` (HIGH)
+  - Gap 2: `3h 12m 6s` (CRITICAL)
+  - Gap 3: `8m 11s` (LOW)
+
+Detailed records are available in:
+
+- `output/reports/report.csv`
+- `output/reports/report.json`
+- `output/reports/sample_gaps.json`
+- `output/Output.md`
+
+---
+
+## <span style="color:#4169E1;">Notes</span>
+
+- All file paths are relative to the project root unless absolute paths are provided.
+- Output reports are intended to support both analyst review and machine processing.
+- The tool is resilient to malformed lines and continues scanning safely.
+
