@@ -1,0 +1,206 @@
+2026-04-10 22:00:00 [ERROR] Network packet dropped from 10.0.0.48
+2026-04-10 22:01:08 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 22:01:49 [INFO] New process spawned: PID 55525
+2026-04-10 22:02:02 [WARNING] System health check: CPU 86% | RAM 76%
+2026-04-10 22:02:40 [INFO] User 'admin' logged in from 192.168.1.145
+2026-04-10 22:03:58 [INFO] File permission changed on '/etc/passwd'
+2026-04-10 22:04:24 [ERROR] Backup process started for '/home/data'
+2026-04-10 22:06:14 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 22:07:39 [INFO] Network packet dropped from 10.0.0.183
+2026-04-10 22:09:05 [ERROR] File permission changed on '/etc/passwd'
+2026-04-10 22:10:11 [ERROR] Firewall rule applied: ALLOW port 443
+2026-04-10 22:10:35 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 22:10:46 [INFO] Service 'nginx' restarted successfully
+2026-04-10 22:12:38 [INFO] Network packet dropped from 10.0.0.91
+2026-04-10 22:12:43 [INFO] Network packet dropped from 10.0.0.90
+2026-04-10 22:13:44 [WARNING] New process spawned: PID 39176
+2026-04-10 22:14:37 [WARNING] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 22:16:01 [INFO] Service 'nginx' restarted successfully
+2026-04-10 22:16:51 [ERROR] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 22:18:34 [INFO] Backup process started for '/home/data'
+2026-04-10 22:19:21 [INFO] New process spawned: PID 43836
+2026-04-10 22:20:17 [WARNING] Network packet dropped from 10.0.0.138
+2026-04-10 22:20:26 [INFO] Backup process started for '/home/data'
+2026-04-10 22:21:02 [ERROR] Network packet dropped from 10.0.0.94
+2026-04-10 22:22:08 [INFO] Service 'nginx' restarted successfully
+2026-04-10 22:22:34 [INFO] Network packet dropped from 10.0.0.196
+2026-04-10 22:24:17 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 22:25:08 [ERROR] System health check: CPU 56% | RAM 57%
+2026-04-10 22:25:16 [INFO] Database query executed on table 'users'
+2026-04-10 22:25:48 [INFO] SSH session opened for user 'root'
+2026-04-10 22:27:34 [INFO] Service 'nginx' restarted successfully
+2026-04-10 22:28:32 [ERROR] Service 'nginx' restarted successfully
+2026-04-10 22:29:43 [INFO] New process spawned: PID 72838
+2026-04-10 22:30:05 [WARNING] SSH session opened for user 'root'
+2026-04-10 22:30:44 [INFO] SSH session opened for user 'root'
+2026-04-10 22:31:10 [ERROR] User 'admin' logged in from 192.168.1.131
+2026-04-10 22:32:20 [INFO] Database query executed on table 'users'
+2026-04-10 22:33:10 [INFO] Authentication token refreshed for session 6328
+2026-04-10 22:33:55 [INFO] Backup process started for '/home/data'
+2026-04-10 22:35:20 [INFO] Database query executed on table 'users'
+2026-04-10 22:36:22 [WARNING] Backup process started for '/home/data'
+2026-04-10 22:37:46 [INFO] File permission changed on '/etc/passwd'
+2026-04-10 22:37:55 [WARNING] Authentication token refreshed for session 2960
+2026-04-10 22:39:01 [INFO] Database query executed on table 'users'
+2026-04-10 22:40:18 [ERROR] Firewall rule applied: ALLOW port 443
+2026-04-10 22:41:22 [WARNING] User 'admin' logged in from 192.168.1.49
+2026-04-10 22:41:56 [WARNING] API request received: GET /api/v1/users
+2026-04-10 22:42:43 [WARNING] Backup process started for '/home/data'
+2026-04-10 22:43:38 [INFO] DNS query resolved: google.com -> 142.250.140.5
+2026-04-10 22:45:08 [INFO] API request received: GET /api/v1/users
+2026-04-10 22:46:30 [INFO] New process spawned: PID 30909
+2026-04-10 22:46:46 [INFO] DNS query resolved: google.com -> 142.250.190.7
+2026-04-10 22:48:32 [ERROR] File '/var/www/html/index.php' accessed
+2026-04-10 22:48:56 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 22:50:53 [INFO] System health check: CPU 94% | RAM 52%
+2026-04-10 22:51:48 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-10 22:52:45 [INFO] Authentication token refreshed for session 4058
+2026-04-10 22:53:54 [INFO] System health check: CPU 12% | RAM 42%
+2026-04-10 22:54:32 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 22:56:21 [INFO] API request received: GET /api/v1/users
+2026-04-10 22:57:06 [ERROR] Authentication token refreshed for session 1685
+2026-04-10 22:58:57 [INFO] SSH session opened for user 'root'
+2026-04-10 22:59:10 [INFO] SSH session opened for user 'root'
+2026-04-10 22:59:45 [ERROR] Service 'nginx' restarted successfully
+2026-04-10 23:01:23 [INFO] DNS query resolved: google.com -> 142.250.29.194
+2026-04-10 23:01:28 [INFO] Database query executed on table 'users'
+2026-04-10 23:02:10 [ERROR] Authentication token refreshed for session 4399
+2026-04-10 23:03:48 [WARNING] API request received: GET /api/v1/users
+2026-04-10 23:05:35 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-10 23:07:00 [INFO] DNS query resolved: google.com -> 142.250.163.171
+2026-04-10 23:07:08 [WARNING] Network packet dropped from 10.0.0.177
+2026-04-10 23:08:22 [ERROR] System health check: CPU 49% | RAM 83%
+2026-04-10 23:08:40 [INFO] File permission changed on '/etc/passwd'
+2026-04-10 23:09:00 [INFO] New process spawned: PID 68342
+2026-04-10 23:10:39 [WARNING] Cron job executed: /etc/cron.daily/logrotate
+2026-04-10 23:11:42 [ERROR] Service 'nginx' restarted successfully
+2026-04-10 23:13:33 [ERROR] SSH session opened for user 'root'
+2026-04-10 23:14:20 [INFO] User 'admin' logged in from 192.168.1.183
+2026-04-10 23:15:40 [INFO] Backup process started for '/home/data'
+2026-04-10 23:17:05 [ERROR] File permission changed on '/etc/passwd'
+2026-04-11 01:35:00 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 01:36:16 [INFO] System health check: CPU 38% | RAM 33%
+2026-04-11 01:37:27 [INFO] Service 'nginx' restarted successfully
+2026-04-11 01:38:56 [WARNING] New process spawned: PID 11644
+2026-04-11 01:40:07 [INFO] New process spawned: PID 68168
+2026-04-11 01:41:04 [WARNING] Service 'nginx' restarted successfully
+2026-04-11 01:42:14 [INFO] Network packet dropped from 10.0.0.231
+2026-04-11 01:43:38 [INFO] System health check: CPU 73% | RAM 27%
+2026-04-11 01:44:13 [ERROR] API request received: GET /api/v1/users
+2026-04-11 01:44:21 [ERROR] Service 'nginx' restarted successfully
+2026-04-11 01:44:31 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 01:44:46 [INFO] Backup process started for '/home/data'
+2026-04-11 01:45:12 [INFO] DNS query resolved: google.com -> 142.250.246.134
+2026-04-11 01:46:29 [INFO] New process spawned: PID 72698
+2026-04-11 01:47:17 [INFO] API request received: GET /api/v1/users
+2026-04-11 01:48:15 [WARNING] Backup process started for '/home/data'
+2026-04-11 01:49:05 [INFO] SSH session opened for user 'root'
+2026-04-11 01:49:35 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 01:50:17 [INFO] Service 'nginx' restarted successfully
+2026-04-11 01:51:11 [INFO] New process spawned: PID 10685
+2026-04-11 01:52:23 [INFO] System health check: CPU 49% | RAM 47%
+2026-04-11 01:53:44 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 01:54:26 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 01:54:47 [INFO] System health check: CPU 24% | RAM 72%
+2026-04-11 01:55:35 [INFO] DNS query resolved: google.com -> 142.250.48.159
+2026-04-11 01:56:26 [INFO] User 'admin' logged in from 192.168.1.97
+2026-04-11 01:56:43 [INFO] Database query executed on table 'users'
+2026-04-11 01:57:54 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 01:58:07 [INFO] File permission changed on '/etc/passwd'
+2026-04-11 01:59:06 [INFO] Network packet dropped from 10.0.0.62
+2026-04-11 01:59:36 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 01:59:52 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 02:00:23 [INFO] File '/var/www/html/index.php' accessed
+2026-04-11 02:01:10 [INFO] Database query executed on table 'users'
+2026-04-11 02:02:29 [INFO] System health check: CPU 60% | RAM 59%
+2026-04-11 02:03:36 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 02:04:43 [INFO] SSH session opened for user 'root'
+2026-04-11 02:04:50 [WARNING] New process spawned: PID 2196
+2026-04-11 02:05:06 [WARNING] DNS query resolved: google.com -> 142.250.57.21
+2026-04-11 02:05:55 [INFO] Database query executed on table 'users'
+2026-04-11 02:51:18 [INFO] Authentication token refreshed for session 2547
+2026-04-11 02:51:42 [WARNING] Authentication token refreshed for session 4093
+2026-04-11 02:52:19 [ERROR] New process spawned: PID 81059
+2026-04-11 02:52:28 [INFO] Service 'nginx' restarted successfully
+2026-04-11 02:53:24 [WARNING] API request received: GET /api/v1/users
+2026-04-11 02:54:16 [INFO] Backup process started for '/home/data'
+2026-04-11 02:54:46 [INFO] Network packet dropped from 10.0.0.238
+2026-04-11 02:55:03 [ERROR] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 02:55:28 [INFO] SSH session opened for user 'root'
+2026-04-11 02:56:23 [INFO] Authentication token refreshed for session 3185
+2026-04-11 02:57:06 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 02:57:27 [INFO] System health check: CPU 81% | RAM 32%
+2026-04-11 02:58:16 [INFO] New process spawned: PID 95980
+2026-04-11 02:58:40 [INFO] Firewall rule applied: ALLOW port 443
+This line has no timestamp at all
+2026-04-11 02:58:57 [WARNING] Firewall rule applied: ALLOW port 443
+2026-04-11 02:59:35 [INFO] System health check: CPU 22% | RAM 35%
+ERROR something went wrong badly!!
+2026-04-11 03:00:26 [INFO] User 'admin' logged in from 192.168.1.108
+2026-04-11 03:00:37 [INFO] Service 'nginx' restarted successfully
+2026-04-11 03:01:11 [WARNING] Database query executed on table 'users'
+2026-04-11 03:02:02 [WARNING] Firewall rule applied: ALLOW port 443
+2026-04-11 03:02:57 [INFO] User 'admin' logged in from 192.168.1.75
+2026-04-11 03:03:38 [INFO] User 'admin' logged in from 192.168.1.89
+2026-04-11 03:03:48 [INFO] DNS query resolved: google.com -> 142.250.250.239
+2026-04-11 03:04:27 [INFO] File permission changed on '/etc/passwd'
+------------------------------------
+2026-04-11 03:05:19 [ERROR] New process spawned: PID 37037
+2026-04-11 03:05:53 [INFO] File permission changed on '/etc/passwd'
+2026-04-11 03:06:41 [INFO] API request received: GET /api/v1/users
+2026-04-11 03:07:07 [INFO] Authentication token refreshed for session 3968
+2026-04-11 03:07:12 [INFO] User 'admin' logged in from 192.168.1.142
+2026-04-11 03:07:23 [WARNING] File '/var/www/html/index.php' accessed
+2026-04-11 03:08:08 [ERROR] File permission changed on '/etc/passwd'
+2026-04-11 03:08:17 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 03:08:47 [INFO] SSH session opened for user 'root'
+2026-04-11 03:09:28 [INFO] DNS query resolved: google.com -> 142.250.163.65
+2026-04-11 03:10:11 [ERROR] Service 'nginx' restarted successfully
+2026-04-11 03:10:36 [INFO] DNS query resolved: google.com -> 142.250.69.85
+2026-04-11 03:11:06 [INFO] Network packet dropped from 10.0.0.129
+2026-04-11 03:11:33 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 03:12:19 [INFO] Network packet dropped from 10.0.0.1
+2024-99-99 25:61:99 [BAD] Totally broken timestamp
+2026-04-11 03:12:45 [INFO] File permission changed on '/etc/passwd'
+2026-04-11 03:25:35 [INFO] DNS query resolved: google.com -> 142.250.6.243
+2026-04-11 03:26:00 [INFO] User 'admin' logged in from 192.168.1.99
+2026-04-11 03:26:41 [INFO] Authentication token refreshed for session 4624
+2026-04-11 03:27:40 [WARNING] Service 'nginx' restarted successfully
+2026-04-11 03:27:58 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 03:28:35 [ERROR] DNS query resolved: google.com -> 142.250.185.78
+2026-04-11 03:28:56 [INFO] System health check: CPU 59% | RAM 32%
+2026-04-11 03:29:42 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 03:29:53 [INFO] User 'admin' logged in from 192.168.1.36
+2026-04-11 03:30:41 [INFO] File '/var/www/html/index.php' accessed
+2026-04-11 03:31:07 [INFO] Database query executed on table 'users'
+2026-04-11 03:31:46 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 03:32:40 [INFO] DNS query resolved: google.com -> 142.250.155.79
+2026-04-11 03:33:00 [INFO] Database query executed on table 'users'
+2026-04-11 03:33:14 [INFO] Database query executed on table 'users'
+2026-04-11 03:33:59 [WARNING] Service 'nginx' restarted successfully
+2026-04-11 03:34:19 [INFO] User 'admin' logged in from 192.168.1.11
+2026-04-11 03:34:29 [INFO] SSH session opened for user 'root'
+2026-04-11 03:34:51 [INFO] Firewall rule applied: ALLOW port 443
+
+2026-04-11 03:35:31 [WARNING] Service 'nginx' restarted successfully
+2026-04-11 03:35:47 [INFO] System health check: CPU 61% | RAM 58%
+2026-04-11 03:36:12 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 03:36:45 [INFO] Backup process started for '/home/data'
+2026-04-11 03:37:11 [ERROR] DNS query resolved: google.com -> 142.250.77.247
+2026-04-11 03:37:30 [INFO] User 'admin' logged in from 192.168.1.98
+2026-04-11 03:37:44 [INFO] Cron job executed: /etc/cron.daily/logrotate
+2026-04-11 03:38:23 [INFO] DNS query resolved: google.com -> 142.250.91.249
+2026-04-11 03:38:48 [INFO] Service 'nginx' restarted successfully
+2026-04-11 03:39:13 [INFO] SSH session opened for user 'root'
+   
+2026-04-11 03:39:33 [INFO] Firewall rule applied: ALLOW port 443
+2026-04-11 03:40:09 [ERROR] Backup process started for '/home/data'
+2026-04-11 03:41:07 [WARNING] File '/var/www/html/index.php' accessed
+2026-04-11 03:41:46 [WARNING] DNS query resolved: google.com -> 142.250.153.241
+2026-04-11 03:42:41 [WARNING] New process spawned: PID 32043
+2026-04-11 03:43:13 [INFO] System health check: CPU 46% | RAM 74%
+2026-04-11 03:43:27 [INFO] User 'admin' logged in from 192.168.1.253
+2026-04-11 03:43:58 [INFO] System health check: CPU 44% | RAM 44%
+2026-04-11 03:44:16 [INFO] Authentication token refreshed for session 8066
+2026-04-11 03:45:13 [INFO] Service 'nginx' restarted successfully
+2026-04-11 03:45:41 [INFO] Database query executed on table 'users'

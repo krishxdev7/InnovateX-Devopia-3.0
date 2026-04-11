@@ -1,27 +1,16 @@
-#!/usr/bin/env python3
 """
 Large Log File Generator — Evidence Protector
-==============================================
-Generates a realistic 100,000+ line log file with:
-  - Multiple services (web, database, auth, firewall, system)
-  - Intentional suspicious gaps at random positions
-  - Duplicate timestamps (another sign of tampering)
-  - Bursts of ERROR logs (simulating attacks)
-  - After-hours suspicious logins
-  - Malformed lines scattered throughout
-
-Usage:
-    python generate_large_log.py
-    python generate_large_log.py --lines 200000 --output big.log
+Generates a realistic 100,000+ line log file with suspicious events.
 """
 
 import argparse
 import random
 from datetime import datetime, timedelta
+import os
 
-# ── Config ────────────────────────────────────────────────────────────────────
-LEVELS = ["INFO", "INFO", "INFO", "WARNING", "ERROR", "DEBUG"]  # INFO weighted
+# ── Config ─────────────────────────────────────────────────────────────
 
+LEVELS = ["INFO", "INFO", "INFO", "WARNING", "ERROR", "DEBUG"]
 SERVICES = ["webserver", "database", "auth", "firewall", "system"]
 
 MESSAGES = {
@@ -78,16 +67,14 @@ MALFORMED = [
     "null null null",
     "",
     "---SYSTEM RESTART---",
-    "binary data: \x00\x01\x02",
+    "binary data: \\x00\\x01\\x02",
     "timestamp missing [INFO] something happened",
 ]
 
-
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# ── Helpers ───────────────────────────────────────────────────────────
 
 def rand_msg(service):
     template = random.choice(MESSAGES[service])
-    # Fill all {} placeholders with random numbers
     filled = ""
     i = 0
     while i < len(template):
@@ -103,8 +90,7 @@ def rand_msg(service):
 def fmt(ts, level, service, msg):
     return f"{ts.strftime('%Y-%m-%d %H:%M:%S')} [{level}] [{service}] {msg}"
 
-
-# ── Generator ─────────────────────────────────────────────────────────────────
+# ── Generator ─────────────────────────────────────────────────────────
 
 def generate(total_lines: int, output: str):
     lines = []
@@ -112,131 +98,125 @@ def generate(total_lines: int, output: str):
     gaps_inserted = []
     suspicious_count = 0
 
+    # Ensure the directory exists
+    directory = os.path.dirname(output)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+
     print(f"[*] Generating {total_lines:,} log lines... please wait")
 
-    # We'll build in blocks separated by planted gaps
-    # Distribute lines across ~10 blocks
     block_sizes = []
     remaining = total_lines
     num_blocks = 10
+
     for i in range(num_blocks - 1):
-        size = random.randint(
-            int(remaining * 0.05),
-            int(remaining * 0.15)
-        )
+        size = random.randint(int(remaining * 0.05), int(remaining * 0.15))
         block_sizes.append(size)
         remaining -= size
+
     block_sizes.append(remaining)
     random.shuffle(block_sizes)
 
     for block_idx, block_size in enumerate(block_sizes):
-        # ── Normal log block ──────────────────────────────────────────────────
+
+        # Normal logs
         for _ in range(block_size):
             ts += timedelta(seconds=random.randint(1, 15))
             service = random.choice(SERVICES)
-            level   = random.choice(LEVELS)
-            msg     = rand_msg(service)
+            level = random.choice(LEVELS)
+            msg = rand_msg(service)
             lines.append(fmt(ts, level, service, msg))
 
-        # ── After last block, no gap needed ──────────────────────────────────
         if block_idx == len(block_sizes) - 1:
             break
 
-        # ── Plant suspicious events between blocks ────────────────────────────
+        # Suspicious events
         event = random.choice(["gap", "gap", "gap", "error_burst", "after_hours", "duplicate"])
 
         if event == "gap":
-            # Suspicious forward gap: 20 min to 3 hours
             gap_minutes = random.randint(20, 180)
-            gap_start   = ts
+            gap_start = ts
             ts += timedelta(minutes=gap_minutes)
+
             gaps_inserted.append({
-                "type"    : "GAP",
-                "at_line" : len(lines),
+                "type": "GAP",
+                "at_line": len(lines),
                 "duration": f"{gap_minutes} minutes",
-                "from"    : gap_start,
-                "to"      : ts,
+                "from": gap_start,
+                "to": ts,
             })
             suspicious_count += 1
 
         elif event == "error_burst":
-            # 50–200 ERROR lines in rapid succession (simulates attack)
             burst = random.randint(50, 200)
             for _ in range(burst):
                 ts += timedelta(seconds=random.randint(0, 2))
                 service = random.choice(["auth", "firewall", "webserver"])
-                msg     = rand_msg(service)
+                msg = rand_msg(service)
                 lines.append(fmt(ts, "ERROR", service, msg))
+
             gaps_inserted.append({
-                "type"    : "ERROR BURST",
-                "at_line" : len(lines),
+                "type": "ERROR BURST",
+                "at_line": len(lines),
                 "duration": f"{burst} rapid ERROR lines",
-                "from"    : ts,
-                "to"      : ts,
+                "from": ts,
+                "to": ts,
             })
             suspicious_count += 1
 
         elif event == "after_hours":
-            # Jump to 2–4 AM (suspicious login time)
-            ts = ts.replace(hour=random.randint(2, 4),
-                            minute=random.randint(0, 59))
+            ts = ts.replace(hour=random.randint(2, 4), minute=random.randint(0, 59))
             for _ in range(random.randint(10, 30)):
                 ts += timedelta(seconds=random.randint(5, 60))
                 lines.append(fmt(ts, "WARNING", "auth",
-                    f"After-hours login: user_id={random.randint(1,999)} "
-                    f"ip=203.0.113.{random.randint(1,254)}"))
+                    f"After-hours login: user_id={random.randint(1,999)} ip=203.0.113.{random.randint(1,254)}"))
             suspicious_count += 1
 
         elif event == "duplicate":
-            # Duplicate timestamps — same second, many entries
             dup_ts = ts
             for _ in range(random.randint(5, 20)):
                 service = random.choice(SERVICES)
                 lines.append(fmt(dup_ts, "INFO", service, rand_msg(service)))
             suspicious_count += 1
 
-        # Scatter malformed lines
         if random.random() < 0.4:
             lines.append(random.choice(MALFORMED))
 
-    # ── Write to file ─────────────────────────────────────────────────────────
+    # Write file using UTF-8 encoding for safety
     with open(output, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
 
-    # ── Summary ───────────────────────────────────────────────────────────────
     size_mb = round(os.path.getsize(output) / (1024 * 1024), 2)
 
-    print(f"\n{'='*55}")
-    print(f"  ✔  Log file generated successfully!")
-    print(f"{'='*55}")
-    print(f"  File           : {output}")
-    print(f"  Total lines    : {len(lines):,}")
-    print(f"  File size      : {size_mb} MB")
-    print(f"  Log period     : {datetime(2026,1,1)} → {ts}")
+    print("\n" + "="*55)
+    print("  Log file generated successfully!")
+    print("="*55)
+    print(f"  File             : {output}")
+    print(f"  Total lines      : {len(lines):,}")
+    print(f"  File size        : {size_mb} MB")
+    print(f"  Log period       : 2026-01-01 -> {ts.strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"  Suspicious events planted : {suspicious_count}")
-    print(f"{'='*55}")
-    print(f"\n  Planted events breakdown:")
+    print("="*55)
+
+    print("\n  Planted events breakdown:")
     for i, g in enumerate(gaps_inserted, 1):
         print(f"  [{i}] {g['type']:15} | {g['duration']} | line ~{g['at_line']:,}")
-    print(f"\n  Now run:")
-    print(f"  python log_integrity_monitor.py --file {output} --threshold 300 --output reports/large_report.csv")
+
+    print("\n  Now run:")
+    print(f"  python log_integrity_monitor.py --file {output}")
     print()
 
-
-# ── CLI ───────────────────────────────────────────────────────────────────────
-
-import os
+# ── CLI ───────────────────────────────────────────────────────────────
 
 def parse_args():
-    parser = argparse.ArgumentParser(
-        description="Generate a large realistic log file for testing"
-    )
-    parser.add_argument("--lines",  type=int, default=100000,
-                        help="Number of log lines to generate (default: 100000)")
-    parser.add_argument("--output", type=str, default="large_sample.log",
-                        help="Output file name (default: large_sample.log)")
-    return parser.parse_args()
+    # Find the correct path inside project-shreya/sample-logs
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    default_output = os.path.normpath(os.path.join(script_dir, "..", "sample-logs", "large_sample.log"))
 
+    parser = argparse.ArgumentParser(description="Generate a large realistic log file for testing")
+    parser.add_argument("--lines", type=int, default=100000)
+    parser.add_argument("--output", type=str, default=default_output)
+    return parser.parse_args()
 
 if __name__ == "__main__":
     args = parse_args()
