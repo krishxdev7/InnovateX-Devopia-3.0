@@ -41,5 +41,9 @@ def generate_log(filename, lines=200):
 
 # 🔥 generate multiple files
 generate_log("sample_100.log", 100)
-generate_log("sample_200.log", 200)
 generate_log("sample_300.log", 300)
+generate_log("sample_200.log", 200)
+generate_log("sample_10k.log", 10000)
+generate_log("sample_20k.log", 20000)
+generate_log("sample_30k.log", 30000)
+generate_log("sample_40k.log", 40000)
