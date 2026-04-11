@@ -53,28 +53,72 @@ def analyze(filepath: str, cfg: dict) -> dict:
     prev_ts, first_ts, last_ts = None, None, None
     prev_hash = "0" * 64
 
+    prev_was_error = False
+
     with open(filepath, "r", errors="replace") as f:
         for lineno, raw in enumerate(f, 1):
             stats["total"] += 1
             line = raw.rstrip("\n")
-            if not line.strip(): continue
+
+            if not line.strip():
+                prev_was_error = False
+                continue
+
+            lower = line.lower()
+            is_error = any(k in lower for k in ERROR_KEYWORDS)
+            if is_error:
+                stats["error_lines"] += 1
+                if not prev_was_error:
+                    stats["error_bursts"] += 1
+                prev_was_error = True
+            else:
+                prev_was_error = False
+
             ts, _, _ = parse_line(line)
-            if not ts: continue
+            if not ts:
+                continue
+
             stats["parsed"] += 1
-            if not first_ts: first_ts = ts
+            if not first_ts:
+                first_ts = ts
             last_ts = ts
-            
+
             curr_hash = hashlib.sha256((line + prev_hash).encode("utf-8", errors="replace")).hexdigest()
             prev_hash = curr_hash
 
             if prev_ts:
                 delta = (ts - prev_ts).total_seconds()
                 if delta > cfg["threshold"]:
-                    time_gaps.append({"from": prev_ts, "to": ts, "delta": delta, "severity": "HIGH" if delta > 3600 else "MEDIUM", "lineno": lineno})
+                    time_gaps.append({
+                        "from": prev_ts,
+                        "to": ts,
+                        "delta": delta,
+                        "severity": "HIGH" if delta > 3600 else "MEDIUM",
+                        "lineno": lineno,
+                    })
             prev_ts = ts
 
     duration_hours = max((last_ts - first_ts).total_seconds() / 3600, 1.0) if first_ts and last_ts else 1.0
-    return {"gaps": time_gaps, "stats": {**dict(stats), "duration_hours": round(duration_hours, 2)}, "chain": {"final_hash": prev_hash}}
+
+    gap_count = len(time_gaps)
+    bursts = int(stats.get("error_bursts", 0))
+    max_gap = max((g["delta"] for g in time_gaps), default=0)
+
+    if max_gap > 3600 or gap_count >= 10 or bursts >= 10:
+        risk_level = "CRITICAL"
+    elif gap_count >= 5 or bursts >= 5:
+        risk_level = "HIGH"
+    elif gap_count >= 1 or bursts >= 1:
+        risk_level = "MEDIUM"
+    else:
+        risk_level = "LOW"
+
+    return {
+        "gaps": time_gaps,
+        "stats": {**dict(stats), "duration_hours": round(duration_hours, 2)},
+        "chain": {"final_hash": prev_hash},
+        "risk_level": risk_level,
+    }
 
 def report_csv(res: dict, outpath: str):
     rows = []
@@ -102,11 +146,17 @@ def main():
 
     if not os.path.exists(args.file):
         print(c(RED, f"Error: Log file not found at {args.file}"))
-        return
+        sys.exit(1)
 
     print(c(CYAN, f"[*] Analyzing: {args.file}"))
     res = analyze(args.file, {"threshold": args.threshold})
     report_csv(res, args.out)
+
+    # Summary lines (frontend parses these)
+    print(f"\nLines parsed {res['stats'].get('parsed', 0)}", flush=True)
+    print(f"Time gaps detected {len(res.get('gaps', []))}", flush=True)
+    print(f"Error bursts {res['stats'].get('error_bursts', 0)}", flush=True)
+    print(f"Risk level {res.get('risk_level', 'LOW')}", flush=True)
 
 if __name__ == "__main__":
     main()

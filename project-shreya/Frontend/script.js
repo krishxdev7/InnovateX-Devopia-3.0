@@ -1,102 +1,203 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Grab all necessary elements
-  const analyzeBtn = document.getElementById("btn-analyze");
-  const logFileInput = document.getElementById("logFile");
-  const thresholdInput = document.getElementById("threshold");
+(function () {
+  function initEvidenceProtector() {
+    var uploadForm = document.getElementById("uploadForm");
+    if (!uploadForm) return;
 
-  const terminalSection = document.getElementById("terminal-section");
-  const terminalLoading = document.getElementById("terminal-loading");
-  const terminalBody = document.getElementById("terminal-body");
+    var analyzeBtn = document.getElementById("btn-analyze");
+    var logFileInput = document.getElementById("logFile");
+    var thresholdInput = document.getElementById("threshold");
 
-  const statLines = document.getElementById("stat-lines-parsed");
-  const statGaps = document.getElementById("stat-gaps");
-  const statBursts = document.getElementById("stat-bursts");
-  const statRisk = document.getElementById("stat-risk");
-  const statsPlaceholder = document.querySelector(".stats-placeholder");
+    var terminalSection = document.getElementById("terminal-section");
+    var terminalLoading = document.getElementById("terminal-loading");
+    var terminalBody = document.getElementById("terminal-body");
 
-  // 2. Listen for the "Analyze Log" button click
-  analyzeBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
+    var statLines = document.getElementById("stat-lines-parsed");
+    var statGaps = document.getElementById("stat-gaps");
+    var statBursts = document.getElementById("stat-bursts");
+    var statRisk = document.getElementById("stat-risk");
+    var statsPlaceholder = document.getElementById("stats-placeholder");
 
-    // VALIDATION
-    if (!logFileInput.files || logFileInput.files.length === 0) {
-        alert('⚠️ Action Required: Please select a .log file before starting analysis.');
+    if (terminalLoading) terminalLoading.style.display = "none";
+
+    // Visual proof that JS is running (replaces the static demo line)
+    if (terminalBody) {
+      terminalBody.innerHTML = "<div><span class=\"t-cmd t-dim\">$ ready — choose a file and click Analyze Log</span></div>";
+    }
+
+    var isLoading = false;
+
+    function appendTerminalLine(text) {
+      if (!terminalBody) return;
+      var div = document.createElement("div");
+      div.textContent = text;
+      terminalBody.appendChild(div);
+    }
+
+    function showTerminalError(msg) {
+      if (!terminalBody) return;
+      terminalBody.innerHTML = "";
+      var div = document.createElement("div");
+      div.textContent = "Error: " + msg;
+      div.style.color = "#ff4d4d";
+      terminalBody.appendChild(div);
+    }
+
+    function setLoading(loading) {
+      isLoading = loading;
+      if (terminalLoading) terminalLoading.style.display = loading ? "block" : "none";
+      if (analyzeBtn) {
+        analyzeBtn.disabled = loading;
+        analyzeBtn.style.opacity = loading ? "0.7" : "1";
+      }
+    }
+
+    function parseStat(text, re) {
+      var m = text.match(re);
+      return m ? m[1] : null;
+    }
+
+    function updateStatsFromOutput(text) {
+      if (!text) text = "";
+
+      var parsed = parseStat(text, /Lines\s+parsed[:\s]+(\d+)/i);
+      var gaps = parseStat(text, /Time\s+gaps\s+detected[:\s]+(\d+)/i);
+      var bursts = parseStat(text, /Error\s+bursts[:\s]+(\d+)/i);
+      var risk = parseStat(text, /Risk\s+level[:\s]+(CRITICAL|HIGH|MEDIUM|LOW)/i);
+
+      if (!risk) {
+        var anyLevel = text.match(/\b(CRITICAL|HIGH|MEDIUM|LOW)\b/i);
+        risk = anyLevel ? anyLevel[1] : null;
+      }
+
+      if (statLines && parsed !== null) statLines.innerText = parsed;
+      if (statGaps && gaps !== null) statGaps.innerText = gaps;
+      if (statBursts && bursts !== null) statBursts.innerText = bursts;
+
+      if (statRisk && risk) {
+        var level = String(risk).toUpperCase();
+        statRisk.innerText = level;
+        statRisk.className = "stat-value";
+        if (level === "CRITICAL") statRisk.classList.add("text-red");
+        else if (level === "HIGH" || level === "MEDIUM") statRisk.classList.add("text-amber");
+      }
+    }
+
+    function postFormData(url, formData, cb) {
+      if (window.fetch) {
+        fetch(url, { method: "POST", body: formData })
+          .then(function (resp) {
+            var status = resp.status;
+            return resp
+              .json()
+              .then(function (json) {
+                cb(null, json, status, resp.ok);
+              })
+              .catch(function () {
+                cb("Backend did not return JSON.", null, status, false);
+              });
+          })
+          .catch(function () {
+            cb("Server error. Make sure backend is running on http://localhost:3000", null, 0, false);
+          });
         return;
+      }
+
+      // XHR fallback (older browsers)
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4) return;
+        var status = xhr.status || 0;
+        var json = null;
+        try {
+          json = JSON.parse(xhr.responseText || "");
+        } catch (e) {
+          cb("Backend did not return JSON.", null, status, false);
+          return;
+        }
+        cb(null, json, status, status >= 200 && status < 300);
+      };
+      xhr.onerror = function () {
+        cb("Server error. Make sure backend is running on http://localhost:3000", null, 0, false);
+      };
+      xhr.send(formData);
     }
 
-    const file = logFileInput.files[0];
+    function runAnalysis(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      if (e && e.stopPropagation) e.stopPropagation();
+      if (isLoading) return;
 
-    // PREPARE FORM DATA
-    const formData = new FormData();
-    formData.append("file", file);
+      if (!logFileInput || !logFileInput.files || logFileInput.files.length === 0) {
+        alert("⚠️ Action Required: Please select a log file before starting analysis.");
+        return;
+      }
 
-    // UI RESET
-    terminalSection.classList.remove('hidden');
-    terminalLoading.style.display = 'block';
-    terminalBody.innerHTML = '';
+      var file = logFileInput.files[0];
+      var thresholdValue = "300";
+      if (thresholdInput && thresholdInput.value) thresholdValue = thresholdInput.value;
 
-    if (statsPlaceholder) statsPlaceholder.style.display = 'none';
+      if (terminalSection && terminalSection.classList) terminalSection.classList.remove("hidden");
+      if (terminalBody) terminalBody.innerHTML = "";
 
-    statLines.innerText = '...';
-    statGaps.innerText = '...';
-    statBursts.innerText = '...';
-    statRisk.innerText = '...';
-    statRisk.className = 'stat-value';
+      appendTerminalLine("Selected file: " + file.name + " (" + file.size + " bytes)");
+      appendTerminalLine("Threshold: " + thresholdValue + "s");
+      appendTerminalLine("Uploading to backend...\n");
 
-    try {
-        // CALL BACKEND
-        const response = await fetch("http://localhost:3000/analyze", {
-            method: "POST",
-            body: formData
-        });
+      if (statsPlaceholder) statsPlaceholder.style.display = "none";
+      if (statLines) statLines.innerText = "...";
+      if (statGaps) statGaps.innerText = "...";
+      if (statBursts) statBursts.innerText = "...";
+      if (statRisk) {
+        statRisk.innerText = "...";
+        statRisk.className = "stat-value";
+      }
 
-        const data = await response.json();
+      setLoading(true);
 
-        terminalLoading.style.display = 'none';
+      var formData = new FormData();
+      formData.append("file", file);
+      formData.append("threshold", thresholdValue);
 
-        if (!data.success) {
-            terminalBody.innerHTML = `<div style="color:red;">Error: ${data.error}</div>`;
-            return;
+      postFormData("http://localhost:3000/analyze", formData, function (err, data, status, ok) {
+        setLoading(false);
+
+        if (err) {
+          showTerminalError(err);
+          if (terminalSection && terminalSection.scrollIntoView) terminalSection.scrollIntoView({ behavior: "smooth" });
+          return;
         }
 
-        // RENDER TERMINAL OUTPUT (CLEAN + LINE BY LINE)
-        terminalBody.innerHTML = '';
-
-        const lines = data.terminal.split('\n');
-
-        lines.forEach(line => {
-            const div = document.createElement('div');
-            div.textContent = line;
-            terminalBody.appendChild(div);
-        });
-
-        // BASIC STATS EXTRACTION (SAFE PARSING)
-        const text = data.terminal;
-
-        const linesParsedMatch = text.match(/Lines parsed\s+(\d+)/);
-        const gapsMatch = text.match(/Time gaps detected\s+(\d+)/);
-        const burstsMatch = text.match(/Error bursts\s+(\d+)/);
-        const riskMatch = text.match(/CRITICAL|HIGH|MEDIUM|LOW/);
-
-        if (linesParsedMatch) statLines.innerText = linesParsedMatch[1];
-        if (gapsMatch) statGaps.innerText = gapsMatch[1];
-        if (burstsMatch) statBursts.innerText = burstsMatch[1];
-
-        if (riskMatch) {
-            statRisk.innerText = riskMatch[0];
-            statRisk.className = 'stat-value';
-
-            if (riskMatch[0] === 'CRITICAL') statRisk.classList.add('text-red');
-            else if (riskMatch[0] === 'HIGH') statRisk.classList.add('text-amber');
+        if (!ok || !data || !data.success) {
+          var msg = (data && data.error) ? data.error : "Request failed (" + status + ")";
+          showTerminalError(msg);
+          if (terminalSection && terminalSection.scrollIntoView) terminalSection.scrollIntoView({ behavior: "smooth" });
+          return;
         }
 
-        // AUTO SCROLL
-        terminalSection.scrollIntoView({ behavior: 'smooth' });
+        if (terminalBody) terminalBody.innerHTML = "";
 
-    } catch (err) {
-        console.error(err);
-        terminalLoading.style.display = 'none';
-        terminalBody.innerHTML = `<div style="color:red;">Server error. Make sure backend is running.</div>`;
+        var output = (data.terminal != null) ? String(data.terminal) : "";
+        if (!output.replace(/\s/g, "").length) {
+          appendTerminalLine("(No output received from analyzer.)");
+        } else {
+          var lines = output.split(/\r?\n/);
+          for (var i = 0; i < lines.length; i++) appendTerminalLine(lines[i]);
+        }
+
+        updateStatsFromOutput(output);
+        if (terminalSection && terminalSection.scrollIntoView) terminalSection.scrollIntoView({ behavior: "smooth" });
+      });
     }
-});
-});
+
+    // Prevent page reload even if something else tries to submit
+    uploadForm.addEventListener("submit", runAnalysis);
+    if (analyzeBtn) analyzeBtn.addEventListener("click", runAnalysis);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initEvidenceProtector);
+  } else {
+    initEvidenceProtector();
+  }
+})();
