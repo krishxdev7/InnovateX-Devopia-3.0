@@ -1,0 +1,15 @@
+2026-04-11 09:59:58 INFO System boot initiated
+2026-04-11 10:00:01 INFO User login successful (user=admin)
+2026-04-11 10:00:03 INFO File accessed (file=config.txt)
+2026-04-11 10:00:04 WARNING Disk usage at 82%
+2026-04-11 10:00:05 INFO Background job started (job_id=2041)
+2026-04-11 10:20:10 ERROR Unauthorized access attempt detected (ip=192.168.1.23)
+2026-04-11 10:20:12 INFO User session terminated
+2026-04-11 10:20:15 INFO System health check OK
+2026-04-11 10:20:18 INFO Backup process initiated
+2026-04-11 10:20:20 INFO Backup completed successfully
+2026-04-11 11:50:30 CRITICAL System rebooted unexpectedly
+2026-04-11 11:50:35 INFO Services restarting
+2026-04-11 11:50:40 INFO Network reconnected
+2026-04-11 12:00:01 INFO Scheduled scan started
+2026-04-11 12:00:05 INFO Scan completed successfully
