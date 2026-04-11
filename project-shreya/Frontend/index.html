@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />    
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet" />
 
     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
     <nav>
@@ -34,7 +38,7 @@
 
         <h1 class="fade-in delay-1">
             Detect Log<br>
-            <span class="accent">Tampering.</span><br>
+            <span class="accent">Tampering.</span>
             <span class="dim">Instantly.</span>
         </h1>
 
@@ -44,7 +48,8 @@
         </p>
 
         <p class="hero-role fade-in delay-2">
-            Designed for <strong>system administrators</strong> and <strong>security analysts</strong> who need fast, reliable log forensics.
+            Designed for <strong>system administrators</strong> and <strong>security analysts</strong> who need fast,
+            reliable log forensics.
         </p>
 
         <div class="hero-actions fade-in delay-3">
@@ -81,7 +86,8 @@
                 <input type="file" id="logFile" class="file-input" accept=".log,.txt,.csv" required>
             </div>
 
-            <p class="input-hint">Supported: <code>.log</code>, <code>.txt</code>, <code>.csv</code> (Plain-text only)</p>
+            <p class="input-hint">Supported: <code>.log</code>, <code>.txt</code>, <code>.csv</code> (Plain-text only)
+            </p>
 
             <div class="input-group">
                 <label for="threshold">Gap Threshold (seconds):</label>
@@ -95,7 +101,7 @@
     <section id="stats" class="section-container">
         <h2 class="section-title">Analysis Overview</h2>
         <p class="stats-placeholder">Results will appear here after analysis</p>
-        
+
         <div class="stats-grid">
             <div class="stat-card">
                 <span class="stat-label">Lines Parsed</span>
@@ -164,6 +170,7 @@
             <a href="#how-it-works">How it Works</a>
         </p>
     </footer>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
