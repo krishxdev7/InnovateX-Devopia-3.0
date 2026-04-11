@@ -1,4 +1,0 @@
-gap_id,start_line,end_line,start_time,end_time,duration_seconds,duration_human,severity
-1,321,322,2024-03-10T08:49:20,2024-03-10T09:36:29,2829,47m 9s,HIGH
-2,612,613,2024-03-10T10:28:03,2024-03-10T13:40:09,11526,3h 12m 6s,CRITICAL
-3,872,873,2024-03-10T14:12:41,2024-03-10T14:20:52,491,8m 11s,LOW

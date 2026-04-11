@@ -1,2 +1,6 @@
 workflow.md
 tree_output.txt
+server/node_modules/
+server/package-lock.json
+server/package.json
+project-shreya/sample-logs
