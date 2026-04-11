@@ -25,9 +25,9 @@ def scan_log(file_path, threshold):
                 gap = (timestamp - prev_time).total_seconds()
 
                 if gap > threshold:
-                    if gap < 300:
+                    if gap < threshold * 2:
                         level = "⚠️ WARNING"
-                    elif gap < 1000:
+                    elif gap < threshold * 5:
                         level = "🚨 ALERT"
                     else:
                         level = "💀 CRITICAL"
@@ -56,6 +56,23 @@ def save_to_csv(gaps, filename="report.csv"):
 
     print(f"\n📁 Report saved to {filename}")
 
+import json
+
+def save_to_json(gaps, filename="report.json"):
+    data = []
+
+    for start, end, gap, level in gaps:
+        data.append({
+            "start_time": str(start),
+            "end_time": str(end),
+            "gap_seconds": gap,
+            "severity": level
+        })
+
+    with open(filename, "w") as f:
+        json.dump(data, f, indent=4)
+
+    print(f"\n📁 JSON Report saved to {filename}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
@@ -66,9 +83,11 @@ if __name__ == "__main__":
     threshold = int(sys.argv[2])
 
     gaps = scan_log(logfile, threshold)
-
     if gaps:
         save_to_csv(gaps)
+        save_to_json(gaps)
         print(f"\nTotal gaps detected: {len(gaps)}")
     else:
         print("\n✅ No suspicious gaps found")
+
+    
