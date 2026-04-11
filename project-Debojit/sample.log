@@ -1,0 +1,10 @@
+2026-04-11 10:00:01 INFO User login successful (user=admin)
+2026-04-11 10:00:02 INFO File accessed (file=config.txt)
+2026-04-11 10:00:04 WARNING Disk usage at 85%
+2026-04-11 10:00:05 INFO Background job started (job_id=1023)
+2026-04-11 10:15:30 ERROR Unauthorized access attempt detected (ip=192.168.1.10)
+2026-04-11 10:15:32 INFO User session terminated
+2026-04-11 10:15:33 INFO System health check OK
+2026-04-11 10:15:35 INFO Backup process initiated
+2026-04-11 11:45:10 CRITICAL System rebooted unexpectedly
+2026-04-11 11:45:12 INFO Services restarting

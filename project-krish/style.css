@@ -357,3 +357,143 @@ nav {
     content: "$ ";
     color: var(--accent);
 }
+
+#quickstart {
+    background: var(--bg);
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-dim);
+    border: 1px solid rgba(0, 229, 160, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.step-title {
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.step-cmd {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 0.6rem 1rem;
+    border-radius: 0 6px 6px 0;
+    color: var(--accent);
+    display: block;
+
+}
+
+/* WORKSPACE (Upload + Terminal) */
+.workspace-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .workspace-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.upload-zone {
+    border: 2px dashed var(--border-bright);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-zone:hover {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.upload-icon {
+    margin-bottom: 1.5rem;
+    color: var(--muted);
+}
+
+.upload-zone:hover .upload-icon {
+    color: var(--accent);
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+
+.upload-zone h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.upload-zone p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* TERMINAL MODIFICATIONS */
+.output-terminal {
+    height: 320px;
+    margin-bottom: 0;
+    animation: none;
+    /* Let's keep this one static for focus */
+}
+
+.output-terminal .terminal-body {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+.mt-1 {
+    margin-top: 0.5rem;
+}
+
+/* Custom Scrollbar for Terminal */
+.terminal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: var(--border-bright);
+    border-radius: 10px;
+}
+
+.typing-effect {
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
