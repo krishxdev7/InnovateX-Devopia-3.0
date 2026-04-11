@@ -1,10 +1,10 @@
 """
 Sample Log Generator for Evidence Protector
-Run: python generate_sample_log.py
 This creates a realistic sample.log file with planted suspicious gaps.
 """
 
 import random
+import os
 from datetime import datetime, timedelta
 
 # Log event templates
@@ -40,62 +40,51 @@ def random_event():
         y=random.randint(1, 255),
     )
 
-def generate_log(filename="sample.log"):
+def generate_log(filepath):
     lines = []
+    # Ensure the directory exists
+    directory = os.path.dirname(filepath)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+
     # Start time: yesterday at 10:00 PM
     current_time = datetime.now().replace(hour=22, minute=0, second=0, microsecond=0)
     current_time -= timedelta(days=1)
 
-    print(f"[*] Generating log file: {filename}")
+    print(f"[*] Generating log file: {filepath}")
 
-    # ── Block 1: Normal logs (10 PM to 2 AM) ─────────────────────────────────
-    print("[*] Writing normal activity block 1...")
+    # ── Block 1: Normal logs ─────────────────────────────────────────────────
     for _ in range(80):
         level = random.choice(LOG_LEVELS)
         lines.append(f"{current_time.strftime('%Y-%m-%d %H:%M:%S')} [{level}] {random_event()}")
         current_time += timedelta(seconds=random.randint(5, 120))
 
-    # ── PLANTED GAP 1: 2 hour 17 min gap (hacker deletes logs!) ──────────────
-    gap1_start = current_time
+    # ── PLANTED GAPS ─────────────────────────────────────────────────────────
+    # Gap 1 (CRITICAL)
     current_time += timedelta(hours=2, minutes=17)
-    gap1_end = current_time
-    print(f"[!] Planted CRITICAL gap 1: {gap1_start.strftime('%H:%M:%S')} → {gap1_end.strftime('%H:%M:%S')} (2hr 17min)")
-
-    # ── Block 2: Logs resume after gap ───────────────────────────────────────
-    print("[*] Writing post-gap activity block 2...")
+    # Block 2
     for _ in range(40):
         level = random.choice(LOG_LEVELS)
         lines.append(f"{current_time.strftime('%Y-%m-%d %H:%M:%S')} [{level}] {random_event()}")
         current_time += timedelta(seconds=random.randint(5, 90))
 
-    # ── PLANTED GAP 2: 45 min gap (second tampering) ─────────────────────────
-    gap2_start = current_time
+    # Gap 2 (HIGH)
     current_time += timedelta(minutes=45)
-    gap2_end = current_time
-    print(f"[!] Planted HIGH gap 2: {gap2_start.strftime('%H:%M:%S')} → {gap2_end.strftime('%H:%M:%S')} (45min)")
-
-    # ── Block 3: More normal logs ─────────────────────────────────────────────
-    print("[*] Writing normal activity block 3...")
+    # Block 3
     for _ in range(40):
         level = random.choice(LOG_LEVELS)
         lines.append(f"{current_time.strftime('%Y-%m-%d %H:%M:%S')} [{level}] {random_event()}")
         current_time += timedelta(seconds=random.randint(5, 60))
 
-    # ── PLANTED GAP 3: 12 min gap (minor/medium suspicion) ───────────────────
-    gap3_start = current_time
+    # Gap 3 (MEDIUM)
     current_time += timedelta(minutes=12)
-    gap3_end = current_time
-    print(f"[!] Planted MEDIUM gap 3: {gap3_start.strftime('%H:%M:%S')} → {gap3_end.strftime('%H:%M:%S')} (12min)")
-
-    # ── Block 4: Final normal logs ────────────────────────────────────────────
-    print("[*] Writing final activity block...")
+    # Block 4
     for _ in range(40):
         level = random.choice(LOG_LEVELS)
         lines.append(f"{current_time.strftime('%Y-%m-%d %H:%M:%S')} [{level}] {random_event()}")
         current_time += timedelta(seconds=random.randint(5, 60))
 
-    # ── Sprinkle malformed lines (tests error handling) ───────────────────────
-    print("[*] Sprinkling malformed lines...")
+    # ── Sprinkle malformed lines ──────────────────────────────────────────────
     malformed = [
         "This line has no timestamp at all",
         "ERROR something went wrong badly!!",
@@ -109,14 +98,17 @@ def generate_log(filename="sample.log"):
         lines.insert(pos, malformed[i % len(malformed)])
 
     # ── Write to file ─────────────────────────────────────────────────────────
-    with open(filename, "w") as f:
+    with open(filepath, "w", encoding='utf-8') as f:
         f.write("\n".join(lines))
 
-    print(f"\n✅ Done! Generated {len(lines)} lines → '{filename}'")
-    print(f"   🚨 3 suspicious gaps planted for detection")
-    print(f"   ⚠️  6 malformed lines added to test error handling")
-    print(f"\nNow run: python monitor.py --log {filename} --threshold 10")
+    print(f"\n[OK] Done! Log generated: {filepath}")
+    print(f"Now run: python log_monitor.py --log {filepath}")
 
 
 if __name__ == "__main__":
-    generate_log("sample.log")
+    # AUTOMATIC PATH FINDER:
+    # This finds the 'sample-logs' folder inside 'project-shreya' no matter where you run it from.
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    target_path = os.path.normpath(os.path.join(script_dir, "..", "sample-logs", "sample.log"))
+    
+    generate_log(target_path)
