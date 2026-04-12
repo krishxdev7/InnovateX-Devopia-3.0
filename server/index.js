@@ -37,6 +37,29 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+function sanitizePythonError(stderr, stdout, code) {
+  const combined = [String(stderr || ''), String(stdout || '')].filter(Boolean).join('\n');
+  if (!combined.trim()) return `Analysis failed (exit code ${code}).`;
+
+  const cleaned = combined
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .filter((line) => {
+      if (/^Traceback \(most recent call last\):/.test(line)) return false;
+      if (/^File ".*", line \d+/.test(line)) return false;
+      if (/^During handling of the above exception/.test(line)) return false;
+      if (/^[~^\-]+$/.test(line)) return false;
+      return true;
+    });
+
+  const preferred = cleaned.find((line) =>
+    /error|failed|invalid|not found|unexpected|configuration/i.test(line)
+  );
+  const message = preferred || cleaned[cleaned.length - 1] || `Analysis failed (exit code ${code}).`;
+  return message.length > 500 ? `${message.slice(0, 497)}...` : message;
+}
+
 // POST /analyze endpoint
 app.post('/analyze', upload.single('file'), (req, res) => {
   console.log('[POST] /analyze');
@@ -102,11 +125,11 @@ app.post('/analyze', upload.single('file'), (req, res) => {
 
     cleanupUpload();
 
-    if (code === 0) {
+    if (code === 0 || code === 1 || code === 2) {
       return replyOnce(200, { success: true, terminal: stdout });
     }
 
-    const errorMessage = (stderr || stdout || `Process exited with code ${code}`).trim();
+    const errorMessage = sanitizePythonError(stderr, stdout, code);
     return replyOnce(500, { success: false, error: errorMessage });
   });
 

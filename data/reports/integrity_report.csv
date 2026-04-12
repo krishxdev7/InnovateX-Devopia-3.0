@@ -1,4 +1,4 @@
-type,severity,from,to,duration,detail
-GAP,HIGH,2026-04-10T23:23:47,2026-04-11T01:41:26,2h 17m 39s,line 84
-GAP,MEDIUM,2026-04-11T02:11:46,2026-04-11T02:57:29,45m 43s,line 124
-GAP,MEDIUM,2026-04-11T03:21:05,2026-04-11T03:33:52,12m 47s,line 165
+gap_number,severity,gap_start,gap_end,duration_seconds,duration_human,line_before_gap,line_after_gap,line_number_start,line_number_end,tamper_confidence,fingerprint
+1,CRITICAL,2026-04-10T23:23:47,2026-04-11T01:41:26,8259,2h 17m 39s,2026-04-10 23:23:47 [ERROR] Authentication token refreshed for session 4271,2026-04-11 01:41:26 [WARNING] File '/var/www/html/index.php' accessed,83,84,100.0,0b5a4152aec4dda29dac8fdfd271714b
+2,SUSPICIOUS,2026-04-11T02:11:46,2026-04-11T02:57:29,2743,45m 43s,2026-04-11 02:11:46 [WARNING] User 'admin' logged in from 192.168.1.142,2026-04-11 02:57:29 [INFO] Firewall rule applied: ALLOW port 443,123,124,94.0,7d633d52dfe58b7d49ae119023cf6217
+3,WARNING,2026-04-11T03:21:05,2026-04-11T03:33:52,767,12m 47s,2026-04-11 03:21:05 [INFO] Service 'nginx' restarted successfully,2026-04-11 03:33:52 [INFO] New process spawned: PID 33958,164,165,62.84,ad2a796b47c042d685bedff799c190db

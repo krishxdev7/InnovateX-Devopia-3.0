@@ -250,7 +250,57 @@ nav {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.95rem;
   line-height: 1.6;
-  min-height: 250px;
+  min-height: 300px;
+  max-height: 460px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+}
+
+.terminal-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.term-bold {
+  font-weight: 700;
+}
+
+.term-dim {
+  color: #8d95a3;
+}
+
+.term-cyan {
+  color: #66e6ff;
+}
+
+.term-green {
+  color: #69f0ae;
+}
+
+.term-amber {
+  color: #ffb84d;
+}
+
+.term-red {
+  color: #ff6d6d;
+}
+
+.timeline-critical {
+  color: #ff4d4d;
+  font-weight: 700;
+}
+
+.timeline-clean {
+  color: #5de38a;
+}
+
+.t-cmd {
+  color: #69f0ae;
+}
+
+.t-dim {
+  color: var(--text-dim);
 }
 
 /* FORM INPUTS  */
