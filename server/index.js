@@ -64,7 +64,6 @@ app.post('/analyze', upload.single('file'), (req, res) => {
 
   const filePath = req.file.path;
   const pythonScript = path.join(__dirname, '..', 'project-shreya', 'src', 'log_integrity.py');
-  const pythonCommand = resolvePythonCommand();
 
   const thresholdRaw = req.body?.threshold;
   const threshold = Number.isFinite(parseInt(thresholdRaw, 10)) ? parseInt(thresholdRaw, 10) : 300;
