@@ -122,9 +122,17 @@
       }
     }
 
-    function parseStat(text, re) {
+    function parseStat(text, re, normalizeNumber) {
       var m = text.match(re);
-      return m ? m[1] : null;
+      if (!m) return null;
+
+      var value = m[1];
+      if (normalizeNumber) {
+        // Handle analyzer output that formats large values like 1,000.
+        value = String(value).replace(/[,_\s]/g, "");
+      }
+
+      return value;
     }
 
     function getBackendBaseUrl() {
@@ -142,9 +150,9 @@
     function updateStatsFromOutput(text) {
       if (!text) text = "";
 
-      var parsed = parseStat(text, /Lines\s+parsed[:\s]+(\d+)/i);
-      var gaps = parseStat(text, /Time\s+gaps\s+detected[:\s]+(\d+)/i);
-      var bursts = parseStat(text, /Error\s+bursts[:\s]+(\d+)/i);
+      var parsed = parseStat(text, /Lines\s+parsed[:\s]+([\d,]+)/i, true);
+      var gaps = parseStat(text, /Time\s+gaps\s+detected[:\s]+([\d,]+)/i, true);
+      var bursts = parseStat(text, /Error\s+bursts[:\s]+([\d,]+)/i, true);
       var risk = parseStat(
         text,
         /Risk\s+level[:\s]+(COMPROMISED|HIGH\s+RISK|MODERATE\s+RISK|LOW\s+RISK|CLEAN|CRITICAL|HIGH|MEDIUM|LOW)/i
