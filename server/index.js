@@ -7,10 +7,27 @@ const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const { spawn } = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 
 const app = express();
 const PORT = 3000;
+
+function resolvePythonCommand() {
+  const candidates = ['python3', 'python'];
+
+  for (const command of candidates) {
+    const result = spawnSync(command, ['--version'], {
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+
+    if (!result.error && result.status === 0) {
+      return command;
+    }
+  }
+
+  return null;
+}
 
 // Ensure uploads folder exists at startup
 // NOTE: When the frontend is served via Live Server, writing files inside the workspace can trigger auto-reloads.
@@ -47,6 +64,7 @@ app.post('/analyze', upload.single('file'), (req, res) => {
 
   const filePath = req.file.path;
   const pythonScript = path.join(__dirname, '..', 'project-shreya', 'src', 'log_integrity.py');
+  const pythonCommand = resolvePythonCommand();
 
   const thresholdRaw = req.body?.threshold;
   const threshold = Number.isFinite(parseInt(thresholdRaw, 10)) ? parseInt(thresholdRaw, 10) : 300;
@@ -68,6 +86,16 @@ app.post('/analyze', upload.single('file'), (req, res) => {
   console.log('Threshold:', threshold);
   console.log('Report out:', reportOutPath);
 
+  if (!pythonCommand) {
+    cleanupUpload();
+    return res.status(500).json({
+      success: false,
+      error: 'Python is not installed or not available on PATH. Install Python 3 and restart the backend.'
+    });
+  }
+
+  console.log('Python command:', pythonCommand);
+
   let responded = false;
   const replyOnce = (status, payload) => {
     if (responded) return;
@@ -76,7 +104,7 @@ app.post('/analyze', upload.single('file'), (req, res) => {
   };
 
   // -u: unbuffered stdout/stderr so the frontend gets full terminal output reliably
-  const pythonProcess = spawn('python', ['-u', pythonScript, '--file', filePath, '--threshold', String(threshold), '--out', reportOutPath], {
+  const pythonProcess = spawn(pythonCommand, ['-u', pythonScript, '--file', filePath, '--threshold', String(threshold), '--out', reportOutPath], {
     env: {
       ...process.env,
       PYTHONIOENCODING: 'utf-8'
