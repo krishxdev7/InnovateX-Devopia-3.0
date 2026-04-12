@@ -26,11 +26,82 @@
 
     var isLoading = false;
 
+    function stripAnsi(text) {
+      return String(text == null ? "" : text).replace(/\u001b\[[0-9;]*m/g, "");
+    }
+
+    function appendTimelineBar(div, text) {
+      var run = "";
+      var runClass = "";
+
+      function flushRun() {
+        if (!run.length) return;
+        if (!runClass) {
+          div.appendChild(document.createTextNode(run));
+        } else {
+          var span = document.createElement("span");
+          span.className = runClass;
+          span.textContent = run;
+          div.appendChild(span);
+        }
+        run = "";
+      }
+
+      for (var i = 0; i < text.length; i++) {
+        var ch = text.charAt(i);
+        var nextClass = "";
+        if (ch === "#") nextClass = "timeline-critical";
+        else if (ch === ".") nextClass = "timeline-clean";
+
+        if (nextClass !== runClass) {
+          flushRun();
+          runClass = nextClass;
+        }
+        run += ch;
+      }
+      flushRun();
+    }
+
     function appendTerminalLine(text) {
       if (!terminalBody) return;
+
+      var clean = stripAnsi(text);
       var div = document.createElement("div");
-      div.textContent = text;
+      div.className = "terminal-line";
+
+      if (/^\s*[#.]+\s*$/.test(clean)) {
+        appendTimelineBar(div, clean);
+      } else {
+        div.textContent = clean;
+
+        if (/^\s*Timeline:\s*$/i.test(clean)) {
+          div.classList.add("term-cyan", "term-bold");
+        } else if (/^\s*Most Critical Gap\s*$/i.test(clean)) {
+          div.classList.add("term-red", "term-bold");
+        } else if (/^\s*Final Risk:\s*/i.test(clean)) {
+          var upper = clean.toUpperCase();
+          if (/COMPROMISED|HIGH RISK|CRITICAL|HIGH/.test(upper)) {
+            div.classList.add("term-red", "term-bold");
+          } else if (/MODERATE RISK|LOW RISK|MEDIUM|LOW/.test(upper)) {
+            div.classList.add("term-amber", "term-bold");
+          } else {
+            div.classList.add("term-green", "term-bold");
+          }
+        } else if (/^\s*Exported reports\s*$/i.test(clean) || /^\s*Structured summary:\s*$/i.test(clean)) {
+          div.classList.add("term-cyan", "term-bold");
+        } else if (/^\s*(Start:|End\s*:)/i.test(clean)) {
+          div.classList.add("term-dim");
+        } else if (/\[CRITICAL\]/i.test(clean)) {
+          div.classList.add("term-red");
+        } else if (/\[SUSPICIOUS\]/i.test(clean)) {
+          div.classList.add("term-amber");
+        } else if (/\[WARNING\]/i.test(clean)) {
+          div.classList.add("term-amber");
+        }
+      }
+
       terminalBody.appendChild(div);
+      terminalBody.scrollTop = terminalBody.scrollHeight;
     }
 
     function showTerminalError(msg) {
@@ -62,10 +133,13 @@
       var parsed = parseStat(text, /Lines\s+parsed[:\s]+(\d+)/i);
       var gaps = parseStat(text, /Time\s+gaps\s+detected[:\s]+(\d+)/i);
       var bursts = parseStat(text, /Error\s+bursts[:\s]+(\d+)/i);
-      var risk = parseStat(text, /Risk\s+level[:\s]+(CRITICAL|HIGH|MEDIUM|LOW)/i);
+      var risk = parseStat(
+        text,
+        /Risk\s+level[:\s]+(COMPROMISED|HIGH\s+RISK|MODERATE\s+RISK|LOW\s+RISK|CLEAN|CRITICAL|HIGH|MEDIUM|LOW)/i
+      );
 
       if (!risk) {
-        var anyLevel = text.match(/\b(CRITICAL|HIGH|MEDIUM|LOW)\b/i);
+        var anyLevel = text.match(/\b(COMPROMISED|HIGH\s+RISK|MODERATE\s+RISK|LOW\s+RISK|CLEAN|CRITICAL|HIGH|MEDIUM|LOW)\b/i);
         risk = anyLevel ? anyLevel[1] : null;
       }
 
@@ -77,8 +151,11 @@
         var level = String(risk).toUpperCase();
         statRisk.innerText = level;
         statRisk.className = "stat-value";
-        if (level === "CRITICAL") statRisk.classList.add("text-red");
-        else if (level === "HIGH" || level === "MEDIUM") statRisk.classList.add("text-amber");
+        if (level === "COMPROMISED" || level === "HIGH RISK" || level === "CRITICAL" || level === "HIGH") {
+          statRisk.classList.add("text-red");
+        } else if (level === "MODERATE RISK" || level === "LOW RISK" || level === "MEDIUM" || level === "LOW") {
+          statRisk.classList.add("text-amber");
+        }
       }
     }
 

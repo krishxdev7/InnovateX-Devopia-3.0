@@ -5,3 +5,4 @@ server/package-lock.json
 server/package.json
 *.log
 !data/sample/sample.log
+.venvpy
