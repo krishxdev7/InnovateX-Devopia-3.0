@@ -10,12 +10,30 @@ const os = require('os');
 const { spawn, spawnSync } = require('child_process');
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
+const pythonScript = path.join(__dirname, '..', 'src', 'log_integrity.py');
 
 function resolvePythonCommand() {
-  const candidates = ['python3', 'python'];
+  const candidates = [];
+
+  if (process.env.PYTHON) {
+    candidates.push(process.env.PYTHON);
+  }
+
+  if (process.platform === 'win32') {
+    candidates.push(path.join(__dirname, '..', '.venv', 'Scripts', 'python.exe'));
+    candidates.push(path.join(__dirname, '..', '.venvpy', 'Scripts', 'python.exe'));
+  } else {
+    candidates.push(path.join(__dirname, '..', '.venv', 'bin', 'python'));
+  }
+
+  candidates.push('python3', 'python', 'py');
 
   for (const command of candidates) {
+    if (path.isAbsolute(command) && !fs.existsSync(command)) {
+      continue;
+    }
+
     const result = spawnSync(command, ['--version'], {
       encoding: 'utf-8',
       stdio: 'pipe'
@@ -28,6 +46,8 @@ function resolvePythonCommand() {
 
   return null;
 }
+
+const pythonCommand = resolvePythonCommand();
 
 // Ensure uploads folder exists at startup
 // NOTE: When the frontend is served via Live Server, writing files inside the workspace can trigger auto-reloads.
@@ -86,7 +106,6 @@ app.post('/analyze', upload.single('file'), (req, res) => {
   }
 
   const filePath = req.file.path;
-  const pythonScript = path.join(__dirname, '..', 'project-shreya', 'src', 'log_integrity.py');
 
   const thresholdRaw = req.body?.threshold;
   const threshold = Number.isFinite(parseInt(thresholdRaw, 10)) ? parseInt(thresholdRaw, 10) : 300;
@@ -107,6 +126,14 @@ app.post('/analyze', upload.single('file'), (req, res) => {
   console.log('Uploaded file:', filePath);
   console.log('Threshold:', threshold);
   console.log('Report out:', reportOutPath);
+
+  if (!fs.existsSync(pythonScript)) {
+    cleanupUpload();
+    return res.status(500).json({
+      success: false,
+      error: `Analyzer script not found at ${pythonScript}`
+    });
+  }
 
   if (!pythonCommand) {
     cleanupUpload();
@@ -167,6 +194,27 @@ app.post('/analyze', upload.single('file'), (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+app.use((err, req, res, next) => {
+  console.error('Unhandled backend error:', err);
+  if (res.headersSent) {
+    return next(err);
+  }
+  return res.status(500).json({
+    success: false,
+    error: err?.message || 'Internal server error.'
+  });
+});
+
+const server = app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
+});
+
+server.on('error', (error) => {
+  if (error && error.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use. Stop the other process or run with PORT=<port> npm run dev.`);
+    process.exit(1);
+  }
+
+  console.error('Server failed to start:', error);
+  process.exit(1);
 });

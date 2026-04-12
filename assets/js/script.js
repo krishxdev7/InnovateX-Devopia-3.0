@@ -127,6 +127,18 @@
       return m ? m[1] : null;
     }
 
+    function getBackendBaseUrl() {
+      if (window.EVIDENCE_BACKEND_URL) {
+        return String(window.EVIDENCE_BACKEND_URL).replace(/\/$/, "");
+      }
+
+      if (window.location && (window.location.protocol === "http:" || window.location.protocol === "https:")) {
+        return window.location.protocol + "//" + window.location.hostname + ":3000";
+      }
+
+      return "http://localhost:3000";
+    }
+
     function updateStatsFromOutput(text) {
       if (!text) text = "";
 
@@ -164,17 +176,28 @@
         fetch(url, { method: "POST", body: formData })
           .then(function (resp) {
             var status = resp.status;
-            return resp
-              .json()
-              .then(function (json) {
-                cb(null, json, status, resp.ok);
-              })
-              .catch(function () {
+            return resp.text().then(function (bodyText) {
+              var json = null;
+              try {
+                json = JSON.parse(bodyText || "");
+              } catch (e) {
+                if (!resp.ok) {
+                  var bodyPreview = String(bodyText || "").trim();
+                  if (bodyPreview.length > 220) bodyPreview = bodyPreview.slice(0, 217) + "...";
+                  var fallbackMsg = bodyPreview || ("Backend returned HTTP " + status + " with non-JSON response.");
+                  cb(null, { success: false, error: fallbackMsg }, status, false);
+                  return;
+                }
+
                 cb("Backend did not return JSON.", null, status, false);
-              });
+                return;
+              }
+
+              cb(null, json, status, resp.ok);
+            });
           })
           .catch(function () {
-            cb("Server error. Make sure backend is running on http://localhost:3000", null, 0, false);
+            cb("Server error. Make sure backend is running on " + getBackendBaseUrl(), null, 0, false);
           });
         return;
       }
@@ -195,7 +218,7 @@
         cb(null, json, status, status >= 200 && status < 300);
       };
       xhr.onerror = function () {
-        cb("Server error. Make sure backend is running on http://localhost:3000", null, 0, false);
+        cb("Server error. Make sure backend is running on " + getBackendBaseUrl(), null, 0, false);
       };
       xhr.send(formData);
     }
@@ -236,7 +259,7 @@
       formData.append("file", file);
       formData.append("threshold", thresholdValue);
 
-      postFormData("http://localhost:3000/analyze", formData, function (err, data, status, ok) {
+      postFormData(getBackendBaseUrl() + "/analyze", formData, function (err, data, status, ok) {
         setLoading(false);
 
         if (err) {
