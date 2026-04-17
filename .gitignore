@@ -6,3 +6,4 @@ server/package.json
 *.log
 !data/sample/sample.log
 .venvpy
+data/.DS_Store
